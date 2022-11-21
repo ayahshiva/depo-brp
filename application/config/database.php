@@ -76,9 +76,15 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => '',
+	
+	'username' => 'root',
 	'password' => '',
-	'database' => '',
+	'database' => 'brp_db',
+
+	//'username' => 'depob392_user',
+	//'password' => ';p[nZYnTaP^9',
+	//'database' => 'depob392_inventory',
+
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
