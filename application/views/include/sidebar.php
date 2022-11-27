@@ -2,7 +2,7 @@
       <div class="position-sticky pt-3 sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">
+            <a class="nav-link" aria-current="page" href="<?php echo site_url('dashboard'); ?>">
               <span data-feather="home" class="align-text-bottom"></span>
               Dashboard
             </a>
@@ -22,7 +22,7 @@
         <div class="collapse" id="master-collapse">
           <ul class="nav flex-column mb-2">
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="<?php echo site_url('user'); ?>">
                 <span data-feather="arrow-right" class="align-text-bottom"></span>
                 User
               </a>

@@ -11,3 +11,6 @@ $route['login'] = 'login';
 //Dashboard
 $route['dashboard'] = 'dashboard';
 
+//User
+$route['user'] = 'user';
+

@@ -10,5 +10,111 @@
 					</nav>            
           		</div>
         	</div>
-      	</div>      
+      	</div>
+      	
+      	<div class="row row-cols-1 row-cols-md-3 g-4">
+		  	<div class="col">
+		    	<div class="card h-100 border-primary">		    
+		      		<div class="card-body">
+		        		<h5 class="card-title">5432</h5>
+		        		<p class="card-text">Jumlah Container.</p>
+		      		</div>
+		      		<div class="card-footer bg-primary">
+		        		<small class="text-white">Last updated 3 mins ago</small>
+		      		</div>
+		    	</div>
+		  	</div>
+		  	<div class="col">
+		    	<div class="card h-100 border-warning">		    
+		      		<div class="card-body">
+		        		<h5 class="card-title">434</h5>
+		        		<p class="card-text">Jumlah MLO.</p>
+		      		</div>
+		      		<div class="card-footer bg-warning">
+		        		<small class="text-white">Last updated 3 mins ago</small>
+		      		</div>
+		    	</div>
+		  	</div>
+		  	<div class="col">
+		    	<div class="card h-100 border-success">		    
+		      		<div class="card-body">
+		        		<h5 class="card-title">231</h5>
+		        		<p class="card-text">Jumlah EMKL.</p>
+		      		</div>
+		      		<div class="card-footer bg-success">
+		        		<small class="text-white">Last updated 3 mins ago</small>
+		      		</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card h-100 border-success">		    
+		      		<div class="card-body">
+		        		<h5 class="card-title">231</h5>
+		        		<p class="card-text">Total List In.</p>
+		      		</div>
+		      		<div class="card-footer bg-success">
+		        		<small class="text-white">Last updated 3 mins ago</small>
+		      		</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card h-100 border-primary">		    
+		      		<div class="card-body">
+		        		<h5 class="card-title">231</h5>
+		        		<p class="card-text">Total Payment In.</p>
+		      		</div>
+		      		<div class="card-footer bg-primary">
+		        		<small class="text-white">Last updated 3 mins ago</small>
+		      		</div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col">
+		    	<div class="card h-100 border-warning">		    
+		      		<div class="card-body">
+		        		<h5 class="card-title">231</h5>
+		        		<p class="card-text">Total Process In.</p>
+		      		</div>
+		      		<div class="card-footer bg-warning">
+		        		<small class="text-white">Last updated 3 mins ago</small>
+		      		</div>
+		    	</div>
+		  	</div>	
+		  	<div class="col">
+		    	<div class="card h-100 border-warning">		    
+		      		<div class="card-body">
+		        		<h5 class="card-title">231</h5>
+		        		<p class="card-text">Total List Out.</p>
+		      		</div>
+		      		<div class="card-footer bg-warning">
+		        		<small class="text-white">Last updated 3 mins ago</small>
+		      		</div>
+		    	</div>
+		  	</div>
+		  	<div class="col">
+		    	<div class="card h-100 border-success">		    
+		      		<div class="card-body">
+		        		<h5 class="card-title">231</h5>
+		        		<p class="card-text">Total Payment Out.</p>
+		      		</div>
+		      		<div class="card-footer bg-success">
+		        		<small class="text-white">Last updated 3 mins ago</small>
+		      		</div>
+		    	</div>
+		  	</div>
+		  	<div class="col">
+		    	<div class="card h-100 border-primary">		    
+		      		<div class="card-body">
+		        		<h5 class="card-title">231</h5>
+		        		<p class="card-text">Total Process Out.</p>
+		      		</div>
+		      		<div class="card-footer bg-primary">
+		        		<small class="text-white">Last updated 3 mins ago</small>
+		      		</div>
+		    	</div>
+		  	</div>	  
+		</div>
     </main>
+
