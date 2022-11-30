@@ -14,3 +14,7 @@ $route['dashboard'] = 'dashboard';
 //User
 $route['user'] = 'user';
 
+
+//MLO
+$route['mlo'] = 'mlo';
+

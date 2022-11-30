@@ -149,74 +149,38 @@
     </main>
 
     <script>
-    	<?php if($this->session->flashdata('edit')){ ?>           
-            Swal.fire({
-                title: 'Berhasil',  
-                icon: 'success',
-                title: 'Data user telah diubah',
-                showConfirmButton: true,
-            })
-        <?php } ?>
-    </script>
-
-    <script>
-        <?php if($this->session->flashdata('sukses')){ ?>           
-            Swal.fire({
-                title: 'Berhasil',  
-                icon: 'success',
-                title: 'Data user telah disimpan',
-                showConfirmButton: true,
-            })
-        <?php } ?>
-    </script>
-
-    <script>
-        <?php if($this->session->flashdata('hapus')){ ?>           
-            Swal.fire({
-                title: 'Berhasil',  
-                icon: 'success',
-                title: 'Data user telah dihapus',
-                showConfirmButton: true,
-            })
-        <?php } ?>
-    </script>
-
-    <script>
-    	function hapus(ID){
-    		Swal.fire({
-			  title: 'Yakin mau dihapus?',
-			  //text: "You won't be able to revert this!",
-			  icon: 'warning',
-			  showCancelButton: true,
-			  confirmButtonColor: '#3085d6',
-			  cancelButtonColor: '#d33',
-			  confirmButtonText: 'Yes, delete it!'
-			}).then((result) => {
-			  if (result.isConfirmed) {
-			    	window.location.href = "<?php echo site_url('user/hapus_user')?>/"+ID;
-			  }
-			})
-    	} 	
-    </script>
-
-    <script>
-    	// Example starter JavaScript for disabling form submissions if there are invalid fields
-		(() => {
-		  'use strict'
-
-		  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-		  const forms = document.querySelectorAll('.needs-validation')
-
-		  // Loop over them and prevent submission
-		  Array.from(forms).forEach(form => {
-		    form.addEventListener('submit', event => {
-		      if (!form.checkValidity()) {
-		        event.preventDefault()
-		        event.stopPropagation()
-		      }
-
-		      form.classList.add('was-validated')
-		    }, false)
-		  })
-		})()
-    </script>
+	    var tabel = null;
+	    $(document).ready(function() {
+	        tabel = $('#table-user').DataTable({
+	            "processing": true,
+	            "responsive":true,
+	            "serverSide": true,
+	            "ordering": true, // Set true agar bisa di sorting
+	            "order": [[ 0, 'asc' ]], // Default sortingnya berdasarkan kolom / field ke 0 (paling pertama)
+	            "ajax":
+	            {
+	                "url": "<?= base_url('user/view_data');?>", // URL file untuk proses select datanya
+	                "type": "POST"
+	            },
+	            "deferRender": true,
+	            "aLengthMenu": [[5, 10, 50],[ 5, 10, 50]], // Combobox Limit
+	            "columns": [
+	                {"data": 'id',"sortable": false, 
+	                    render: function (data, type, row, meta) {
+	                        return meta.row + meta.settings._iDisplayStart + 1;
+	                    }  
+	                },
+	                { "data": "display_name" }, // Tampilkan judul
+	                { "data": "username" },  // Tampilkan kategori
+	                { "data": "email" },  // Tampilkan penulis
+	                { "data": "role" },  // Tampilkan tgl posting
+	                { "data": "id",
+	                    "render": 
+	                    function( data, type, row, meta ) {
+	                        return "<button class='btn btn-sm btn-danger text-white'><i class='bi bi-trash'></i></button>";
+	                    }
+	                },
+	            ],
+	        });
+	    });
+		</script>
