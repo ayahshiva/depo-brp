@@ -2,13 +2,13 @@
 
 		<!-- Breadcrmb -->
     	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        	<h1 class="h2">MLO</h1>
+        	<h1 class="h2">EMKL</h1>
         	<div class="btn-toolbar mb-2 mb-md-0">
           		<div class="btn-group me-2">
           			<nav aria-label="breadcrumb">
   						<ol class="breadcrumb">
-    						<li class="breadcrumb-item"><a href="<?= site_url('mlo'); ?>" onclick="return false;">MLO</a></li>  
-    						<li class="breadcrumb-item">Table Data MLO</li>
+    						<li class="breadcrumb-item"><a href="<?= site_url('mlo'); ?>" onclick="return false;">EMKL</a></li>  
+    						<li class="breadcrumb-item">Table Data EMKL</li>
   						</ol>
 					</nav>            
           		</div>
@@ -17,9 +17,9 @@
 
       	<!-- Content -->
       	
-  			<table class="table table-hover caption-top" id="myTableMlo">
+  			<table class="table table-hover caption-top" id="myTableEMKL">
   				<caption class="fs-5">
-  					<a href="#formAddMLO" class="btn btn-md btn-success" data-bs-toggle="modal">
+  					<a href="#formAddEMKL" class="btn btn-md btn-success" data-bs-toggle="modal">
   						<i class="bi bi-person-add"></i> Tambah Data 
   					</a>
   				</caption>
@@ -47,12 +47,12 @@
 
 		<!-- Modal -->
 		<!-- form add MLO -->
-		<div class="modal fade" id="formAddMLO" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal fade" id="formAddEMKL" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		  	<div class="modal-dialog">
-		  		<form class="needs-validation" method="post" action="<?php echo site_url('mlo/add_mlo'); ?>" novalidate>
+		  		<form class="needs-validation" method="post" action="<?php echo site_url('emkl/add_emkl'); ?>" novalidate>
 			    	<div class="modal-content">
 			      		<div class="modal-header">
-			        		<h1 class="modal-title fs-5" id="exampleModalLabel">Form Tambah MLO</h1>
+			        		<h1 class="modal-title fs-5" id="exampleModalLabel">Form Tambah emkl</h1>
 			        		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			      		</div>
 			      		<div class="modal-body">
@@ -84,12 +84,12 @@
 		</div>
 
 		<!-- form edit MLO -->
-		<div class="modal fade" id="formEditMLO" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal fade" id="formEditEMKL" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		  	<div class="modal-dialog">
-		  		<form class="needs-validation" method="post" action="<?php echo site_url('mlo/update_mlo'); ?>" novalidate>
+		  		<form class="needs-validation" method="post" action="<?php echo site_url('emkl/update_emkl'); ?>" novalidate>
 			    	<div class="modal-content">
 			      		<div class="modal-header">
-			        		<h1 class="modal-title fs-5" id="exampleModalLabel">Form Edit MLO</h1>
+			        		<h1 class="modal-title fs-5" id="exampleModalLabel">Form Edit EMKL</h1>
 			        		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			      		</div>
 			      		<div class="modal-body">

@@ -31,7 +31,9 @@
     <!-- Custom JS -->    
     <script src="<?php echo base_url('assets/js/dashboard.js')?>"></script>
 
-    <?php $this->load->view('include/custom_js.php'); ?>
-        
+    <?php $this->load->view('include/sweetalert_js.php'); ?>
+    <?php $this->load->view('include/datatables.php'); ?>
+    <?php $this->load->view('include/modal_js.php'); ?>
+
     </body>
 </html>

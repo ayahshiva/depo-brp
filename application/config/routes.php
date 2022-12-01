@@ -18,3 +18,5 @@ $route['user'] = 'user';
 //MLO
 $route['mlo'] = 'mlo';
 
+//EMKL
+$route['emkl'] = 'emkl';
