@@ -5,7 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class M_container extends CI_Model
 {
-    var $table = 'data_container';
+    var $table = 'container';
     var $column_order = array('namamlo','nomorcontainer' ,'sizecontainer', 'tipecontainer', 'tglmasuk', 'kodebayar'); 
     var $column_search = array('namamlo','nomorcontainer' ,'sizecontainer', 'tipecontainer', 'tglmasuk', 'kodebayar');
     var $order = array('idcontainer' => 'ASC');
@@ -71,8 +71,9 @@ class M_container extends CI_Model
     }
  
     public function count_all()
-    {
-        $this->db->from($this->table);
+    {   
+        $stok = array('3','4','5');
+        $this->db->where_in('stok', $stok)->from($this->table);
         return $this->db->count_all_results();
     }
 }

@@ -26,7 +26,7 @@
 	      				<th>Size</th>
 	      				<th>Tipe</th>
 	      				<!-- <th>Kode</th> -->
-	      				<th class="text-center" width="60">#</th>
+	      				<th class="text-center" width="70">#</th>
 	      			</tr>
     			</thead>
     			
@@ -38,7 +38,7 @@
 	      				<th>Size</th>
 	      				<th>Tipe</th>
 	      				<!-- <th>Kode</th> -->
-	      				<th class="text-center" width="60">#</th>
+	      				<th class="text-center" width="70">#</th>
 	      			</tr>
     			</tfoot>
   			</table>

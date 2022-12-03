@@ -31,7 +31,7 @@
 	      				<th>Email</th>
 	      				<th>Role</th>
 	      				<th>Last Login</th>
-	      				<th width="60">#</th>
+	      				<th width="70">#</th>
 	      			</tr>
     			</thead>
     			
@@ -43,7 +43,7 @@
 	      				<th>Email</th>
 	      				<th>Role</th>
 	      				<th>Last Login</th>
-	      				<th width="60">#</th>
+	      				<th width="70">#</th>
 	      			</tr>
     			</tfoot>
   			</table>

@@ -16,33 +16,33 @@
 		  	<div class="col">
 		    	<div class="card h-100 border-primary">		    
 		      		<div class="card-body">
-		        		<h5 class="card-title">5432</h5>
+		        		<h5 class="card-title"><?php echo $jumlahContainer; ?></h5>
 		        		<p class="card-text">Jumlah Container.</p>
 		      		</div>
 		      		<div class="card-footer bg-primary">
-		        		<small class="text-white">Last updated 3 mins ago</small>
+		        		<a class="btn text-white" href="<?php echo site_url('container'); ?>">DATA CONTAINER</a>
 		      		</div>
 		    	</div>
 		  	</div>
 		  	<div class="col">
 		    	<div class="card h-100 border-warning">		    
 		      		<div class="card-body">
-		        		<h5 class="card-title">434</h5>
+		        		<h5 class="card-title"><?php echo $jumlahMLO; ?></h5>
 		        		<p class="card-text">Jumlah MLO.</p>
 		      		</div>
 		      		<div class="card-footer bg-warning">
-		        		<small class="text-white">Last updated 3 mins ago</small>
+		        		<a class="btn text-white" href="<?php echo site_url('mlo'); ?>"> DATA MLO</a>
 		      		</div>
 		    	</div>
 		  	</div>
 		  	<div class="col">
 		    	<div class="card h-100 border-success">		    
 		      		<div class="card-body">
-		        		<h5 class="card-title">231</h5>
+		        		<h5 class="card-title"><?php echo $jumlahEMKL; ?></h5>
 		        		<p class="card-text">Jumlah EMKL.</p>
 		      		</div>
 		      		<div class="card-footer bg-success">
-		        		<small class="text-white">Last updated 3 mins ago</small>
+		        		<a class="btn text-white" href="<?php echo site_url('emkl'); ?>"> DATA EMKL</a>
 		      		</div>
 		    	</div>
 		  	</div>

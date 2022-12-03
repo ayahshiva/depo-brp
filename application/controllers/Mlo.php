@@ -56,6 +56,7 @@ class Mlo extends CI_Controller
 	public function index()
 	{
 		$data['mlo'] = $this->M_mlo->get();
+		$data['jumlahMLO'] = $this->M_mlo->count_all();
 
 		$this->load->view('include/header.php');
 		$this->load->view('include/navbar.php');
