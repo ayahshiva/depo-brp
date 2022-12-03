@@ -21,14 +21,14 @@
   				</caption>
   				<thead>
     				<tr class="bg-primary bg-opacity-75 text-white">
-	  					<th width="10">No.</th>
-	  					<th>Tanggal MV-IN</th>
-	  					<th>MLO</th>
-	  					<th>Vessel</th>
-	  					<th>No Voyage</th>
-	  					<th>Tanggal Masuk</th>
-	  					<th>Kode</th>
-	  					<th>DO Number</th>
+	  					<th width="2%">No.</th>
+	  					<th width="10%">Tanggal MV-In</th>
+	  					<th>EMKL</th>
+	  					<th width="15%">Vessel</th>
+	  					<th width="10%">No Voyage</th>
+	  					<th width="10%">Tanggal Masuk</th>
+	  					<th width="8%">Kode</th>
+	  					<th width="12%">DO Number</th>
 	  				</tr>
     			</thead> 
     			<tbody>
@@ -37,7 +37,7 @@
 	    				<tr>
 		  					<td><?php echo $no++; ?>.</td>
 		  					<td><?php echo date('d-m-Y', strtotime($value->tanggal)); ?></td>
-		  					<td><?php echo $value->namamlo; ?></td>
+		  					<td><?php echo $value->namaemkl; ?></td>
 		  					<td><?php echo $value->namavessel; ?></td>
 		  					<td><?php echo $value->no_voyage; ?></td>
 		  					<td><?php echo date('d-m-Y', strtotime($value->date_in)); ?></td>
@@ -46,34 +46,23 @@
 		  				</tr>
 		  			<?php } ?>
     			</tbody>   			
-    			<tfoot>
-    				<tr class="bg-primary bg-opacity-75 text-white">
-	  					<th width="10">No.</th>
-	  					<th>Tanggal MV-IN</th>
-	  					<th>MLO</th>
-	  					<th>Vessel</th>
-	  					<th>No Voyage</th>
-	  					<th>Tanggal Masuk</th>
-	  					<td>Kode</td>
-	  					<th>DO Number</th>
-	  				</tr>
-    			</tfoot>
+    			
   			</table>
-
+  			
   			<table class="table table-hover table-sm caption-top">
   				<caption class="fs-5">
   					Move Out
   				</caption>
   				<thead>
     				<tr class="bg-primary bg-opacity-75 text-white">
-	  					<th width="10">No.</th>
-	  					<th>Tanggal MV-Out</th>
+	  					<th width="2%">No.</th>
+	  					<th width="10%">Tanggal MV-Out</th>
 	  					<th>EMKL</th>
-	  					<th>Vessel</th>
-	  					<th>No Voyage</th>
-	  					<th>Tanggal Keluar</th>
-	  					<th>Kode</th>
-	  					<th>DO Number</th>
+	  					<th width="15%">Vessel</th>
+	  					<th width="10%">No Voyage</th>
+	  					<th width="10%">Tanggal Keluar</th>
+	  					<th width="8%">Kode</th>
+	  					<th width="12%">DO Number</th>
 	  				</tr>
     			</thead> 
     			<tbody>
@@ -91,18 +80,7 @@
 		  				</tr>
 		  			<?php } ?>
     			</tbody>   			
-    			<tfoot>
-    				<tr class="bg-primary bg-opacity-75 text-white">
-	  					<th width="10">No.</th>
-	  					<th>Tanggal MV-Out</th>
-	  					<th>EMKL</th>
-	  					<th>Vessel</th>
-	  					<th>No Voyage</th>
-	  					<th>Tanggal Keluar</th>
-	  					<th>Kode</th>
-	  					<th>DO Number</th>
-	  				</tr>
-    			</tfoot>
+    			
   			</table>
   		</div>
 

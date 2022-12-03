@@ -23,27 +23,38 @@ class Container extends CI_Controller
         $start = intval($this->input->get("start"));
         $length = intval($this->input->get("length"));
 
-        $stok = array('3','4','5');
+        //$stok = array('3','4','5');
         // $query = $this->db->where_not_in('stok', $stok)->get('container');
         $this->db->select('*, mlo.nama as namamlo')
                  ->from('container')
                  ->join('mlo', 'container.id_mlo = mlo.id', 'left')
-                 ->where_in('container.stok', $stok)
-                 ->order_by('container.id', 'asc');
+                 //->where_in('container.stok', $stok)
+                 ->order_by('container.stok', 'asc');
         $query = $this->db->get();
-        $data = [];
+        $data = array();
         $no = 1;
         foreach ($query->result() as $key => $value) {
-            $data[] = array(
-                $no++,
-                $value->namamlo,
-                $value->no_cont,
-                $value->size,
-                $value->tipe,
-                "<button type='button' class='btn btn-sm btn-primary' title='lihat detail'><i class='bi bi-eye'></i></button>
-                <button type='button' class='btn btn-sm btn-success' title='Edit'><i class='bi bi-pencil-square'></i></button>
-                "
-            );
+            
+            $html ='';
+            if($value->stok == '1' OR $value->stok == '2'){
+                $html = '<span class="badge bg-primary">Proses In</span>';
+            }elseif($value->stok == '3'){
+                $html = '<span class="badge bg-success">In Stok</span>';
+            }elseif($value->stok == '4' OR $value->stok == '5'){
+                $html = '<span class="badge bg-warning">Proses Out</span>';
+            }elseif($value->stok == '6'){
+                $html = '<span class="badge bg-danger">Out</span>';
+            }
+            $row = array();
+            $row[] = $no++;
+            $row[] = $value->namamlo;
+            $row[] = $value->no_cont;
+            $row[] = $value->size;
+            $row[] = $value->tipe;
+            $row[] = $html;
+
+            $data[] = $row;
+            
         }
 
         $result = array(

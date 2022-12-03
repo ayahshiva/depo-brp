@@ -107,16 +107,17 @@ class M_container extends CI_Model
     function cariMVin($noCont)
     {
         //$stok = array('3','4','5');
-        $this->db->select('*, mlo.nama as namamlo, vessel.nama as namavessel')
+        $this->db->select('*, emkl.nama as namaemkl, vessel.nama as namavessel')
                  ->from('container')
                  ->where('container.no_cont', $noCont)
                  //->where_in('container.stok', $stok)
                  ->join('detil_move_in', 'container.id = detil_move_in.id_container', 'left')
                  ->join('move_in','detil_move_in.id_move_in = move_in.id','left')
-                 ->join('mlo','move_in.id_mlo = mlo.id','left')
+                 //->join('mlo','move_in.id_mlo = mlo.id','left')
                  ->join('vessel', 'move_in.id_vessel = vessel.id')
                  ->join('detil_payment_in', 'container.id = detil_payment_in.id_container','left')
                  ->join('payment_in', 'detil_payment_in.ID_payment_in = payment_in.id','left')
+                 ->join('emkl', 'payment_in.id_emkl = emkl.id', 'left')
                  ->order_by('detil_move_in.id', 'DESC');
         return $this->db->get()->result();
 

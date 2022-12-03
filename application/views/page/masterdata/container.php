@@ -25,8 +25,7 @@
 	      				<th>No Container</th>
 	      				<th>Size</th>
 	      				<th>Tipe</th>
-	      				<!-- <th>Kode</th> -->
-	      				<th class="text-center" width="70">#</th>
+	      				<th>Status</th>
 	      			</tr>
     			</thead>
     			
@@ -37,8 +36,7 @@
 	      				<th>No Container</th>
 	      				<th>Size</th>
 	      				<th>Tipe</th>
-	      				<!-- <th>Kode</th> -->
-	      				<th class="text-center" width="70">#</th>
+	      				<th>Status</th>
 	      			</tr>
     			</tfoot>
   			</table>

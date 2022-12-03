@@ -72,7 +72,7 @@
                     type : 'GET'
                 },
                 "columnDefs":[{
-                    "targets": [0, -1],
+                    "targets": [0],
                     "orderable": false,
                 }],
             });
