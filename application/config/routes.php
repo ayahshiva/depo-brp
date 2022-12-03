@@ -20,3 +20,9 @@ $route['mlo'] = 'mlo';
 
 //EMKL
 $route['emkl'] = 'emkl';
+
+//Vessel
+$route['vessel'] = 'vessel';
+
+//Container
+$route['container'] = 'container';

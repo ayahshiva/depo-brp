@@ -1,5 +1,9 @@
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-      <div class="position-sticky pt-3 sidebar-sticky">
+      <div class="position-sticky pt-3 sidebar-sticky">        
+        <div class="col-xs-12 text-center">
+          <img src="<?php echo base_url(); ?>assets/images/logo.svg" width="100">
+      </div>
+      <hr />
         <ul class="nav flex-column">
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="<?php echo site_url('dashboard'); ?>">
@@ -9,7 +13,7 @@
           </li>
         </ul>
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
-          <a class="nav-link" aria-current="page" href="#">
+          <a class="nav-link" aria-current="page" href="#" data-bs-toggle="collapse" data-bs-target="#master-collapse">
               <span data-feather="database" class="align-text-bottom"></span>
                 Master Data
             </a>
@@ -40,13 +44,13 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="<?php echo site_url('vessel'); ?>">
                 <span data-feather="arrow-right" class="align-text-bottom"></span>
                 Vessel
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="<?php echo site_url('container'); ?>">
                 <span data-feather="arrow-right" class="align-text-bottom"></span>
                 Container
               </a>
@@ -54,7 +58,7 @@
           </ul>
         </div>
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
-          <a class="nav-link" aria-current="page" href="#">
+          <a class="nav-link" aria-current="page" href="#" data-bs-toggle="collapse" data-bs-target="#mvin-collapse">
               <span data-feather="truck" class="align-text-bottom"></span>
                 Container In
             </a>
@@ -94,7 +98,7 @@
         </div>
         
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
-          <a class="nav-link" aria-current="page" href="#">
+          <a class="nav-link" aria-current="page" href="#" data-bs-toggle="collapse" data-bs-target="#mvot-collapse">
               <span data-feather="truck" class="align-text-bottom"></span>
                 Container Out
             </a>
@@ -127,7 +131,7 @@
           </ul>
         </div>
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
-          <a class="nav-link" aria-current="page" href="#">
+          <a class="nav-link" aria-current="page" href="#" data-bs-toggle="collapse" data-bs-target="#report-collapse">
               <span data-feather="file-text" class="align-text-bottom"></span>
                 Reporting
             </a>

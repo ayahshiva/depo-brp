@@ -60,7 +60,7 @@ class Emkl extends CI_Controller
 		$this->load->view('include/header.php');
 		$this->load->view('include/navbar.php');
 		$this->load->view('include/sidebar.php');
-		$this->load->view('page/emkl', $data);
+		$this->load->view('page/masterdata/emkl', $data);
 		$this->load->view('include/footer');
 	}
 

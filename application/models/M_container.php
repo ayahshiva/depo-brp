@@ -3,19 +3,19 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 
-class M_emkl extends CI_Model
+class M_container extends CI_Model
 {
-    var $table = 'emkl'; //nama tabel dari database
-    var $column_order = array('nama','alamat' ,'telp'); //field yang ada di table user
-    var $column_search = array('nama', 'alamat', 'telp'); //field yang diizin untuk pencarian 
-    var $order = array('id' => 'ASC'); // default order
+    var $table = 'data_container';
+    var $column_order = array('namamlo','nomorcontainer' ,'sizecontainer', 'tipecontainer', 'tglmasuk', 'kodebayar'); 
+    var $column_search = array('namamlo','nomorcontainer' ,'sizecontainer', 'tipecontainer', 'tglmasuk', 'kodebayar');
+    var $order = array('idcontainer' => 'ASC');
 
    function __construct()
    {
        parent::__construct();
    }
 
-    private function _get_datatables_query()
+   private function _get_datatables_query()
     {
          
         $this->db->from($this->table);
@@ -75,33 +75,4 @@ class M_emkl extends CI_Model
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }
-
-    function get()
-    {
-        return $this->db->order_by('id', 'ASC')->get($this->table)->result();
-    }
-
-    function get_by_id($id)
-    {
-        return $this->db->get_where($this->table, ['id' => $id])->row();
-    }
-
-    function insert($data)
-    {
-        $this->db->insert($this->table, $data);
-        return $this->db->affected_rows();
-    }
-
-    function update($id, $data)
-    {
-        $this->db->where('id', $id);
-        $this->db->update($this->table, $data);
-        return $this->db->affected_rows();
-    }
-
-    function delete($id)
-    {
-        $this->db->delete($this->table, array("id" => $id));
-        return $this->db->affected_rows();
-    }
-}    
+}

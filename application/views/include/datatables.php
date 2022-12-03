@@ -21,7 +21,7 @@
                  
                 "columnDefs": [
                 { 
-                    "targets": [ 0 ], 
+                    "targets": [ 0, -1 ], 
                     "orderable": false, 
                 },
                 ],
@@ -42,7 +42,7 @@
                      "data":{  '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>' }
                 },
                 "columnsDefs":[{
-                    "targets": [0],
+                    "targets": [0, -1],
                     "orderable": false
                 }]
             });
@@ -55,14 +55,39 @@
                 "order": [],
                 "ajax": {
                     "url": "<?php echo site_url('emkl/get_data_emkl'); ?>",
-                    "dataType": "json",
                     "type": "POST",
-                     "data":{  '<?php echo $this->security->get_csrf_token_name(); ?>' : '<?php echo $this->security->get_csrf_hash(); ?>' }
+                     
                 },
                 "columnsDefs":[{
-                    "targets": [0],
-                    "orderable": false
+                    "targets": [0, -1],
+                    "orderable": false,
                 }]
+            });
+        });
+
+        $(document).ready(function() {
+            $('#myTableContainer').DataTable({
+                ajax: {
+                    url : "<?php echo site_url('container/get_container'); ?>",
+                    type : 'GET'
+                },
+                "columnDefs":[{
+                    "targets": [0, -1],
+                    "orderable": false,
+                }],
+            });
+        });
+
+        $(document).ready(function() {
+            $('#myTableVessel').DataTable({
+                ajax: {
+                    url : "<?php echo site_url('vessel/get_vessel'); ?>",
+                    type : 'GET'
+                },
+                "columnDefs":[{
+                    "targets": [0, -1],
+                    "orderable": false,
+                }],
             });
         });
 

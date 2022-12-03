@@ -62,7 +62,7 @@ class User extends CI_Controller {
 		$this->load->view('include/header.php');
 		$this->load->view('include/navbar.php');
 		$this->load->view('include/sidebar.php');
-		$this->load->view('page/user', $data);
+		$this->load->view('page/masterdata/user', $data);
 		$this->load->view('include/footer');
 	}
 

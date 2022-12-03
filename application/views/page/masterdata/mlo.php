@@ -16,7 +16,7 @@
       	</div>
 
       	<!-- Content -->
-      	
+      	<div class="table-responsive-sm table-responsive-md">
   			<table class="table table-hover caption-top" id="myTableMlo">
   				<caption class="fs-5">
   					<a href="#formAddMLO" class="btn btn-md btn-success" data-bs-toggle="modal">
@@ -29,21 +29,21 @@
 	      				<th>Nama</th>
 	      				<th>Alamat</th>
 	      				<th>Telp</th>
-	      				<th width="50">#</th>
+	      				<th width="60">#</th>
 	      			</tr>
     			</thead>
     			
     			<tfoot>
     				<tr class="bg-primary bg-opacity-75 text-white">
-	      				<th width="10">no</th>
+	      				<th width="10">No</th>
 	      				<th>Nama</th>
 	      				<th>Alamat</th>
 	      				<th>Telp</th>
-	      				<th width="50">#</th>
+	      				<th width="60">#</th>
 	      			</tr>
     			</tfoot>
   			</table>
-		
+		</div>
 
 		<!-- Modal -->
 		<!-- form add MLO -->

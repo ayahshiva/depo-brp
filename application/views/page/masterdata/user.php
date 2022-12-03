@@ -16,8 +16,8 @@
       	</div>
 
       	<!-- Content -->
-      	
-  			<table class="table table-hover caption-top" id="myTable">
+      	<div class="table-responsive-sm table-responsive-md">
+  			<table class="table table-hover table-sm caption-top" id="myTable">
   				<caption class="fs-5">
   					<a href="#formAddUser" class="btn btn-md btn-success" data-bs-toggle="modal">
   						<i class="bi bi-person-add"></i> Tambah Data 
@@ -25,29 +25,29 @@
   				</caption>
     			<thead>
     				<tr class="bg-primary bg-opacity-75 text-white">
-	      				<th width="10">ID</th>
+	      				<th width="10">No</th>
 	      				<th>Nama</th>
 	      				<th>Username</th>
 	      				<th>Email</th>
 	      				<th>Role</th>
-	      				<th width="80">Last Login</th>
-	      				<th width="50">#</th>
+	      				<th>Last Login</th>
+	      				<th width="60">#</th>
 	      			</tr>
     			</thead>
     			
     			<tfoot>
     				<tr class="bg-primary bg-opacity-75 text-white">
-	      				<th width="10">ID</th>
+	      				<th width="10">No</th>
 	      				<th>Nama</th>
 	      				<th>Username</th>
 	      				<th>Email</th>
 	      				<th>Role</th>
-	      				<th width="80">Last Login</th>
-	      				<th width="50">#</th>
+	      				<th>Last Login</th>
+	      				<th width="60">#</th>
 	      			</tr>
     			</tfoot>
   			</table>
-		
+		</div>
 
 		<!-- Modal -->
 		<!-- form add user -->
