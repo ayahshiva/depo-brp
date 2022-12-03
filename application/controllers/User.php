@@ -59,9 +59,9 @@ class User extends CI_Controller {
 	{
 		$data['user'] = $this->M_users->get();
 
-		$this->load->view('include/header.php');
-		$this->load->view('include/navbar.php');
-		$this->load->view('include/sidebar.php');
+		$this->load->view('include/header');
+		$this->load->view('include/navbar');
+		$this->load->view('include/sidebar');
 		$this->load->view('page/masterdata/user', $data);
 		$this->load->view('include/footer');
 	}

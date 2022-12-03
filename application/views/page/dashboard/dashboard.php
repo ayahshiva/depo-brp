@@ -13,108 +13,66 @@
       	</div>
       	
       	<div class="row row-cols-1 row-cols-md-3 g-4">
-		  	<div class="col">
+		  	<div class="col-md-3">
 		    	<div class="card h-100 border-primary">		    
 		      		<div class="card-body">
-		        		<h5 class="card-title"><?php echo $jumlahContainer; ?></h5>
-		        		<p class="card-text">Jumlah Container.</p>
+		        		<h5 class="card-title"><?php echo $proses_in; ?></h5>
+		        		<p class="card-text">Container.</p>
 		      		</div>
 		      		<div class="card-footer bg-primary">
-		        		<a class="btn text-white" href="<?php echo site_url('container'); ?>">DATA CONTAINER</a>
+		        		<small class="text-white fs-6">Process In</small>
 		      		</div>
 		    	</div>
 		  	</div>
-		  	<div class="col">
-		    	<div class="card h-100 border-warning">		    
-		      		<div class="card-body">
-		        		<h5 class="card-title"><?php echo $jumlahMLO; ?></h5>
-		        		<p class="card-text">Jumlah MLO.</p>
-		      		</div>
-		      		<div class="card-footer bg-warning">
-		        		<a class="btn text-white" href="<?php echo site_url('mlo'); ?>"> DATA MLO</a>
-		      		</div>
-		    	</div>
-		  	</div>
-		  	<div class="col">
+		  	<div class="col-md-3">
 		    	<div class="card h-100 border-success">		    
 		      		<div class="card-body">
-		        		<h5 class="card-title"><?php echo $jumlahEMKL; ?></h5>
-		        		<p class="card-text">Jumlah EMKL.</p>
+		        		<h5 class="card-title"><?php echo $in_stok; ?></h5>
+		        		<p class="card-text">Container.</p>
 		      		</div>
 		      		<div class="card-footer bg-success">
-		        		<a class="btn text-white" href="<?php echo site_url('emkl'); ?>"> DATA EMKL</a>
+		        		<small class="text-white fs-6">In Stok</small>
+		      		</div>
+		    	</div>
+		  	</div>
+		  	<div class="col-md-3">
+		    	<div class="card h-100 border-warning">		    
+		      		<div class="card-body">
+		        		<h5 class="card-title"><?php echo $proses_out; ?></h5>
+		        		<p class="card-text">Container.</p>
+		      		</div>
+		      		<div class="card-footer bg-warning">
+		        		<small class="text-white fs-6">Process Out</small>
 		      		</div>
 		    	</div>
 		  	</div>
 
-		  	<div class="col">
-		    	<div class="card h-100 border-success">		    
+		  	<div class="col-md-3">
+		    	<div class="card h-100 border-danger">		    
 		      		<div class="card-body">
-		        		<h5 class="card-title">231</h5>
-		        		<p class="card-text">Total List In.</p>
+		        		<h5 class="card-title"><?php echo $out; ?></h5>
+		        		<p class="card-text">Container.</p>
 		      		</div>
-		      		<div class="card-footer bg-success">
-		        		<small class="text-white">Last updated 3 mins ago</small>
+		      		<div class="card-footer bg-danger">
+		        		<small class="text-white fs-6">Out</small>
 		      		</div>
 		    	</div>
 		  	</div>
-
-		  	<div class="col">
-		    	<div class="card h-100 border-primary">		    
-		      		<div class="card-body">
-		        		<h5 class="card-title">231</h5>
-		        		<p class="card-text">Total Payment In.</p>
-		      		</div>
-		      		<div class="card-footer bg-primary">
-		        		<small class="text-white">Last updated 3 mins ago</small>
-		      		</div>
-		    	</div>
-		  	</div>
-
-		  	<div class="col">
-		    	<div class="card h-100 border-warning">		    
-		      		<div class="card-body">
-		        		<h5 class="card-title">231</h5>
-		        		<p class="card-text">Total Process In.</p>
-		      		</div>
-		      		<div class="card-footer bg-warning">
-		        		<small class="text-white">Last updated 3 mins ago</small>
-		      		</div>
-		    	</div>
-		  	</div>	
-		  	<div class="col">
-		    	<div class="card h-100 border-warning">		    
-		      		<div class="card-body">
-		        		<h5 class="card-title">231</h5>
-		        		<p class="card-text">Total List Out.</p>
-		      		</div>
-		      		<div class="card-footer bg-warning">
-		        		<small class="text-white">Last updated 3 mins ago</small>
-		      		</div>
-		    	</div>
-		  	</div>
-		  	<div class="col">
-		    	<div class="card h-100 border-success">		    
-		      		<div class="card-body">
-		        		<h5 class="card-title">231</h5>
-		        		<p class="card-text">Total Payment Out.</p>
-		      		</div>
-		      		<div class="card-footer bg-success">
-		        		<small class="text-white">Last updated 3 mins ago</small>
-		      		</div>
-		    	</div>
-		  	</div>
-		  	<div class="col">
-		    	<div class="card h-100 border-primary">		    
-		      		<div class="card-body">
-		        		<h5 class="card-title">231</h5>
-		        		<p class="card-text">Total Process Out.</p>
-		      		</div>
-		      		<div class="card-footer bg-primary">
-		        		<small class="text-white">Last updated 3 mins ago</small>
-		      		</div>
-		    	</div>
-		  	</div>	  
+		</div>
+		<div class="row">&nbsp;</div>
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<h3 class="card-title">Data Container Per MLO</h3>
+                    </div>
+                	<div class="card-body">
+            			<div class="chart-container">
+                    		<canvas id="chartBar1"></canvas>
+                   		</div>
+                	</div>
+                </div>
+            </div>
 		</div>
     </main>
 

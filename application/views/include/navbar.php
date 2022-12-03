@@ -10,7 +10,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <form action="<?php echo site_url('dashboard/pencarian'); ?>" method="post" class="w-100">
-    <input class="form-control form-control-primary " type="text" placeholder="Ketik nomor Container disini" aria-label="Pencarian">
+    <input class="form-control form-control-primary" name="no_cont" id="no_cont" type="text" placeholder="Ketik nomor Container disini" aria-label="Pencarian">
   </form>
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">

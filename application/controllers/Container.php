@@ -58,9 +58,9 @@ class Container extends CI_Controller
 
     public function index()
     {
-		$this->load->view('include/header.php');
-		$this->load->view('include/navbar.php');
-		$this->load->view('include/sidebar.php');
+		$this->load->view('include/header');
+		$this->load->view('include/navbar');
+		$this->load->view('include/sidebar');
 		$this->load->view('page/masterdata/container');
 		$this->load->view('include/footer');
     }

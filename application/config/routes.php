@@ -10,6 +10,7 @@ $route['login'] = 'login';
 
 //Dashboard
 $route['dashboard'] = 'dashboard';
+$route['hasil_cari'] = 'dashboard/hasil_cari';
 
 //User
 $route['user'] = 'user';

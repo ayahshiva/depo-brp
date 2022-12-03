@@ -23,14 +23,47 @@ class Dashboard extends CI_Controller {
 
 	function index()
 	{
-		$data['jumlahContainer'] = $this->M_container->count_all();
-		$data['jumlahMLO'] = $this->M_mlo->count_all();
-		$data['jumlahEMKL'] = $this->M_emkl->count_all();
+		$data['proses_in'] = $this->M_container->proses_in();
+		$data['in_stok'] = $this->M_container->in_stok();
+		$data['proses_out'] = $this->M_container->proses_out();
+		$data['out'] = $this->M_container->out();
 
-		$this->load->view('include/header.php');
-		$this->load->view('include/navbar.php');
-		$this->load->view('include/sidebar.php');
+		$this->load->view('include/header');
+		$this->load->view('include/navbar');
+		$this->load->view('include/sidebar');
 		$this->load->view('page/dashboard/dashboard', $data);
 		$this->load->view('include/footer');
+	}
+
+	public function nomorContainer()
+	{
+		if (isset($_GET['term'])) {
+            $result = $this->M_container->nomorContainer($_GET['term']);
+            if (count($result) > 0) {
+            foreach ($result as $row)
+                $arr_result[] = $row->no_cont;
+                echo json_encode($arr_result);
+            }
+        }
+	}
+
+	public function pencarian()
+	{
+		$data['noCont'] = $noCont = $this->input->post('no_cont', true);
+
+		$data['mvin'] = $this->M_container->cariMVin($noCont);
+		$data['mvot'] = $this->M_container->cariMVot($noCont);
+		
+		$this->load->view('include/header');
+		$this->load->view('include/navbar');
+		$this->load->view('include/sidebar');
+		$this->load->view('page/dashboard/pencarian', $data);
+		$this->load->view('include/footer');
+	}
+
+	function chartbar()
+	{
+		$data = $this->M_container->chartbar()->result();
+		echo json_encode($data);
 	}
 }

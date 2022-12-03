@@ -58,9 +58,9 @@ class Mlo extends CI_Controller
 		$data['mlo'] = $this->M_mlo->get();
 		$data['jumlahMLO'] = $this->M_mlo->count_all();
 
-		$this->load->view('include/header.php');
-		$this->load->view('include/navbar.php');
-		$this->load->view('include/sidebar.php');
+		$this->load->view('include/header');
+		$this->load->view('include/navbar');
+		$this->load->view('include/sidebar');
 		$this->load->view('page/masterdata/mlo', $data);
 		$this->load->view('include/footer');
 	}

@@ -32,8 +32,8 @@
     			
     			<tfoot>
     				<tr class="bg-primary bg-opacity-75 text-white">
-					<th>MLO</th>
-						<th widht="10">No.</th>
+						<th width="10">No.</th>
+	      				<th>MLO</th>
 	      				<th>No Container</th>
 	      				<th>Size</th>
 	      				<th>Tipe</th>
