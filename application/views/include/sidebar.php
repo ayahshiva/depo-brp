@@ -71,7 +71,7 @@
         <div class="collapse" id="mvin-collapse">
           <ul class="nav flex-column mb-2">
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="<?php echo site_url('list_in'); ?>">
                 <span data-feather="arrow-right" class="align-text-bottom"></span>
                 List In
               </a>

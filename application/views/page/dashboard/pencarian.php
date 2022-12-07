@@ -22,13 +22,13 @@
   				<thead>
     				<tr class="bg-primary bg-opacity-75 text-white">
 	  					<th width="2%">No.</th>
-	  					<th width="10%">Tanggal MV-In</th>
-	  					<th>EMKL</th>
+	  					<th width="12%">Tanggal MV-In</th>
+	  					<th width="20%">EMKL</th>
 	  					<th width="15%">Vessel</th>
 	  					<th width="10%">No Voyage</th>
-	  					<th width="10%">Tanggal Masuk</th>
-	  					<th width="8%">Kode</th>
-	  					<th width="12%">DO Number</th>
+	  					<th width="12%">Tanggal Masuk</th>
+	  					<th width="10%">Kode</th>
+	  					<th>DO Number</th>
 	  				</tr>
     			</thead> 
     			<tbody>
@@ -56,13 +56,13 @@
   				<thead>
     				<tr class="bg-primary bg-opacity-75 text-white">
 	  					<th width="2%">No.</th>
-	  					<th width="10%">Tanggal MV-Out</th>
-	  					<th>EMKL</th>
+	  					<th width="12%">Tanggal MV-Out</th>
+	  					<th width="20%">EMKL</th>
 	  					<th width="15%">Vessel</th>
 	  					<th width="10%">No Voyage</th>
-	  					<th width="10%">Tanggal Keluar</th>
-	  					<th width="8%">Kode</th>
-	  					<th width="12%">DO Number</th>
+	  					<th width="12%">Tanggal Keluar</th>
+	  					<th width="10%">Kode</th>
+	  					<th>DO Number</th>
 	  				</tr>
     			</thead> 
     			<tbody>

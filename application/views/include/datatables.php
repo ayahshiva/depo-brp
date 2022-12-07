@@ -91,6 +91,18 @@
             });
         });
 
+        $(document).ready(function() {
+            $('#myTableListIn').DataTable({
+                ajax: {
+                    url : "<?php echo site_url('list_in/get_list_in'); ?>",
+                    type : 'GET'
+                },
+                "columnDefs":[{
+                    "targets": [0, 1, 6],
+                    "orderable": false,
+                }],
+            });
+        });
 
 	});
 </script>

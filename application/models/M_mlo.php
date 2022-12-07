@@ -86,6 +86,21 @@ class M_mlo extends CI_Model
 	    return $this->db->get_where($this->table, ['id' => $id])->row();
 	}
 
+   function getAjax($searchTerm="")
+   {
+      $this->db->select('*');
+      $this->db->where("nama like '%".$searchTerm."%' ");
+      $fetched_records = $this->db->get($this->table);
+      $users = $fetched_records->result_array();
+
+      // Initialize Array with fetched data
+      $data = array();
+      foreach($users as $user){
+          $data[] = array("id"=>$user['id'], "text"=>$user['nama']);
+      }
+      return $data;
+   }
+
 	function insert($data)
 	{
 	    $this->db->insert($this->table, $data);

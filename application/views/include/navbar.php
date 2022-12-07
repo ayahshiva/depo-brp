@@ -9,9 +9,14 @@
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <form action="<?php echo site_url('dashboard/pencarian'); ?>" method="post" class="w-100">
-    <input class="form-control form-control-primary" name="no_cont" id="no_cont" type="text" placeholder="Ketik nomor Container disini" aria-label="Pencarian">
-  </form>
+  
+
+  <form class="d-flex w-100" action="<?php echo site_url('dashboard/pencarian'); ?>" method="post">
+      <input class="form-control me-2" type="search" placeholder="Ketik nomor Container disini" name="no_cont" id="no_cont" aria-label="Search">
+      <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
+    </form>
+
+
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
     <span class="nav-link px-3 text-white fs-6"><i data-feather="user"></i> Halo, <?php echo $nama; ?> | <a href="<?php echo site_url('login/logout'); ?>" class="text-decoration-none text-white">Logout <i data-feather="log-out"></i></a></span>

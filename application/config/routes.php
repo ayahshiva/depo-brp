@@ -10,7 +10,7 @@ $route['login'] = 'login';
 
 //Dashboard
 $route['dashboard'] = 'dashboard';
-$route['hasil_cari'] = 'dashboard/hasil_cari';
+$route['pencarian'] = 'dashboard/pencarian';
 
 //User
 $route['user'] = 'user';
@@ -27,3 +27,9 @@ $route['vessel'] = 'vessel';
 
 //Container
 $route['container'] = 'container';
+
+
+//MV-In
+$route['listin'] = 'listin';
+$route['view_list_in'] = 'listin/view_list_in';
+$route['edit_list_in'] = 'listin/edit_list_in';

@@ -159,4 +159,11 @@ class M_container extends CI_Model
                 ";
         return $this->db->query($query);
     }
+
+    function insert($input_baru)
+    {
+      $this->db->insert($this->table, $input_baru);
+      return $this->db->affected_rows();
+    }
+    
 }

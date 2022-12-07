@@ -86,3 +86,39 @@
 		</div>
     </main>
 
+    <script>
+        $(function() {
+            const siteUrl = "<?php echo base_url();?>"
+            $.ajax({
+                url: siteUrl+'Dashboard/chartbar',
+                dataType: 'json',
+                method: 'get',
+                success: function(data) {
+                    console.log(data);
+                    var label = [];
+                    var value = [];
+                    for (var i in data) {
+                        label.push(data[i].namamlo);
+                        value.push(data[i].jumlahcontainer);
+                    }
+                    var ctx = document.getElementById("chartBar1").getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: label,
+                            datasets: [{
+                                label: 'Jumlah Container per MLO',
+                                data: value,
+                                backgroundColor: ['#ffc107', '#198754', '#6f42c1', '#d63384', '#dc3545', '#fd7e14'],
+                                hoverOffset: 4
+
+                            }]
+                        },
+                    });
+                }
+            });
+            
+
+        });
+    </script>
+
