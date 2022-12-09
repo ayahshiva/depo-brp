@@ -83,7 +83,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="<?php echo site_url('process_in'); ?>">
                 <span data-feather="arrow-right" class="align-text-bottom"></span>
                 Process In
               </a>

@@ -13,7 +13,7 @@
           	<div class="btn-group me-2">
           		<nav aria-label="breadcrumb">
   						<ol class="breadcrumb">
-    						<li class="breadcrumb-item"><a href="<?= site_url('listin'); ?>" >List In</a></li>  
+    						<li class="breadcrumb-item"><a href="<?= site_url('list_in'); ?>" >List In</a></li>  
     						<li class="breadcrumb-item">Form Input Container</li>
   						</ol>
 					</nav>            

@@ -32,7 +32,7 @@ class List_in extends CI_Controller
 
             $this->db->select('*')
                  ->from('detil_move_in')
-                 ->where('id_move_in', $item->idmovein);
+                 ->where('id_move_in', $item->id);
             $jmlh = $this->db->get()->num_rows();
 
             if($item->jumlah != $jmlh )
@@ -48,15 +48,15 @@ class List_in extends CI_Controller
             $row = array();
             
             $row[] = date('d-m-Y', strtotime($item->tanggal));
-            $row[] = $item->namamlo;
-            $row[] = $item->namavessel;
+            $row[] = $item->mlo_nama;
+            $row[] = $item->vessel_nama;
             $row[] = $item->no_voyage;
             $row[] = $jumlah;
             $row[] = "
-                        <a href='list_in/view_list_in/$item->idmovein' class='btn btn-sm btn-primary' title='View Detail'><i class='bi bi-eye'></i></a>
-                        <a href='list_in/edit_list_in/$item->idmovein' class='btn btn-sm btn-success' title='Edit'><i class='bi bi-pencil'></i></a>
-                        <a href='list_in/add_container/$item->idmovein' class='btn btn-sm btn-warning' title='Tambah Container'><i class='bi bi-clipboard-plus'></i></a>
-                        <a href='list_in/delete_container/$item->idmovein' class='btn btn-sm btn-danger' title='Hapus Container'><i class='bi bi-clipboard-minus'></i></a>
+                        <a href='list_in/view_list_in/$item->id' class='btn btn-sm btn-primary' title='View Detail'><i class='bi bi-eye'></i></a>
+                        <a href='list_in/edit_list_in/$item->id' class='btn btn-sm btn-success' title='Edit'><i class='bi bi-pencil'></i></a>
+                        <a href='list_in/add_container/$item->id' class='btn btn-sm btn-warning' title='Tambah Container'><i class='bi bi-clipboard-plus'></i></a>
+                        <a href='list_in/delete_container/$item->id' class='btn btn-sm btn-danger' title='Hapus Container'><i class='bi bi-clipboard-minus'></i></a>
                      ";
 
             $data[] = $row;

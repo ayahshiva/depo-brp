@@ -8,10 +8,11 @@ class M_move_in extends CI_Model
     var $table = 'move_in';
     var $table2 = 'detil_move_in';
     var $table3 = 'container';
+    var $table4 = 'view_move_in';
 
-    var $column_order = array('tanggal','id_mlo','id_vessel','no_voyage', 'jumlah', NULL);
-    var $column_search = array('tanggal','id_mlo', 'id_vessel', 'no_voyage', 'jumlah');
-    var $oder = array('tanggal'=>'DESC'); 
+    var $column_order = array('tanggal','mlo_nama','vessel_nama','no_voyage', 'jumlah', NULL);
+    var $column_search = array('tanggal','mlo_nama', 'vessel_nama', 'no_voyage', 'jumlah');
+    var $oder = array('id'=>'DESC'); 
     
     function __construct()
     {
@@ -21,11 +22,7 @@ class M_move_in extends CI_Model
 
     function _get_datatables_query()
     {
-        $this->db->select('*, move_in.id as idmovein, mlo.id as idmlo, mlo.nama as namamlo, vessel.id as idvessel, vessel.nama as namavessel');
-        $this->db->join('mlo', 'move_in.id_mlo = mlo.id', 'left');
-        $this->db->join('vessel', 'move_in.id_vessel = vessel.id', 'left');
-        $this->db->order_by('move_in.id', 'DESC');
-        $this->db->from($this->table);
+        $this->db->from($this->table4);
 
         $i = 0;
         foreach($this->column_search as $item)

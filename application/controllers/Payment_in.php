@@ -36,7 +36,7 @@ class Payment_in extends CI_Controller
 
             if($item->kode =='')
             {
-                $kode = "<a class='btn btn-sm btn-info' href='payment_in/generate_code/$item->id_payment' title='Generate Code'>Generate</a>";
+                $kode = "<a class='btn btn-sm btn-info' href='payment_in/generate_code/$item->id' title='Generate Code'>Generate</a>";
             }
             else
             {
@@ -46,7 +46,7 @@ class Payment_in extends CI_Controller
             $metode = '';
             if($item->metode == '')
             {
-                $metode = "<a href='payment_in/update_payment_in/$item->id_payment' class='btn btn-sm btn-success' title='Update Payment'>Update</a>";
+                $metode = "<a href='payment_in/update_payment_in/$item->id' class='btn btn-sm btn-success' title='Update Payment'>Update</a>";
             }
             else
             {
@@ -58,15 +58,15 @@ class Payment_in extends CI_Controller
             
             $row[] = $item->do_number;
             $row[] = $item->invoice;
-            $row[] = $item->nama_emkl;
-            $row[] = $item->nama_vessel;
+            $row[] = $item->emkl_nama;
+            $row[] = $item->vessel_nama;
             $row[] = $item->no_voyage;
             $row[] = $metode;
             $row[] = $kode;
             $row[] = "
-                            <a href='payment_in/view_payment_in/$item->id_payment' class='btn btn-sm btn-primary' title='View Detail'><i class='bi bi-eye'></i></a>
-                            <a href='payment_in/edit_payment_in/$item->id_payment' class='btn btn-sm btn-success' title='Edit'><i class='bi bi-pencil'></i></a>
-                            <a href='payment_in/add_container_payment_in/$item->id_payment' class='btn btn-sm btn-warning' title='Input Container'><i class='bi bi-clipboard-plus'></i></a>
+                            <a href='payment_in/view_payment_in/$item->id' class='btn btn-sm btn-primary' title='View Detail'><i class='bi bi-eye'></i></a>
+                            <a href='payment_in/edit_payment_in/$item->id' class='btn btn-sm btn-success' title='Edit'><i class='bi bi-pencil'></i></a>
+                            <a href='payment_in/add_container_payment_in/$item->id' class='btn btn-sm btn-warning' title='Input Container'><i class='bi bi-clipboard-plus'></i></a>
                           ";
 
             $data[] = $row;

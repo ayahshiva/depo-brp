@@ -7,7 +7,7 @@
           	<div class="btn-group me-2">
           		<nav aria-label="breadcrumb">
   						<ol class="breadcrumb">
-    						<li class="breadcrumb-item"><a href="<?= site_url('list_in'); ?>" >Payment In</a></li>  
+    						<li class="breadcrumb-item"><a href="<?= site_url('payment_in'); ?>" >Payment In</a></li>  
     						<li class="breadcrumb-item">View Detail Payment In</li>
   						</ol>
 					</nav>            

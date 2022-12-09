@@ -25,7 +25,7 @@
   				</caption>
     			<thead>
     				<tr class="bg-primary bg-opacity-75 text-white">
-	      				<th>DO Number</th>
+	      				<th>Do Number</th>
 	      				<th>Invoice</th>
 	      				<th>EMKL</th>	
 	      				<th>Vessel</th>
@@ -38,7 +38,7 @@
     			
     			<tfoot>
     				<tr class="bg-primary bg-opacity-75 text-white">
-	      				<th>DO Number</th>
+	      				<th>Do Number</th>
 	      				<th>Invoice</th>
 	      				<th>EMKL</th>	
 	      				<th>Vessel</th>
@@ -67,8 +67,8 @@
 	                "type": "POST"
 	            },
 	            "columnDefs":[
-	            	{"orderable": false, "targets": [0,1,2,3,4,5,6,7]}
-	            ],
+	            	{"orderable": false, "targets": [7]}
+	            ]
 	        });
 	    });
     </script>

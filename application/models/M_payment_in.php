@@ -8,10 +8,11 @@ class M_payment_in extends CI_Model
     var $table = 'payment_in';
     var $table2 = 'detil_payment_in';
     var $table3 = 'container';
+    var $table4 = 'view_payment_in';
 
-    var $column_order = array('do_number','invoice','id_emkl','id_vessel','no_voyage', 'metode','kode', NULL);
-    var $column_search = array('do_number', 'invoice', 'id_emkl', 'id_vessel', 'no_voyage', 'kode');
-    var $oder = array('tanggal'=>'DESC'); 
+    var $column_order = array('do_number','invoice','emkl_nama', 'vessel_nama', 'no_voyage','metode', 'kode', NULL);
+    var $column_search = array('do_number','invoice','emkl_nama', 'vessel_nama', 'no_voyage','metode', 'kode');
+    var $oder = array('id'=>'DESC'); 
 
     function __construct()
     {
@@ -21,11 +22,7 @@ class M_payment_in extends CI_Model
 
     function _get_datatables_query()
     {
-        $this->db->select('*, payment_in.id as id_payment, emkl.id as id_emkl, emkl.nama as nama_emkl, vessel.id as id_vessel, vessel.nama as nama_vessel');
-        $this->db->join('emkl', 'payment_in.id_emkl = emkl.id', 'left');
-        $this->db->join('vessel', 'payment_in.id_vessel = vessel.id', 'left');
-        $this->db->order_by('payment_in.id', 'DESC');
-        $this->db->from($this->table);
+        $this->db->from($this->table4);
 
         $i = 0;
         foreach($this->column_search as $item)
