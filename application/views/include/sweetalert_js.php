@@ -36,6 +36,15 @@
                 showConfirmButton: true,
             })
         <?php } ?>
+
+        <?php if($this->session->flashdata('payment')){ ?>           
+            Swal.fire({
+                title: 'Berhasil',  
+                icon: 'success',
+                title: 'Data telah diubah',
+                showConfirmButton: true,
+            })
+        <?php } ?>
     
         <?php if($this->session->flashdata('hapus')){ ?>           
             Swal.fire({

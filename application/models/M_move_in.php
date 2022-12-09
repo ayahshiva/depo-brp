@@ -8,11 +8,80 @@ class M_move_in extends CI_Model
     var $table = 'move_in';
     var $table2 = 'detil_move_in';
     var $table3 = 'container';
+
+    var $column_order = array('tanggal','id_mlo','id_vessel','no_voyage', 'jumlah', NULL);
+    var $column_search = array('tanggal','id_mlo', 'id_vessel', 'no_voyage', 'jumlah');
+    var $oder = array('tanggal'=>'DESC'); 
     
     function __construct()
     {
        parent::__construct();
+       $this->load->database();
     }
+
+    function _get_datatables_query()
+    {
+        $this->db->select('*, move_in.id as idmovein, mlo.id as idmlo, mlo.nama as namamlo, vessel.id as idvessel, vessel.nama as namavessel');
+        $this->db->join('mlo', 'move_in.id_mlo = mlo.id', 'left');
+        $this->db->join('vessel', 'move_in.id_vessel = vessel.id', 'left');
+        $this->db->order_by('move_in.id', 'DESC');
+        $this->db->from($this->table);
+
+        $i = 0;
+        foreach($this->column_search as $item)
+        {
+            if ($this->input->post('search')['value'])
+            {
+                if ($i === 0)
+                {
+                    $this->db->group_start();
+                    $this->db->like($item, $this->input->post('search')['value']);
+                }
+                else
+                {
+                    $this->db->or_like($item, $this->input->post('search')['value']);
+                }
+
+                if(count($this->column_search) -1 == $i)
+                    $this->db->group_end();
+            }
+        $i++;
+        }
+
+        if ($this->input->post('order')) 
+        {
+            $this->db->order_by($this->column_order[$this->input->post('order')['0']['column']], $this->input->post('order')['0']['dir']);
+        }
+        else if (isset($this->order)) 
+        {
+            $order = $this->order;
+            $this->db->order_by(key($order), $order[key($order)]);
+        }
+    }
+
+    function get_datatables()
+    {
+        $this->_get_datatables_query();
+        if ($this->input->post('length') != -1)
+            $this->db->limit($this->input->post('length'), $this->input->post('start'));
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function count_filtered()
+    {
+        $this->_get_datatables_query();
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    public function count_all()
+    {
+        $this->db->from($this->table);
+        return $this->db->count_all_results();
+    }
+
+
 
     function get_by_id($id)
     {
@@ -62,6 +131,14 @@ class M_move_in extends CI_Model
         return $this->db->get()->num_rows();
     }
 
+    function get_voyage()
+    {
+        $this->db->select('no_voyage');
+        $this->db->order_by('id', 'DESC');
+        $this->db->limit(15);
+        return $this->db->get($this->table)->result();
+    }
+
     function insert($data)
     {
         $this->db->insert($this->table, $data);
@@ -85,5 +162,31 @@ class M_move_in extends CI_Model
     {
         $this->db->delete($this->table, array("id" => $id));
         return $this->db->affected_rows();
+    }
+
+    function get_vessel($no_voyage)
+    {
+        //return $this->db->get_where('move_in',['no_voyage' => $no_voyage])->results();
+        $this->db->select('*');
+        $this->db->join('vessel', 'move_in.id_vessel = vessel.id', 'left');
+        $this->db->where('no_voyage', $no_voyage);
+        return $this->db->get($this->table)->result();
+    }
+
+    function get_mlo($no_voyage)
+    {
+        //return $this->db->get_where('move_in',['no_voyage' => $no_voyage])->results();
+        $this->db->select('*, move_in.id as idmovein');
+        $this->db->join('mlo', 'move_in.id_mlo = mlo.id', 'left');
+        $this->db->where('no_voyage', $no_voyage);
+        return $this->db->get($this->table)->result();
+    }
+
+    function get_id_move_in($id)
+    {
+        //return $this->db->get_where('move_in',['no_voyage' => $no_voyage])->results();
+        $this->db->select('*');
+        $this->db->where('no_voyage', $id);
+        return $this->db->get($this->table)->result();
     }
 }

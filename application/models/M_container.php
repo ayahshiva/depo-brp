@@ -165,5 +165,20 @@ class M_container extends CI_Model
       $this->db->insert($this->table, $input_baru);
       return $this->db->affected_rows();
     }
+
+    function get_container($id_move_in)
+    {
+        $this->db->where('detil_move_in.id_move_in', $id_move_in);
+        $this->db->join('container', 'detil_move_in.id_container = container.id', 'left');
+        $this->db->where('container.stok', '1');
+        return $this->db->get('detil_move_in')->result();
+    }
+
+    function update($id, $data)
+    {
+        $this->db->where('id', $id);
+        $this->db->update($this->table, $data);
+        return $this->db->affected_rows();
+    }
     
 }

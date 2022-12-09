@@ -20,73 +20,55 @@ class List_in extends CI_Controller
 			redirect(site_url());
 		}
 	}
-    
+
     public function get_list_in()
     {
-        $draw = intval($this->input->get("draw"));
-        $start = intval($this->input->get("start"));
-        $length = intval($this->input->get("length"));
-        
-        $this->db->select('*, move_in.id as idmovein, mlo.id as id_mlo, mlo.nama as namamlo, vessel.id as id_vessel, vessel.nama as namavessel')
-                 ->from('move_in')
-                 ->join('mlo', 'move_in.id_mlo = mlo.id', 'left')
-                 ->join('vessel', 'move_in.id_vessel = vessel.id', 'left')
-                 ->order_by('move_in.id', 'desc');
-        $query = $this->db->get();
+        header('Content-Type: application/json');
+        $list = $this->M_move_in->get_datatables();
         $data = array();
-        $no = 1;
-        foreach ($query->result() as $key => $value) {
+        $no = $this->input->post('start');
+        //looping data mahasiswa
+        foreach ($list as $item) {
 
             $this->db->select('*')
                  ->from('detil_move_in')
-                 ->where('id_move_in', $value->idmovein);
+                 ->where('id_move_in', $item->idmovein);
             $jmlh = $this->db->get()->num_rows();
 
-            if($value->jumlah != $jmlh )
+            if($item->jumlah != $jmlh )
             {
-                $jumlah = "<span style='color: red'>".$value->jumlah."</span>";
+                $jumlah = "<span style='color: red'>".$item->jumlah."</span>";
             }
             else
             {
-                $jumlah = "<span style='color: green'>".$value->jumlah."</span>";
+                $jumlah = "<span style='color: green'>".$item->jumlah."</span>";
             }
-         
+
+            $no++;
             $row = array();
-            $row[] = $no++;
-            $row[] = date('d-m-Y', strtotime($value->tanggal));
-            $row[] = $value->namamlo;
-            $row[] = $value->namavessel;
-            $row[] = $value->no_voyage;
+            
+            $row[] = date('d-m-Y', strtotime($item->tanggal));
+            $row[] = $item->namamlo;
+            $row[] = $item->namavessel;
+            $row[] = $item->no_voyage;
             $row[] = $jumlah;
             $row[] = "
-                        <a href='list_in/view_list_in/$value->idmovein' class='btn btn-sm btn-primary' title='View Detail'><i class='bi bi-eye'></i></a>
-                        <a href='list_in/edit_list_in/$value->idmovein' class='btn btn-sm btn-success' title='Edit'><i class='bi bi-pencil'></i></a>
-                        <a href='list_in/add_container/$value->idmovein' class='btn btn-sm btn-warning' title='Tambah Container'><i class='bi bi-clipboard-plus'></i></a>
-                        <a href='list_in/delete_container/$value->idmovein' class='btn btn-sm btn-danger' title='Hapus Container'><i class='bi bi-clipboard-minus'></i></a>
+                        <a href='list_in/view_list_in/$item->idmovein' class='btn btn-sm btn-primary' title='View Detail'><i class='bi bi-eye'></i></a>
+                        <a href='list_in/edit_list_in/$item->idmovein' class='btn btn-sm btn-success' title='Edit'><i class='bi bi-pencil'></i></a>
+                        <a href='list_in/add_container/$item->idmovein' class='btn btn-sm btn-warning' title='Tambah Container'><i class='bi bi-clipboard-plus'></i></a>
+                        <a href='list_in/delete_container/$item->idmovein' class='btn btn-sm btn-danger' title='Hapus Container'><i class='bi bi-clipboard-minus'></i></a>
                      ";
 
-            $data[] = $row;            
+            $data[] = $row;
         }
-
-        $result = array(
-            "draw"=> $draw,
-            "recordTotal" => $query->num_rows(),
-            "recordsFiltered" => $query->num_rows(),
-            "data" => $data 
+        $output = array(
+            "draw" => $this->input->post('draw'),
+            "recordsTotal" => $this->M_move_in->count_all(),
+            "recordsFiltered" => $this->M_move_in->count_filtered(),
+            "data" => $data,
         );
-        echo json_encode($result);
-        exit();
-    }
-
-    public function get_ajax_mlo()
-    {
- 		// Search term
-      $searchTerm = $this->input->post('searchTerm');
-
-      // Get users
-      $response = $this->M_mlo->getAjax($searchTerm);
-
-      echo json_encode($response);
+        //output to json format
+        $this->output->set_output(json_encode($output));
     }
 
     public function index()

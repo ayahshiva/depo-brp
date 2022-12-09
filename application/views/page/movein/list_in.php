@@ -7,7 +7,7 @@
           		<div class="btn-group me-2">
           			<nav aria-label="breadcrumb">
   						<ol class="breadcrumb">
-    						<li class="breadcrumb-item"><a href="<?= site_url('mlo'); ?>" onclick="return false;">List In</a></li>  
+    						<li class="breadcrumb-item"><a href="<?= site_url('list_in'); ?>" onclick="return false;">List In</a></li>  
     						<li class="breadcrumb-item">Table Data List In</li>
   						</ol>
 					</nav>            
@@ -17,7 +17,7 @@
 
       	<!-- Content -->
       	<div class="table-responsive-sm table-responsive-md">
-  			<table class="table table-hover tabel-striped caption-top" id="myTableListIn">
+  			<table class="table table-hover tabel-striped caption-top" id="ListInTable">
   				<caption class="fs-5">
   					<a href="#formAddListIn" class="btn btn-md btn-success" data-bs-toggle="modal">
   						<i class="bi bi-person-add"></i> Tambah Data 
@@ -25,7 +25,7 @@
   				</caption>
     			<thead>
     				<tr class="bg-primary bg-opacity-75 text-white">
-	      				<th width="10">No</th>
+	      				
 	      				<th>Tanggal</th>
 	      				<th>MLO</th>	
 	      				<th>Vessel</th>
@@ -37,7 +37,7 @@
     			
     			<tfoot>
     				<tr class="bg-primary bg-opacity-75 text-white">
-	      				<th width="10">No</th>
+	      				
 	      				<th>Tanggal</th>
 	      				<th>MLO</th>	
 	      				<th>Vessel</th>
@@ -105,6 +105,23 @@
     </main>
 
 	<script type="text/javascript">
+		$(document).ready(function() {
+        //setting datatables
+	        $('#ListInTable').DataTable({
+	            "processing": true,
+	            "serverSide": true,
+	            "order": [],
+	            "ajax": {
+	                //panggil method ajax list dengan ajax
+	                "url": 'list_in/get_list_in',
+	                "type": "POST"
+	            },
+	            "columnDefs":[
+	            	{"orderable": false, "targets": [0,1,2,3,4,5]}
+	            ]
+	        });
+	    });
+
 		$('#select2').select2({
 	        dropdownParent: $('#formAddListIn')
 	    });
