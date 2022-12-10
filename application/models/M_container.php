@@ -186,5 +186,11 @@ class M_container extends CI_Model
         $this->db->update($this->table, $data);
         return $this->db->affected_rows();
     }
+
+    function get_stok()
+    {
+        $this->db->where('stok', '3');
+        return $this->db->get($this->table)->result();
+    }
     
 }

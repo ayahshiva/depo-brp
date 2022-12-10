@@ -50,3 +50,11 @@ $route['process_in'] = 'process_in';
 //Berita Acara
 $route['berita_acara'] = 'berita_acara';
 $route['view_berita_acara'] = 'view_berita_acara';
+
+
+//MV-Out
+$route['list_out'] = 'list_out';
+$route['view_list_out'] = 'list_out/view_list_out';
+$route['edit_list_out'] = 'list_out/edit_list_out';
+$route['tambah_container'] = 'list_out/tambah_container';
+$route['hapus_container'] = 'list_out/hapus_container';

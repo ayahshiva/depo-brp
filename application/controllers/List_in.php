@@ -227,7 +227,7 @@ class List_in extends CI_Controller
 
     function hapus_container()
     {
-        $id_move_in = $this->input->post('id_move_in');
+        $id_move_in = $this->input->post('id_move_in', TRUE);
         $hapus = $this->input->post('hapus');
         $total = count($hapus);
 
