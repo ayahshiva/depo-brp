@@ -46,3 +46,7 @@ $route['add_container_payment_in/(:any)'] = 'payment_in/add_container_payment_in
 
 //Process In
 $route['process_in'] = 'process_in';
+
+//Berita Acara
+$route['berita_acara'] = 'berita_acara';
+$route['view_berita_acara'] = 'view_berita_acara';

@@ -86,6 +86,13 @@ class M_emkl extends CI_Model
         return $this->db->get_where($this->table, ['id' => $id])->row();
     }
 
+    function get_by_id_emkl($id_emkl)
+    {
+        $this->db->where('id', $id_emkl);
+        $this->db->limit(1);
+        return $this->db->get('emkl')->row();
+    }
+
     function insert($data)
     {
         $this->db->insert($this->table, $data);
