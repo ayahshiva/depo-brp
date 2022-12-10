@@ -19,7 +19,12 @@
       <div class="container-fluid">
       	<div class="row">
       		<form class="needs-validation" method="post" action="<?php echo site_url('list_in/update_list_in'); ?>" novalidate>
-				  		<div class="mb-3">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title fs-6">Form Edit List In</div>
+					</div>
+					<div class="card-body">
+						<div class="mb-3">
 							<label class="form-label">MLO*</label>
 							<select class="form-control form-select select2" name="id_mlo" required>
 								<option selected disabled value="">Pilih MLO</option>
@@ -54,11 +59,15 @@
 							<input type="number" name="jumlah" class="form-control" value="<?php echo $get_by_id->jumlah; ?>" min="1" required>
 							<div class="invalid-feedback">Harap diisi!</div>
 						</div>
+					</div>
+					<div class="card-footer">
 						<input type="hidden" name="id" value="<?php echo $this->uri->segment(3); ?>">
 				  		<button type="submit" class="btn btn-primary">Submit</button>
 				  		<a href="<?php echo site_url('list_in'); ?>" class="btn btn-danger">Batal</a>
-				</form>
-			</div>
+					</div>
+				</div>		  		
+			</form>
+		</div>
    	</div>	
 </main>
 

@@ -8,7 +8,7 @@
           		<div class="btn-group me-2">
           			<nav aria-label="breadcrumb">
   						<ol class="breadcrumb">
-    						<li class="breadcrumb-item"><a href="<?= site_url('payment_in'); ?>" >Payment In</a></li>  
+    						<li class="breadcrumb-item"><a href="<?= site_url('payment_out'); ?>" >Payment Out</a></li>  
     						<li class="breadcrumb-item">Form Update Payment</li>
   						</ol>
 					</nav>            
@@ -24,7 +24,7 @@
       <!-- Content -->
       <div class="container-fluid">
       	<div class="row">
-      		<form class="needs-validation" method="post" action="<?php echo site_url('payment_in/simpan_update_payment_in'); ?>" novalidate>
+      		<form class="needs-validation" method="post" action="<?php echo site_url('payment_out/simpan_update_payment_out'); ?>" novalidate>
 				<div class="card">
 					<div class="card-header">
 						<div class="card-title fs-6">Form Update Payment</div>
@@ -34,12 +34,12 @@
 							<label class="form-label">Tanggal*</label>
 							<input type="hidden" name="id_payment" value="<?php echo $this->uri->segment(3); ?>">
 							<input type="date" name="tanggal" class="form-control" value="<?php echo date('Y-m-d'); ?>" required>
-							<div class="invalid-feedback">Harap pilih salah satu!</div>
+							<div class="invalid-feedback">Harap pilih tanggal!</div>
 						</div>
 						<div class="mb-3">
 							<label class="form-label">Invoice*</label>
 							<input type="text" class="form-control" placeholder="Invoice" name="invoice" required>
-							<div class="invalid-feedback">Harap pilih salah satu!</div>
+							<div class="invalid-feedback">Harap diisi!</div>
 						</div>
 						<div class="mb-3">
 							<label class="form-label">Payment Method*</label>
@@ -60,7 +60,7 @@
 					</div>
 					<div class="card-footer"> 
 						<button type="submit" class="btn btn-primary">Submit</button>
-				  		<a href="<?php echo site_url('payment_in'); ?>" class="btn btn-danger">Batal</a>
+				  		<a href="<?php echo site_url('payment_out'); ?>" class="btn btn-danger">Batal</a>
 					</div>
 				</div>		  		
 			</form>

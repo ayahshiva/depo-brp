@@ -193,4 +193,12 @@ class M_container extends CI_Model
         return $this->db->get($this->table)->result();
     }
     
+    function get_container_out($id_move_out)
+    {
+        $this->db->select('*');
+        $this->db->join('detil_move_out', 'container.id = detil_move_out.id_container');
+        $this->db->where('container.stok', '4');
+        $this->db->where('detil_move_out.id_move_out', $id_move_out);
+        return $this->db->get('container')->result();
+    }
 }

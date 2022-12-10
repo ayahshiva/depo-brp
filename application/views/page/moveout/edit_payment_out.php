@@ -3,13 +3,13 @@
 
 		<!-- Breadcrmb -->
     	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        	<h1 class="h2">Tambah Payment In</h1>
+        	<h1 class="h2">Form Edit Payment Out</h1>
         	<div class="btn-toolbar mb-2 mb-md-0">
           		<div class="btn-group me-2">
           			<nav aria-label="breadcrumb">
   						<ol class="breadcrumb">
-    						<li class="breadcrumb-item"><a href="<?= site_url('payment_in'); ?>" >Payment In</a></li>  
-    						<li class="breadcrumb-item">Form Tambah Payment In</li>
+    						<li class="breadcrumb-item"><a href="<?= site_url('payment_out'); ?>" >Payment Out</a></li>  
+    						<li class="breadcrumb-item">Form Edit Payment Out</li>
   						</ol>
 					</nav>            
           		</div>
@@ -26,10 +26,10 @@
 	    <div class="container-fluid">
 	    	<div class="row">
 	    		<div class="col-md-6">
-	    			<form class="needs-validation" method="post" action="<?php echo site_url('payment_in/simpan_edit_payment_in'); ?>" novalidate>
+	    			<form class="needs-validation" method="post" action="<?php echo site_url('payment_out/simpan_edit_payment_out'); ?>" novalidate>
 		    			<div class="card">
 		    				<div class="card-header">
-		    					<div class="card-title fs-5">Form Edit Payment In</div>
+		    					<div class="card-title fs-5">Form Edit Payment Out</div>
 		    				</div>
 		    				<div class="card-body">
 		    					<div class="mb-3">
@@ -75,20 +75,20 @@
 								</div>
 								<div class="mb-3">
 									<label class="form-label">Jumlah*</label>
-									<input type="number" name="jumlah" class="form-control" value="<?php echo $edit->jml; ?>" min="1" required>
+									<input type="number" name="jumlah" class="form-control" value="<?php echo $edit->jumlah; ?>" min="1" required>
 									<div class="invalid-feedback">Harap diisi!</div>
 								</div>
 		    				</div>
 		    				<div class="card-footer">
-		    					<input type="text" name="id_payment" value="<?php echo $this->uri->segment(3); ?>">
+		    					<input type="hidden" name="id_payment" value="<?php echo $this->uri->segment(3); ?>">
 						  		<button type="submit" class="btn btn-primary">Submit</button>
-						  		<a href="<?php echo site_url('payment_in'); ?>" class="btn btn-danger">Batal</a>
+						  		<a href="<?php echo site_url('payment_out'); ?>" class="btn btn-danger">Batal</a>
 		    				</div>
 		    			</div>
 		    		</form>
 	    		</div>
 	      		<div class="col-md-6">
-	      			<form class="needs-validation" method="post" action="<?php echo site_url('payment_in/simpan_update_payment_in'); ?>" novalidate>
+	      			<form class="needs-validation" method="post" action="<?php echo site_url('payment_out/simpan_update_payment_out'); ?>" novalidate>
 	      				<div class="card">
 	      					<div class="card-header">
 	      						<div class="card-title fs-5">Form Edit Metode Pembayaran</div>
@@ -97,7 +97,7 @@
 	      						<div class="mb-3">
 									<label class="form-label">Tanggal*</label>
 									<input type="hidden" name="id_payment" value="<?php echo $this->uri->segment(3); ?>">
-									<input type="date" name="tanggal" class="form-control" value="<?php echo date('Y-m-d', strtotime($get_payment->tanggal)); ?>" required>
+									<input type="date" name="tanggal" class="form-control" value="<?php echo date('Y-m-d', strtotime($get_payment->tanggal_payment)); ?>" required>
 									<div class="invalid-feedback">Harap diisi!</div>
 								</div>
 								<div class="mb-3">
@@ -124,7 +124,7 @@
 	      					</div>
 	      					<div class="card-footer">
 	      						<button type="submit" class="btn btn-primary">Submit</button>
-				  				<a href="<?php echo site_url('payment_in'); ?>" class="btn btn-danger">Batal</a>
+				  				<a href="<?php echo site_url('payment_out'); ?>" class="btn btn-danger">Batal</a>
 	      					</div>
 	      				</div>
 	      			</form>

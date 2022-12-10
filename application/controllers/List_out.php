@@ -208,18 +208,18 @@ class List_out extends CI_Controller
             }
         }
 
-        $kueri = $this->db->select('*')->where('id', $id_move_out)->get('move_out');
-        $result = $kueri->row();
+        // $kueri = $this->db->select('*')->where('id', $id_move_out)->get('move_out');
+        // $result = $kueri->row();
 
-        $jumlahlama = $result->jumlah;
-        $jumlahbaru = $jumlahlama - $total;
+        // $jumlahlama = $result->jumlah;
+        // $jumlahbaru = $jumlahlama - $total;
 
-        $data = array(
-                'id' => $id_move_out,
-                'jumlah' => $jumlahbaru
-                );
-        $this->db->where('id', $id_move_out);
-        $this->db->update('move_out', $data);
+        // $data = array(
+        //         'id' => $id_move_out,
+        //         'jumlah' => $jumlahbaru
+        //         );
+        // $this->db->where('id', $id_move_out);
+        // $this->db->update('move_out', $data);
 
         redirect('list_out/view_list_out/'.$id_move_out);
     }

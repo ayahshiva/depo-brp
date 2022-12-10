@@ -81,9 +81,9 @@ $db['default'] = array(
 	'password' => '',
 	'database' => 'brp_db',
 
-	//'username' => 'depob392_user',
-	//'password' => ';p[nZYnTaP^9',
-	//'database' => 'depob392_inventory',
+	// 'username' => 'depob392_user',
+	// 'password' => '6bhw9#;pXA=?',
+	// 'database' => 'depob392_app_depo',
 
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

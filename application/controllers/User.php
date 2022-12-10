@@ -19,40 +19,53 @@ class User extends CI_Controller {
 
 	function get_data_user()
     {
+        header('Content-Type: application/json');
         $list = $this->M_users->get_datatables();
         $data = array();
-        $no = $_POST['start'];
-        foreach ($list as $field) {
+        $no = $this->input->post('start');
+        //looping data mahasiswa
+        foreach ($list as $item) {
+
+        	$login = "";
+        	if($item->last_login == '0000-00-00 00:00:00')
+        	{
+        		$login = "-";
+        	}
+        	else
+        	{
+        		$login = date('d-m-Y H:i', strtotime($item->last_login));
+        	}
+
             $no++;
             $row = array();
+            
             $row[] = $no;
-            $row[] = $field->display_name;
-            $row[] = $field->username;
-            $row[] = $field->email;
-            $row[] = $field->role;
-            $row[] = $field->last_login;
+            $row[] = $item->display_name;
+            $row[] = $item->username;
+            $row[] = $item->email;
+            $row[] = $item->role;
+            $row[] = $login;
             $row[] = "
             			<button type='button' class='btn btn-sm btn-info text-white' data-bs-target='#formEditUser' 
-							data-bs-toggle='modal' data-id='$field->id' data-display_name='$field->display_name', data-username='$field->username' data-email='$field->email' data-role='$field->role'>
+							data-bs-toggle='modal' data-id='$item->id' data-display_name='$item->display_name', data-username='$item->username' data-email='$item->email' data-role='$item->role'>
             				<i class='bi bi-pencil-square'></i>
             			</button>
 						
-						<a href='#' onclick='hapus($field->id)' class='btn btn-danger btn-sm text-white hapus' title='hapus'>
+						<a href='#' onclick='hapus($item->id)' class='btn btn-danger btn-sm text-white hapus' title='hapus'>
 						 	<i class='bi bi-trash'></i>
 						 </a>
             		 ";
  
             $data[] = $row;
         }
- 
         $output = array(
-            "draw" => $_POST['draw'],
+            "draw" => $this->input->post('draw'),
             "recordsTotal" => $this->M_users->count_all(),
             "recordsFiltered" => $this->M_users->count_filtered(),
             "data" => $data,
         );
-        //output dalam format JSON
-        echo json_encode($output);
+        //output to json format
+        $this->output->set_output(json_encode($output));
     }
 
 	public function index()

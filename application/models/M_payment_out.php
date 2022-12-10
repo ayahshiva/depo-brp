@@ -3,16 +3,16 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 
-class M_payment_in extends CI_Model
+class M_payment_out extends CI_Model
 {
-    var $table = 'payment_in';
-    var $table2 = 'detil_payment_in';
+    var $table = 'payment_out';
+    var $table2 = 'detil_payment_out';
     var $table3 = 'container';
-    var $table4 = 'view_payment_in';
+    var $table4 = 'view_payment_out';
 
-    var $column_order = array('do_number','invoice','emkl_nama', 'vessel_nama', 'no_voyage','metode', 'kode', NULL);
-    var $column_search = array('do_number','invoice','emkl_nama', 'vessel_nama', 'no_voyage','metode', 'kode');
-    var $oder = array('id'=>'DESC'); 
+    var $column_order = array('do_number','invoice','nama_emkl', 'nama_vessel', 'no_voyage','metode', 'kode', NULL);
+    var $column_search = array('do_number','invoice','nama_emkl', 'nama_vessel', 'no_voyage','metode', 'kode');
+    var $oder = array('id_pay_out'=>'DESC'); 
 
     function __construct()
     {
@@ -79,7 +79,7 @@ class M_payment_in extends CI_Model
     }
 
 
-    function simpan_payment_in($data)
+    function simpan_payment_out($data)
     {
         $this->db->insert($this->table, $data);
         return $this->db->affected_rows();
@@ -94,36 +94,34 @@ class M_payment_in extends CI_Model
 
     function get_by_id($id)
     {
-        $this->db->where('id', $id);
-        return $this->db->get($this->table)->row();
+        $this->db->where('id_pay_out', $id);
+        return $this->db->get($this->table4)->row();
     }
 
     function get_view_id($id)
     {
-        $this->db->select('*, emkl.id as emkl_id, emkl.nama as emkl_nama');
-        $this->db->join('emkl', 'payment_in.id_emkl = emkl.id', 'left');
-        return $this->db->get($this->table)->row();
+        return $this->db->where('id_pay_out', $id)->get($this->table4)->row();
     }
 
     function list_container($id)
     {
         $this->db->select('*, 
-                            detil_payment_in.id as id1,
-                            payment_in.id as id2,
+                            detil_payment_out.id as id1,
+                            payment_out.id as id2,
                             container.id as id3
                         ');
-        $this->db->join('payment_in', 'detil_payment_in.id_payment_in = payment_in.id', 'left');
-        $this->db->join('container', 'detil_payment_in.id_container = container.id', 'left');
-        $this->db->join('detil_move_in', 'container.id = detil_move_in.id_container', 'left');
-        $this->db->where('detil_payment_in.id_payment_in', $id);
+        $this->db->join('payment_out', 'detil_payment_out.id_payment_out = payment_out.id', 'left');
+        $this->db->join('container', 'detil_payment_out.id_container = container.id', 'left');
+        $this->db->join('detil_move_out', 'container.id = detil_move_out.id_container', 'left');
+        $this->db->where('detil_payment_out.id_payment_out', $id);
         return $this->db->get($this->table2)->result();
     }
 
     function jumlah_real($id)
     {
         $this->db->select('*')
-                 ->from('detil_payment_in')
-                 ->where('id_payment_in', $id);
+                 ->from('detil_payment_out')
+                 ->where('id_payment_out', $id);
         return $this->db->get()->num_rows();
     }
 

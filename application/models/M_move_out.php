@@ -74,7 +74,7 @@ class M_move_out extends CI_Model
 
     public function count_all()
     {
-        $this->db->from($this->table);
+        $this->db->from($this->table4);
         return $this->db->count_all_results();
     }
 
@@ -138,5 +138,30 @@ class M_move_out extends CI_Model
                  ->from('detil_move_out')
                  ->where('id_move_out', $id);
         return $this->db->get()->num_rows();
+    }
+
+    function get_voyage()
+    {
+        $this->db->select('no_voyage');
+        $this->db->order_by('id', 'DESC');
+        $this->db->group_by('no_voyage');
+        $this->db->limit(15);
+        return $this->db->get($this->table)->result();
+    }
+
+    function get_vessel($no_voyage)
+    {
+        //return $this->db->get_where('move_in',['no_voyage' => $no_voyage])->results();
+        $this->db->select('*');
+        $this->db->join('vessel', 'move_out.id_vessel = vessel.id', 'left');
+        $this->db->where('no_voyage', $no_voyage);
+        $this->db->group_by('vessel.id');
+        return $this->db->get($this->table)->result();
+    }
+
+    function simpan_payment_out($data)
+    {
+        $this->db->insert($this->table, $data);
+        return $this->db->affected_rows();
     }
 }

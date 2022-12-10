@@ -240,18 +240,18 @@ class List_in extends CI_Controller
             }
         }
 
-        $kueri = $this->db->select('*')->where('id', $id_move_in)->get('move_in');
-        $result = $kueri->row();
+        // $kueri = $this->db->select('*')->where('id', $id_move_in)->get('move_in');
+        // $result = $kueri->row();
 
-        $jumlahlama = $result->jumlah;
-        $jumlahbaru = $jumlahlama - $total;
+        // $jumlahlama = $result->jumlah;
+        // $jumlahbaru = $jumlahlama - $total;
 
-        $data = array(
-                'id' => $id_move_in,
-                'jumlah' => $jumlahbaru
-                );
-        $this->db->where('id', $id_move_in);
-        $this->db->update('move_in', $data);
+        // $data = array(
+        //         'id' => $id_move_in,
+        //         'jumlah' => $jumlahbaru
+        //         );
+        // $this->db->where('id', $id_move_in);
+        // $this->db->update('move_in', $data);
 
         redirect('list_in/view_list_in/'.$id_move_in);
     }

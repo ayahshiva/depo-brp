@@ -58,3 +58,10 @@ $route['view_list_out'] = 'list_out/view_list_out';
 $route['edit_list_out'] = 'list_out/edit_list_out';
 $route['tambah_container'] = 'list_out/tambah_container';
 $route['hapus_container'] = 'list_out/hapus_container';
+
+//Payment Out
+$route['payment_out'] = 'payment_out';
+$route['tambah_payment_out'] = 'payment_out/tambah_payment_out';
+$route['view_payment_out/(:any)'] = 'payment_out/view_payment_out/(:any)';
+$route['edit_payment_out/(:any)'] = 'payment_out/edit_payment_out/(:any)';
+$route['update_payment_out/(:any)'] = 'payment_out/update_payment_out/(:any)';

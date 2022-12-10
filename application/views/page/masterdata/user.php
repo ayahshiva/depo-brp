@@ -17,7 +17,7 @@
 
       	<!-- Content -->
       	<div class="table-responsive-sm table-responsive-md">
-  			<table class="table table-hover table-sm caption-top" id="myTable">
+  			<table class="table table-hover table-sm caption-top" id="UsersTable">
   				<caption class="fs-5">
   					<a href="#formAddUser" class="btn btn-md btn-success" data-bs-toggle="modal">
   						<i class="bi bi-person-add"></i> Tambah Data 
@@ -149,38 +149,20 @@
     </main>
 
     <script>
-	    var tabel = null;
-	    $(document).ready(function() {
-	        tabel = $('#table-user').DataTable({
+	   $(document).ready(function() {
+        //setting datatables
+	        $('#UsersTable').DataTable({
 	            "processing": true,
-	            "responsive":true,
 	            "serverSide": true,
-	            "ordering": true, // Set true agar bisa di sorting
-	            "order": [[ 0, 'asc' ]], // Default sortingnya berdasarkan kolom / field ke 0 (paling pertama)
-	            "ajax":
-	            {
-	                "url": "<?= base_url('user/view_data');?>", // URL file untuk proses select datanya
+	            "order": [],
+	            "ajax": {
+	                //panggil method ajax list dengan ajax
+	                "url": 'User/get_data_user',
 	                "type": "POST"
 	            },
-	            "deferRender": true,
-	            "aLengthMenu": [[5, 10, 50],[ 5, 10, 50]], // Combobox Limit
-	            "columns": [
-	                {"data": 'id',"sortable": false, 
-	                    render: function (data, type, row, meta) {
-	                        return meta.row + meta.settings._iDisplayStart + 1;
-	                    }  
-	                },
-	                { "data": "display_name" }, // Tampilkan judul
-	                { "data": "username" },  // Tampilkan kategori
-	                { "data": "email" },  // Tampilkan penulis
-	                { "data": "role" },  // Tampilkan tgl posting
-	                { "data": "id",
-	                    "render": 
-	                    function( data, type, row, meta ) {
-	                        return "<button class='btn btn-sm btn-danger text-white'><i class='bi bi-trash'></i></button>";
-	                    }
-	                },
-	            ],
+	            "columnDefs":[
+	            	{"orderable": false, "targets": [0,5,6]}
+	            ]
 	        });
 	    });
 		</script>

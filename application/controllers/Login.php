@@ -33,7 +33,7 @@ class Login extends CI_Controller {
 		
 		$this->load->view('include/header');
 		$this->load->view('page/login');
-		$this->load->view('include/footer');
+		//$this->load->view('include/footer');
 		
 	}
 
@@ -45,7 +45,7 @@ class Login extends CI_Controller {
 		$result = $this->M_users->auth($username);
 		if($result == TRUE){
 			$data_admin = array(
-				'ID' => $result['ID'],
+				'id' => $result['id'],
 				'username' => $result['username'],
 				'password' => $result['password'],
 				'email' => $result['email'],
@@ -57,6 +57,13 @@ class Login extends CI_Controller {
 
 			$stored_hash = $this->session->userdata('password');
 			if($this->bcrypt->check_password($password, $stored_hash)){
+
+				$id = $this->session->userdata('id');
+				$waktu = date('Y-m-d H:i:s');
+				$data = array('last_login' => $waktu);
+				$this->db->where('id', $id);
+				$this->db->update('users', $data);
+
 				redirect(site_url('dashboard'));
 			}else{
 				$this->session->set_flashdata('error', 'Username dan/atau Password Salah');

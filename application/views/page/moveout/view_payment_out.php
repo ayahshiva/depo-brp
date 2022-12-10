@@ -2,13 +2,13 @@
 
 		<!-- Breadcrmb -->
     	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        	<h1 class="h2">View Payment In</h1>
+        	<h1 class="h2">View Payment Out</h1>
         	<div class="btn-toolbar mb-2 mb-md-0">
           	<div class="btn-group me-2">
           		<nav aria-label="breadcrumb">
   						<ol class="breadcrumb">
-    						<li class="breadcrumb-item"><a href="<?= site_url('payment_in'); ?>" >Payment In</a></li>  
-    						<li class="breadcrumb-item">View Detail Payment In</li>
+    						<li class="breadcrumb-item"><a href="<?= site_url('payment_out'); ?>" >Payment Out</a></li>  
+    						<li class="breadcrumb-item">View Detail Payment Out</li>
   						</ol>
 					</nav>            
           	</div>
@@ -21,7 +21,7 @@
       		<div class="col-sm-4">
 	      		<div class="card h-100 border-primary">		    
 					   <div class="card-body">
-					      <h5 class="card-title"><?php echo $view->emkl_nama; ?></h5>
+					      <h5 class="card-title"><?php echo $view->nama_emkl; ?></h5>
 					   </div>
 					   <div class="card-footer bg-primary">
 					      <small class="text-white fs-6">EMKL</small>
@@ -64,7 +64,7 @@
 				<div class="col-sm-4">
 	      		<div class="card h-100 border-danger">		    
 					   <div class="card-body">
-					      <h5 class="card-title"><?php echo date('d-m-Y', strtotime($view->tanggal)); ?></h5>
+					      <h5 class="card-title"><?php echo date('d-m-Y', strtotime($view->tanggal_payment)); ?></h5>
 					   </div>
 					   <div class="card-footer bg-danger">
 					      <small class="text-white fs-6">Tanggal</small>
@@ -87,7 +87,7 @@
 	      	<div class="table-responsive-sm table-responsive-md">
 	      		<table class="table table-hover tabel-striped caption-top display" id="example">
 	      			<caption class="fs-5">
-			  				<a href="<?php echo site_url('payment_in'); ?>" class="btn btn-md btn-success">
+			  				<a href="<?php echo site_url('payment_out'); ?>" class="btn btn-md btn-success">
 			  					<i class="bi bi-arrow-left-circle"></i> Kembali
 			  				</a>
 			  				<a href='<?php echo site_url() ?>payment_in/add_container_payment_in/<?php echo $this->uri->segment(3); ?>' class='btn btn-warning' title='Tambah Container'><i class='bi bi-clipboard-plus'></i></a>

@@ -74,7 +74,7 @@ class M_move_in extends CI_Model
 
     public function count_all()
     {
-        $this->db->from($this->table);
+        $this->db->from($this->table4);
         return $this->db->count_all_results();
     }
 
@@ -132,6 +132,7 @@ class M_move_in extends CI_Model
     {
         $this->db->select('no_voyage');
         $this->db->order_by('id', 'DESC');
+        $this->db->group_by('no_voyage');
         $this->db->limit(15);
         return $this->db->get($this->table)->result();
     }
