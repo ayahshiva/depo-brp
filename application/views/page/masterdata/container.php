@@ -17,10 +17,10 @@
 
       	<!-- Content -->
       	<div class="table-responsive-sm table-responsive-md">
-  			<table class="table table-hover table-sm" id="myTableContainer">
+  			<table class="table table-hover" id="myTableContainer">
   				<thead>
     				<tr class="bg-primary bg-opacity-75 text-white">
-						<th width="10">No.</th>
+						<th width="5%">No.</th>
 	      				<th>MLO</th>
 	      				<th>No Container</th>
 	      				<th>Size</th>
@@ -31,7 +31,7 @@
     			
     			<tfoot>
     				<tr class="bg-primary bg-opacity-75 text-white">
-						<th width="10">No.</th>
+						<th width="5%">No.</th>
 	      				<th>MLO</th>
 	      				<th>No Container</th>
 	      				<th>Size</th>
@@ -42,3 +42,21 @@
   			</table>
   		</div>
     </main>
+    <script>
+        $(document).ready(function() {
+        //setting datatables
+	        $('#myTableContainer').DataTable({
+	            "processing": true,
+	            "serverSide": true,
+	            "order": [],
+	            "ajax": {
+	                //panggil method ajax list dengan ajax
+	                "url": 'container/get_container',
+	                "type": "POST"
+	            },
+	            "columnDefs":[
+	            	{"orderable": false, "targets": [0,5]}
+	            ]
+	        });
+	    });
+    </script>

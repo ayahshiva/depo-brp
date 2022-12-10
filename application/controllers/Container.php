@@ -19,52 +19,44 @@ class Container extends CI_Controller
     
     public function get_container()
     {
-        $draw = intval($this->input->get("draw"));
-        $start = intval($this->input->get("start"));
-        $length = intval($this->input->get("length"));
-
-        //$stok = array('3','4','5');
-        // $query = $this->db->where_not_in('stok', $stok)->get('container');
-        $this->db->select('*, mlo.nama as namamlo')
-                 ->from('container')
-                 ->join('mlo', 'container.id_mlo = mlo.id', 'left')
-                 //->where_in('container.stok', $stok)
-                 ->order_by('container.stok', 'asc');
-        $query = $this->db->get();
+        header('Content-Type: application/json');
+        $list = $this->M_container->get_datatables();
         $data = array();
-        $no = 1;
-        foreach ($query->result() as $key => $value) {
-            
+        $no = $this->input->post('start');
+        
+        foreach ($list as $item) {
+
             $html ='';
-            if($value->stok == '1' OR $value->stok == '2'){
+            if($item->stok == '1' OR $item->stok == '2'){
                 $html = '<span class="badge bg-primary">Proses In</span>';
-            }elseif($value->stok == '3'){
+            }elseif($item->stok == '3'){
                 $html = '<span class="badge bg-success">In Stok</span>';
-            }elseif($value->stok == '4' OR $value->stok == '5'){
+            }elseif($item->stok == '4' OR $item->stok == '5'){
                 $html = '<span class="badge bg-warning">Proses Out</span>';
-            }elseif($value->stok == '6'){
+            }elseif($item->stok == '6'){
                 $html = '<span class="badge bg-danger">Out</span>';
             }
+
+            $no++;
             $row = array();
-            $row[] = $no++;
-            $row[] = $value->namamlo;
-            $row[] = $value->no_cont;
-            $row[] = $value->size;
-            $row[] = $value->tipe;
+            
+            $row[] = $no.".";
+            $row[] = $item->mlo_nama;
+            $row[] = $item->no_cont;
+            $row[] = $item->size;
+            $row[] = $item->tipe;
             $row[] = $html;
 
             $data[] = $row;
-            
         }
-
-        $result = array(
-            "draw"=> $draw,
-            "recordTotal" => $query->num_rows(),
-            "recordsFiltered" => $query->num_rows(),
-            "data" => $data 
+        $output = array(
+            "draw" => $this->input->post('draw'),
+            "recordsTotal" => $this->M_container->count_all(),
+            "recordsFiltered" => $this->M_container->count_filtered(),
+            "data" => $data,
         );
-        echo json_encode($result);
-        exit();
+        //output to json format
+        $this->output->set_output(json_encode($output));
     }
 
     public function index()

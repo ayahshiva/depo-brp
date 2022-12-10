@@ -66,19 +66,6 @@
         });
 
         $(document).ready(function() {
-            $('#myTableContainer').DataTable({
-                ajax: {
-                    url : "<?php echo site_url('container/get_container'); ?>",
-                    type : 'GET'
-                },
-                "columnDefs":[{
-                    "targets": [0],
-                    "orderable": false,
-                }],
-            });
-        });
-
-        $(document).ready(function() {
             $('#myTableVessel').DataTable({
                 ajax: {
                     url : "<?php echo site_url('vessel/get_vessel'); ?>",
