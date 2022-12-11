@@ -123,7 +123,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="<?php echo site_url('process_out'); ?>">
                 <span data-feather="arrow-right" class="align-text-bottom"></span>
                 Process Out
               </a>
@@ -144,7 +144,7 @@
         <div class="collapse" id="report-collapse">
           <ul class="nav flex-column mb-2">
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="<?php echo site_url('reporting/mv_in') ?>">
                 <span data-feather="arrow-right" class="align-text-bottom"></span>
                 MV-IN
               </a>

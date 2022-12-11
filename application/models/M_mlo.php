@@ -86,6 +86,11 @@ class M_mlo extends CI_Model
 	    return $this->db->get_where($this->table, ['id' => $id])->row();
 	}
 
+   function get_mlo($id_mlo)
+   {
+       return $this->db->get_where($this->table, ['id' => $id_mlo])->row();
+   }
+
    function getAjax($searchTerm="")
    {
       $this->db->select('*');

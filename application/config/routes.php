@@ -65,3 +65,9 @@ $route['tambah_payment_out'] = 'payment_out/tambah_payment_out';
 $route['view_payment_out/(:any)'] = 'payment_out/view_payment_out/(:any)';
 $route['edit_payment_out/(:any)'] = 'payment_out/edit_payment_out/(:any)';
 $route['update_payment_out/(:any)'] = 'payment_out/update_payment_out/(:any)';
+
+//Process Out
+$route['process_out'] = 'process_out';
+
+//Reporting
+$route['mv'] = 'reporting/mv_in';
