@@ -150,13 +150,13 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="<?php echo site_url('reporting/mv_out'); ?>">
                 <span data-feather="arrow-right" class="align-text-bottom"></span>
                 MV-OT
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="<?php echo site_url('reporting/s_list'); ?>">
                 <span data-feather="arrow-right" class="align-text-bottom"></span>
                 S-List
               </a>

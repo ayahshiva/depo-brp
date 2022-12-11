@@ -70,4 +70,8 @@ $route['update_payment_out/(:any)'] = 'payment_out/update_payment_out/(:any)';
 $route['process_out'] = 'process_out';
 
 //Reporting
-$route['mv'] = 'reporting/mv_in';
+$route['mv_in'] = 'reporting/mv_in';
+$route['view_mv_in'] = 'reporting/view_mv_in';
+$route['mv_out'] = 'reporting/mv_out';
+$route['s_list'] = 'reporting/s_list';
+$route['view_s_list'] = 'reporting/view_s_list';

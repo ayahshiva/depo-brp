@@ -1,3 +1,11 @@
+<?php
+  header("Content-Type:   application/vnd.ms-excel; charset=utf-8");
+  header("Content-type:   application/x-msexcel; charset=utf-8");
+  header("Content-Disposition: attachment; filename= MV-Out Reporting.xls"); 
+  header("Expires: 0");
+  header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+  header("Cache-Control: private",false);
+?>
 
 <!doctype html>
 <html lang="en">
@@ -45,27 +53,31 @@
 		<table class="table table-bordered table-striped table-hover text-nowrap">
 			<thead>
 				<tr>
-					<th class="text-center" colspan="16">
+					<th class="text-center" colspan="22">
 						PT BAHARI RAHARJA PERMAI - PALEMBANG
 					</th>
 				</tr>
 				<tr>
-					<th class="text-center" colspan="16">
+					<th class="text-center" colspan="22">
 						Periode: <?php echo date('d-m-Y', strtotime($tanggal_awal)) ?> s/d <?php echo date('d-m-Y', strtotime($tanggal_akhir)) ?>
 					</th>
 				</tr>
 				<tr>
-					<th class="text-center" colspan="16">
+					<th class="text-center" colspan="22">
 						MLO: <?php echo $mlo->nama; ?>
 					</th>
 				</tr>
-				<tr><th colspan="16">&nbsp;</th></tr>
+				<tr><th colspan="22">&nbsp;</th></tr>
 				<tr>
 			      	<td rowspan="2" class="text-center bg-primary text-white align-middle">No</td>
 			      	<td colspan="4" class="text-center bg-primary text-white">Container Data</td>
-			      	<td colspan="9" class="text-center bg-primary text-white">IN</td>
-			      	<td rowspan="2" class="text-center bg-primary text-white align-middle">Cogsignee/EMKL</td>
-			      	<td rowspan="2" class="text-center bg-primary text-white align-middle">Ex Vessel/Voy</td>
+			      	<td colspan="7" class="text-center bg-primary text-white">IN</td>
+			      	<td colspan="4" class="text-center bg-primary text-white">OUT</td>
+			      	<td rowspan="2" class="text-center bg-primary text-white align-middle">Next Vessel</td>
+			      	<td rowspan="2" class="text-center bg-primary text-white align-middle">Shipper/EMKL</td>
+			      	<td rowspan="2" class="text-center bg-primary text-white align-middle">EX Vessel</td>
+			      	<td rowspan="2" class="text-center bg-primary text-white align-middle">No D.O Out</td>
+			      	<td rowspan="2" class="text-center bg-primary text-white align-middle">Truck No</td>
 			    </tr>
 			    <tr>
 			      	<td class="text-center bg-primary text-white">No Container</td>
@@ -79,13 +91,15 @@
 			      	<td class="text-center bg-primary text-white">Tare</td>     
 			      	<td class="text-center bg-primary text-white">Payload<br>KGs</td>
 			      	<td class="text-center bg-primary text-white">Date In</td>
-			      	<td class="text-center bg-primary text-white">Time In</td>
-			      	<td class="text-center bg-primary text-white">Truck No</td>
+			      	<td class="text-center bg-primary text-white">Date Out</td>
+			      	<td class="text-center bg-primary text-white">Time Out</td>
+			      	<td class="text-center bg-primary text-white">Storage Days</td>
+			      	<td class="text-center bg-primary text-white">Seal</td>
 			    </tr>
 			</thead>
 			<tbody>
 				<?php $no = 1; ?>
-				<?php foreach($get_mv_in as $key => $value) { ?>
+				<?php foreach($get_mv_out as $key => $value) { ?>
 					<tr>
 						<td class="text-center"><?php echo $no++; ?></td>
 						<td class="text-center"><?php echo $value->no_container; ?></td>
@@ -98,11 +112,16 @@
 						<td class="text-center"><?php echo $value->grade; ?></td>
 						<td class="text-center"><?php echo $value->tare; ?></td>
 						<td class="text-center"><?php echo $value->payload; ?></td>
-						<td class="text-center"><?php echo date('d-m-Y', strtotime($value->date_in)); ?></td>
-						<td class="text-center"><?php echo date('H:i', strtotime($value->date_in)); ?></td>
-						<td class="text-center"><?php echo $value->truck_in; ?></td>
+						<td class="text-center"><?php echo date('d-m-Y', strtotime($value->tgl_masuk)); ?></td>
+						<td class="text-center"><?php echo date('d-m-Y', strtotime($value->tgl_keluar)); ?></td>
+						<td class="text-center"><?php echo date('H:i', strtotime($value->waktu_keluar)); ?></td>
+						<td class="text-center"><?php echo $storage; ?></td>
+						<td class="text-center"><?php echo $value->no_seal; ?></td>
+						<td class="text-center"><?php echo $value->vessel_out; ?></td>
 						<td class="text-center"><?php echo $value->nama_emkl; ?></td>
-						<td class="text-center"><?php echo $value->nama_vessel; ?> / <?php echo $value->no_voyage; ?></td>
+						<td class="text-center"><?php echo $nama_vessel; ?></td>
+						<td class="text-center"><?php echo $value->do_no_out; ?></td>
+						<td class="text-center"><?php echo $value->truck_out; ?></td>
 					</tr>
 				<?php } ?>
 			</tbody>
