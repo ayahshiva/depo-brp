@@ -10,7 +10,7 @@ class M_move_out extends CI_Model
     var $table3 = 'container';
     var $table4 = 'view_move_out';
 
-    var $column_order = array('tanggal','nama_emkl','nama_vessel','no_voyage', 'jumlah', NULL);
+    var $column_order = array(null, 'tanggal','nama_emkl','nama_vessel','no_voyage', 'jumlah', NULL);
     var $column_search = array('tanggal','nama_emkl','nama_vessel','no_voyage', 'jumlah');
     var $oder = array('id_move_out' => 'DESC'); 
     

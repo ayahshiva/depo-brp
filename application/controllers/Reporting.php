@@ -246,55 +246,55 @@ class Reporting extends CI_Controller
         $data['tanggal'] = $tanggal;
 
         $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('date_in >=', $tanggal);
+        $this->db->where('date_in <=', $tanggal);
         $this->db->where('size', '20');
         $this->db->where('tipe', 'GP');
         $data['gp20'] = $this->db->count_all_results('reporting_stok_list');
 
         $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('date_in >=', $tanggal);
+        $this->db->where('date_in <=', $tanggal);
         $this->db->where('size', '40');
         $this->db->where('tipe', 'GP');
         $data['gp40'] = $this->db->count_all_results('reporting_stok_list');
 
         $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('date_in >=', $tanggal);
+        $this->db->where('date_in <=', $tanggal);
         $this->db->where('size', '40');
         $this->db->where('tipe', 'HC');
         $data['hc40'] = $this->db->count_all_results('reporting_stok_list');
 
         $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('date_in >=', $tanggal);
+        $this->db->where('date_in <=', $tanggal);
         $this->db->where('size', '20');
         $this->db->where('tipe', 'OP');
         $data['op20'] = $this->db->count_all_results('reporting_stok_list');
 
         $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('date_in >=', $tanggal);
+        $this->db->where('date_in <=', $tanggal);
         $this->db->where('size', '40');
         $this->db->where('tipe', 'OP');
         $data['op40'] = $this->db->count_all_results('reporting_stok_list');
 
         $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('date_in >=', $tanggal);
+        $this->db->where('date_in <=', $tanggal);
         $this->db->where('size', '20');
         $this->db->where('tipe', 'FR');
         $data['fr20'] = $this->db->count_all_results('reporting_stok_list');
 
         $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('date_in >=', $tanggal);
+        $this->db->where('date_in <=', $tanggal);
         $this->db->where('size', '40');
         $this->db->where('tipe', 'FR');
         $data['fr40'] = $this->db->count_all_results('reporting_stok_list');
 
         $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('date_in >=', $tanggal);
+        $this->db->where('date_in <=', $tanggal);
         $this->db->where('size', '20');
         $this->db->where('tipe', 'RF');
         $data['rf20'] = $this->db->count_all_results('reporting_stok_list');
 
         $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('date_in >=', $tanggal);
+        $this->db->where('date_in <=', $tanggal);
         $this->db->where('size', '40');
         $this->db->where('tipe', 'RF');
         $data['rf40'] = $this->db->count_all_results('reporting_stok_list');
@@ -306,14 +306,24 @@ class Reporting extends CI_Controller
             $this->db->limit('1');
             $query = $this->db->get('mlo');
             $row = $query->row();
-            $data['mlo'] =  $row->nama;
+            if($query->num_rows() < 1 ){
+                $data['mlo'] = "-";
+            }else{
+                $data['mlo'] =  $row->nama;
+            }
 
             $id_emkl = $value->id_emkl;
             $this->db->where('id', $id_emkl);
             $this->db->limit('1');
             $kueri = $this->db->get('emkl');
             $hasil = $kueri->row();
-            $data['emkl'] = $hasil->nama;
+
+            if($kueri->num_rows() <1){
+                $data['emkl'] = "-";
+            }else{
+                $data['emkl'] = $hasil->nama;    
+            }
+            
 
             $id_vessel = $value->id_vessel;
             $this->db->where('id', $id_vessel);

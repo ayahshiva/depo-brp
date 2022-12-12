@@ -56,6 +56,7 @@ class Payment_in extends CI_Controller
             $no++;
             $row = array();
             
+            $row[] = $no++;
             $row[] = $item->do_number;
             $row[] = $item->invoice;
             $row[] = $item->emkl_nama;

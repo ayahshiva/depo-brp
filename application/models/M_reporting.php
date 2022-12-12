@@ -36,7 +36,7 @@ class M_reporting extends CI_Model
 
     function s_list($tanggal, $id_mlo)
     {
-        //$this->db->where('date_in >=', $tanggal);
+        $this->db->where('date_in <=', $tanggal);
         $this->db->where('id_mlo', $id_mlo);
         return $this->db->get($this->table3)->result();
     }

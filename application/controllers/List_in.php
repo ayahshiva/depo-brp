@@ -47,6 +47,7 @@ class List_in extends CI_Controller
             $no++;
             $row = array();
             
+            $row[] = $no++;
             $row[] = date('d-m-Y', strtotime($item->tanggal));
             $row[] = $item->mlo_nama;
             $row[] = $item->vessel_nama;

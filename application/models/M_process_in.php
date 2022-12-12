@@ -9,7 +9,7 @@ class M_process_in extends CI_Model
     var $table2 = 'container';
     var $table3 = 'detil_move_in';
 
-    var $column_order = array('no_cont','mlo_nama','waktu', 'tanggal', 'truk','kode', NULL);
+    var $column_order = array(null, 'no_cont','mlo_nama','waktu', 'tanggal', 'truk','kode', NULL);
     var $column_search = array('no_cont','mlo_nama','waktu', 'tanggal', 'truk','kode');
     var $oder = array('id_cont'=>'ASC'); 
 
@@ -89,6 +89,13 @@ class M_process_in extends CI_Model
         $this->db->where('id', $id);
         $this->db->update($this->table2, $data2);
         return $this->db->affected_rows();   
+    }
+
+    function get_by_id($id)
+    {   
+        $this->db->where('container.id', $id);
+        $this->db->join('detil_move_in', 'container.id = detil_move_in.id_container', 'left');        
+        return $this->db->get($this->table2)->row();
     }
 
 }

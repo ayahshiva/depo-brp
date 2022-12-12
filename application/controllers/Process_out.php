@@ -71,6 +71,7 @@ class Process_out extends CI_Controller
             $no++;
             $row = array();
             
+            $row[] = $no++;
             $row[] = $item->no_container;
             $row[] = $tanggal;
             $row[] = $waktu;
@@ -78,10 +79,9 @@ class Process_out extends CI_Controller
             $row[] = $item->kode_bayar;
             $row[] = $stok;
             $row[] = "
-                      	<button type='button' class='btn btn-sm btn-primary text-white' title='Update' data-bs-target='#formUpdateContainer' 
-							data-bs-toggle='modal' data-id_container='$item->id_container', data-no_container='$item->no_container'>
-            				<i class='bi bi-pencil-square'></i>
-            			</button>
+                      	<a href='process_out/update_process_out/$item->id_container' class='btn btn-sm btn-success' title='Update'>
+                      		<i class='bi bi-pencil'></i>
+                      	</a>
                      ";
 
             $data[] = $row;
@@ -105,7 +105,19 @@ class Process_out extends CI_Controller
     	$this->load->view('include/footer');
 	}
 
-	function update_container()
+	function update_process_out()
+	{
+		$id = $this->uri->segment(3);
+		$data['update'] = $this->M_process_out->get_by_id($id);
+
+		$this->load->view('include/header');
+    	$this->load->view('include/navbar');
+    	$this->load->view('include/sidebar');
+    	$this->load->view('page/moveout/update_process_out', $data);
+    	$this->load->view('include/footer');
+	}
+
+	function simpan_update_container()
 	{
 		$input = $this->input->post(NULL, TRUE);
 		$id = $input['id_container'];

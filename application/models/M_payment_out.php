@@ -10,7 +10,7 @@ class M_payment_out extends CI_Model
     var $table3 = 'container';
     var $table4 = 'view_payment_out';
 
-    var $column_order = array('do_number','invoice','nama_emkl', 'nama_vessel', 'no_voyage','metode', 'kode', NULL);
+    var $column_order = array(null, 'do_number','invoice','nama_emkl', 'nama_vessel', 'no_voyage','metode', 'kode', NULL);
     var $column_search = array('do_number','invoice','nama_emkl', 'nama_vessel', 'no_voyage','metode', 'kode');
     var $oder = array('id_pay_out'=>'DESC'); 
 

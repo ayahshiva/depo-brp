@@ -71,6 +71,7 @@ class Process_in extends CI_Controller
             $no++;
             $row = array();
             
+            $row[] = $no++;
             $row[] = $item->no_cont;
             $row[] = $item->mlo_nama;
             $row[] = $waktu;
@@ -79,10 +80,8 @@ class Process_in extends CI_Controller
             $row[] = $item->kode;
             $row[] = $stok;
             $row[] = "
-                      	<button type='button' class='btn btn-sm btn-primary text-white' title='Update' data-bs-target='#formUpdateContainer' 
-							data-bs-toggle='modal' data-id_cont='$item->id_cont', data-no_cont='$item->no_cont'>
-            				<i class='bi bi-pencil-square'></i>
-            			</button>
+            			<a href='process_in/update_process_in/$item->id_cont' class='btn btn-sm btn-success' title='Update'><i class='bi bi-pencil'></i></a>
+                      	
                      ";
 
             $data[] = $row;
@@ -106,7 +105,19 @@ class Process_in extends CI_Controller
     	$this->load->view('include/footer');
 	}
 
-	function update_container()
+	function update_process_in()
+	{
+		$id = $this->uri->segment(3);
+		$data['update'] = $this->M_process_in->get_by_id($id);
+
+		$this->load->view('include/header');
+    	$this->load->view('include/navbar');
+    	$this->load->view('include/sidebar');
+    	$this->load->view('page/movein/update_process_in', $data);
+    	$this->load->view('include/footer');
+	}
+
+	function simpan_update_container()
 	{
 		$input = $this->input->post(NULL, TRUE);
 		$id = $input['id_container'];
@@ -127,4 +138,6 @@ class Process_in extends CI_Controller
 		$this->session->set_flashdata('edit', 'Data telah diupdate');
 		redirect('process_in', 'refresh');
 	}
+
+
 }

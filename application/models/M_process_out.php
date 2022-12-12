@@ -9,7 +9,7 @@ class M_process_out extends CI_Model
     var $table2 = 'container';
     var $table3 = 'detil_move_out';
 
-    var $column_order = array('no_container','tanggal_keluar','jam_keluar', 'nopol', 'kode', NULL);
+    var $column_order = array(null, 'no_container','tanggal_keluar','jam_keluar', 'nopol', 'kode', NULL);
     var $column_search = array('no_container','tanggal_keluar','jam_keluar', 'nopol', 'kode');
     var $oder = array('id_container'=>'ASC'); 
 
@@ -89,6 +89,13 @@ class M_process_out extends CI_Model
         $this->db->where('id', $id);
         $this->db->update($this->table2, $data2);
         return $this->db->affected_rows();   
+    }
+
+    function get_by_id($id)
+    {   
+        $this->db->where('container.id', $id);
+        $this->db->join('detil_move_out', 'container.id = detil_move_out.id_container', 'left');        
+        return $this->db->get($this->table2)->row();
     }
 
 }

@@ -25,7 +25,7 @@
   				</caption>
     			<thead>
     				<tr class="bg-primary bg-opacity-75 text-white">
-	      				
+	      				<th width="5">No</th>
 	      				<th>Tanggal</th>
 	      				<th>MLO</th>	
 	      				<th>Vessel</th>
@@ -37,7 +37,7 @@
     			
     			<tfoot>
     				<tr class="bg-primary bg-opacity-75 text-white">
-	      				
+	      				<th width="5">No</th>
 	      				<th>Tanggal</th>
 	      				<th>MLO</th>	
 	      				<th>Vessel</th>
@@ -117,7 +117,7 @@
 	                "type": "POST"
 	            },
 	            "columnDefs":[
-	            	{"orderable": false, "targets": [5]}
+	            	{"orderable": false, "targets": [0,6]}
 	            ]
 	        });
 	    });

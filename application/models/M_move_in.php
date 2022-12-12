@@ -10,7 +10,7 @@ class M_move_in extends CI_Model
     var $table3 = 'container';
     var $table4 = 'view_move_in';
 
-    var $column_order = array('tanggal','mlo_nama','vessel_nama','no_voyage', 'jumlah', NULL);
+    var $column_order = array(null, 'tanggal','mlo_nama','vessel_nama','no_voyage', 'jumlah', NULL);
     var $column_search = array('tanggal','mlo_nama', 'vessel_nama', 'no_voyage', 'jumlah');
     var $oder = array('id'=>'DESC'); 
     

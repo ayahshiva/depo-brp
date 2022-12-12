@@ -25,6 +25,7 @@
   				</caption>
     			<thead>
     				<tr class="bg-primary bg-opacity-75 text-white">
+    					<th>No</th>
 	      				<th>Do Number</th>
 	      				<th>Invoice</th>
 	      				<th>EMKL</th>	
@@ -38,6 +39,7 @@
     			
     			<tfoot>
     				<tr class="bg-primary bg-opacity-75 text-white">
+    					<th>No</th>
 	      				<th>Do Number</th>
 	      				<th>Invoice</th>
 	      				<th>EMKL</th>	

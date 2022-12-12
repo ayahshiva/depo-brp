@@ -10,7 +10,7 @@ class M_payment_in extends CI_Model
     var $table3 = 'container';
     var $table4 = 'view_payment_in';
 
-    var $column_order = array('do_number','invoice','emkl_nama', 'vessel_nama', 'no_voyage','metode', 'kode', NULL);
+    var $column_order = array(null, 'do_number','invoice','emkl_nama', 'vessel_nama', 'no_voyage','metode', 'kode', NULL);
     var $column_search = array('do_number','invoice','emkl_nama', 'vessel_nama', 'no_voyage','metode', 'kode');
     var $oder = array('id'=>'DESC'); 
 
