@@ -318,9 +318,15 @@ class Reporting extends CI_Controller
             $id_vessel = $value->id_vessel;
             $this->db->where('id', $id_vessel);
             $this->db->limit('1');
-            $q = $this->db->get('vessel');
-            $r = $q->row();
-            $data['vessel'] = $r->nama;
+            $que = $this->db->get('vessel');
+            $res = $que->row();
+
+            if($que->num_rows() < 1){
+                $data['vessel'] = "-";    
+            }else{
+                $data['vessel'] = $res->nama;
+            }
+            
 
             $tgl1 = strtotime(date('Y-m-d'));
             $tgl2 = strtotime($value->date_in);

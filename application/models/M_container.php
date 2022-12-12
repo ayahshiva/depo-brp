@@ -7,6 +7,8 @@ class M_container extends CI_Model
 {
     var $table = 'container';
     var $table2 = 'view_container';
+    var $table3 = 'view_cari_in';
+    var $table4 = 'view_cari_out';
 
     var $column_order = array(null, 'mlo_nama','no_cont','size','tipe', null);
     var $column_search = array('mlo_nama','no_cont','size','tipe');
@@ -112,40 +114,13 @@ class M_container extends CI_Model
 
     function cariMVin($noCont)
     {
-        //$stok = array('3','4','5');
-        $this->db->select('*, emkl.nama as namaemkl, vessel.nama as namavessel')
-                 ->from('container')
-                 ->where('container.no_cont', $noCont)
-                 //->where_in('container.stok', $stok)
-                 ->join('detil_move_in', 'container.id = detil_move_in.id_container', 'left')
-                 ->join('move_in','detil_move_in.id_move_in = move_in.id','left')
-                 //->join('mlo','move_in.id_mlo = mlo.id','left')
-                 ->join('vessel', 'move_in.id_vessel = vessel.id')
-                 ->join('detil_payment_in', 'container.id = detil_payment_in.id_container','left')
-                 ->join('payment_in', 'detil_payment_in.ID_payment_in = payment_in.id','left')
-                 ->join('emkl', 'payment_in.id_emkl = emkl.id', 'left')
-                 ->order_by('detil_move_in.id', 'DESC');
-        return $this->db->get()->result();
-
+        return $this->db->where('no_container', $noCont)->get($this->table3)->result();
     }
 
 
     function cariMVot($noCont)
     {
-        //$stok = array('3','4','5');
-        $this->db->select('*, emkl.nama as namaemkl, vessel.nama as namavessel')
-                 ->from('container')
-                 ->where('container.no_cont', $noCont)
-                 //->where_in('container.stok', $stok)
-                 ->join('detil_move_out', 'container.id = detil_move_out.id_container', 'left')
-                 ->join('move_out','detil_move_out.id_move_out = move_out.id','left')
-                 ->join('emkl','move_out.id_emkl = emkl.id','left')
-                 ->join('vessel', 'move_out.id_vessel = vessel.id')
-                 ->join('detil_payment_out', 'container.id = detil_payment_out.id_container','left')
-                 ->join('payment_out', 'detil_payment_out.ID_payment_out = payment_out.id','left')
-                 ->order_by('detil_move_out.id', 'DESC');
-        return $this->db->get()->result();
-
+        return $this->db->where('no_container', $noCont)->get($this->table4)->result();
     }
 
 

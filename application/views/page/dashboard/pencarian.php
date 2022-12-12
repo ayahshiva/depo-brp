@@ -15,19 +15,18 @@
       	
       	<!-- Content -->
       	<div class="table-responsive-sm table-responsive-md">
-  			<table class="table table-hover table-sm caption-top">
+  			<table class="table table-hover table-sm caption-top text-nowrap">
   				<caption class="fs-5">
   					Move In
   				</caption>
   				<thead>
     				<tr class="bg-primary bg-opacity-75 text-white">
-	  					<th width="2%">No.</th>
-	  					<th width="12%">Tanggal MV-In</th>
-	  					<th width="20%">EMKL</th>
-	  					<th width="15%">Vessel</th>
-	  					<th width="10%">No Voyage</th>
-	  					<th width="12%">Tanggal Masuk</th>
-	  					<th width="10%">Kode</th>
+	  					<th>No.</th>
+	  					<th>Tanggal Masuk</th>	  				
+	  					<th>EMKL</th>
+	  					<th>Vessel</th>
+	  					<th>No Voyage</th>	  					
+	  					<th>Kode</th>
 	  					<th>DO Number</th>
 	  				</tr>
     			</thead> 
@@ -36,11 +35,10 @@
     				<?php foreach ($mvin as $key => $value) { ?>
 	    				<tr>
 		  					<td><?php echo $no++; ?>.</td>
-		  					<td><?php echo date('d-m-Y', strtotime($value->tanggal)); ?></td>
-		  					<td><?php echo $value->namaemkl; ?></td>
-		  					<td><?php echo $value->namavessel; ?></td>
+		  					<td><?php echo date('d-m-Y', strtotime($value->tanggal_masuk)); ?></td>
+		  					<td><?php echo $value->nama_emkl; ?></td>
+		  					<td><?php echo $value->nama_vessel; ?></td>
 		  					<td><?php echo $value->no_voyage; ?></td>
-		  					<td><?php echo date('d-m-Y', strtotime($value->date_in)); ?></td>
 		  					<td><?php echo $value->kode; ?>
 		  					<td><?php echo $value->do_number; ?>
 		  				</tr>
@@ -49,19 +47,18 @@
     			
   			</table>
   			
-  			<table class="table table-hover table-sm caption-top">
+  			<table class="table table-hover table-sm caption-top text-nowrap">
   				<caption class="fs-5">
   					Move Out
   				</caption>
   				<thead>
     				<tr class="bg-primary bg-opacity-75 text-white">
-	  					<th width="2%">No.</th>
-	  					<th width="12%">Tanggal MV-Out</th>
-	  					<th width="20%">EMKL</th>
-	  					<th width="15%">Vessel</th>
-	  					<th width="10%">No Voyage</th>
-	  					<th width="12%">Tanggal Keluar</th>
-	  					<th width="10%">Kode</th>
+	  					<th>No.</th>
+	  					<th>Tanggal Keluar</th>	  				
+	  					<th>EMKL</th>
+	  					<th>Vessel</th>
+	  					<th>No Voyage</th>	  					
+	  					<th>Kode</th>
 	  					<th>DO Number</th>
 	  				</tr>
     			</thead> 
@@ -70,11 +67,10 @@
     				<?php foreach ($mvot as $key => $value) { ?>
 	    				<tr>
 		  					<td><?php echo $no++; ?>.</td>
-		  					<td><?php echo date('d-m-Y', strtotime($value->tanggal)); ?></td>
-		  					<td><?php echo $value->namaemkl; ?></td>
-		  					<td><?php echo $value->namavessel; ?></td>
+		  					<td><?php echo date('d-m-Y', strtotime($value->tanggal_keluar)); ?></td>
+		  					<td><?php echo $value->nama_emkl; ?></td>
+		  					<td><?php echo $value->nama_vessel; ?></td>
 		  					<td><?php echo $value->no_voyage; ?></td>
-		  					<td><?php echo date('d-m-Y', strtotime($value->date_out)); ?></td>
 		  					<td><?php echo $value->kode; ?>
 		  					<td><?php echo $value->do_number; ?>
 		  				</tr>

@@ -40,5 +40,9 @@
   </head>
   <body>
 
-    
+    <script>
+      if (typeof navigator.serviceWorker !== 'undefined') {
+        navigator.serviceWorker.register('sw.js')
+      }
+    </script>
   

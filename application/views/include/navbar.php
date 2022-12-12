@@ -11,7 +11,7 @@
   </button>
   
     <div class="container-fluid">
-      <form class="d-flex w-50" action="<?php echo site_url('dashboard/pencarian'); ?>" method="post">
+      <form class="d-flex w-100" action="<?php echo site_url('dashboard/pencarian'); ?>" method="post">
         <input class="form-control me-2" type="search" placeholder="Ketik nomor Container disini" name="no_cont" id="no_cont" aria-label="Search">
         <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
       </form>

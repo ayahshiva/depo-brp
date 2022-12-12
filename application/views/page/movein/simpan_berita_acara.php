@@ -1,7 +1,7 @@
 <?php
   header("Content-Type:   application/vnd.ms-excel; charset=utf-8");
   header("Content-type:   application/x-msexcel; charset=utf-8");
-  header("Content-Disposition: attachment; filename= Berita Acara.xlsx"); 
+  header("Content-Disposition: attachment; filename= Berita Acara.xls"); 
   header("Expires: 0");
   header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
   header("Cache-Control: private",false);
@@ -18,7 +18,7 @@
       						</tr>
 
                   <tr>
-                    <th colspan="8">PT. BAHARI RAHARJA PERMAI DEPO - PALEMBANG [<?php echo $do_number; ?>]</th>
+                    <th colspan="8">PT. BAHARI RAHARJA PERMAI DEPO</th>
                   </tr>
 
       						<tr>
@@ -83,7 +83,7 @@
       					
                 	<tr>
       							<th colspan="6"></th>
-      							<th colspan="2">Admin BRP</th>
+      							<th colspan="2"><?php echo $this->session->userdata('display_name');?></th>
       						</tr>
       					
       				</table>
