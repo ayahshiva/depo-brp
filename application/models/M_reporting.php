@@ -8,7 +8,7 @@ class M_reporting extends CI_Model
     var $table = 'reporting_mv_in';
     var $table2 = 'reporting_mv_out';
     var $table3 = 'reporting_stok_list';
-    //var $table2 = 'view_container';
+    var $table4 = 'reporting_mlo_invoicing';
 
     function __construct()
     {
@@ -39,5 +39,13 @@ class M_reporting extends CI_Model
         $this->db->where('date_in <=', $tanggal);
         $this->db->where('id_mlo', $id_mlo);
         return $this->db->get($this->table3)->result();
+    }
+
+    function mlo_invoicing($tanggal_awal, $tanggal_akhir, $id_mlo)
+    {
+        $this->db->where('date_in >=', $tanggal_awal);
+        $this->db->where('date_in <=', $tanggal_akhir);
+        $this->db->where('id_mlo', $id_mlo);
+        return $this->db->get($this->table4)->result();
     }
 }

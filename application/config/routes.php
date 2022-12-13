@@ -75,3 +75,5 @@ $route['view_mv_in'] = 'reporting/view_mv_in';
 $route['mv_out'] = 'reporting/mv_out';
 $route['s_list'] = 'reporting/s_list';
 $route['view_s_list'] = 'reporting/view_s_list';
+$route['mlo_invoicing'] = 'reporting/mlo_invoicing';
+$route['view_mlo_invoicing'] = 'reporting/view_mlo_invoicing';

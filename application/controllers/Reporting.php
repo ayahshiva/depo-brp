@@ -355,4 +355,37 @@ class Reporting extends CI_Controller
             $this->load->view('page/reporting/get_s_list', $data);
         }           
     }
+
+    function mlo_invoicing()
+    {
+        $data['mlo'] = $this->M_mlo->get();
+
+        $this->load->view('include/header');
+        $this->load->view('include/navbar');
+        $this->load->view('include/sidebar');
+        $this->load->view('page/reporting/mlo_invoicing', $data);
+        $this->load->view('include/footer');
+    }
+
+    function get_mlo_invoicing()
+    {
+        $tanggal_awal = $this->input->post('tanggal_awal', TRUE);
+        $tanggal_akhir = $this->input->post('tanggal_akhir', TRUE);
+        $id_mlo = $this->input->post('id_mlo');
+
+        $data['nama'] = $this->M_mlo->get_mlo($id_mlo);
+        $data['tanggal_awal'] = $tanggal_awal;
+        $data['tanggal_akhir'] = $tanggal_akhir;
+        $data['invoicing'] =  $this->M_reporting->mlo_invoicing($tanggal_awal, $tanggal_akhir, $id_mlo);
+
+        if(isset($_POST['preview']))
+        {
+            $this->load->view('page/reporting/view_mlo_invoicing', $data);
+        }
+        else if(isset($_POST['save']))
+        {
+            $this->load->view('page/reporting/get_mlo_invoicing', $data);
+        } 
+
+    }
 }

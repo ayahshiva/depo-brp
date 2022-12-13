@@ -162,7 +162,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="<?php echo site_url('reporting/mlo_invoicing'); ?>">
                 <span data-feather="arrow-right" class="align-text-bottom"></span>
                 MLO Invoicing
               </a>
