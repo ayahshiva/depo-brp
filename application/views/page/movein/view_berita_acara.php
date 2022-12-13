@@ -60,7 +60,7 @@
       					<thead>
       						<tr>
       							<th rowspan="2" class="text-center"><img src="<?php echo base_url(); ?>assets/images/logo.svg" width="100"></th>
-      							<th colspan="7" class="text-center fs-3">PT. BAHARI RAHARJA PERMAI DEPO - PALEMBANG [<?php echo $do_number; ?>]</th>
+      							<th colspan="7" class="text-center fs-3">PT. BAHARI RAHARJA PERMAI DEPO</th>
       						</tr>
       						<tr>
       							<th colspan="7" class="text-center fs-6">Berita Acara Penerimaan Container</th>
@@ -121,7 +121,7 @@
       						<tr><th colspan="8">&nbsp;</th></tr>
       						<tr class="text-center">
       							<th colspan="6"></th>
-      							<th colspan="2">Admin BRP</th>
+      							<th colspan="2"><?php echo $this->session->userdata('display_name'); ?></th>
       						</tr>
       					</tfoot>
       				</table>
