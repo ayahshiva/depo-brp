@@ -17,7 +17,7 @@
 
       	<!-- Content -->
       	<div class="table-responsive-sm table-responsive-md">
-  			<table class="table table-hover tabel-striped caption-top" id="PaymentInTable">
+  			<table class="table table-striped text-nowrap caption-top" id="PaymentInTable">
   				<caption class="fs-5">
   					<a href="<?php echo site_url('payment_in/tambah_payment_in'); ?>" class="btn btn-md btn-success">
   						<i class="bi bi-person-add"></i> Tambah Data 

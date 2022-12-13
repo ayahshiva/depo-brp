@@ -17,7 +17,7 @@
 
       	<!-- Content -->
       	<div class="table-responsive-sm table-responsive-md">
-			<table class="table table-hover tabel-striped" id="ProcessInTable">
+			<table class="table table-striped text-nowrap caption-top" id="ProcessInTable">
 		  		<thead>
 		    		<tr class="bg-primary bg-opacity-75 text-white">
 		    				<th>No.</th>

@@ -71,7 +71,7 @@ class Process_in extends CI_Controller
             $no++;
             $row = array();
             
-            $row[] = $no++;
+            $row[] = $no;
             $row[] = $item->no_cont;
             $row[] = $item->mlo_nama;
             $row[] = $waktu;

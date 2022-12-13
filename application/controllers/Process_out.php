@@ -71,7 +71,7 @@ class Process_out extends CI_Controller
             $no++;
             $row = array();
             
-            $row[] = $no++;
+            $row[] = $no;
             $row[] = $item->no_container;
             $row[] = $tanggal;
             $row[] = $waktu;

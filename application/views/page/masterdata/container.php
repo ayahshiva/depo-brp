@@ -17,7 +17,7 @@
 
       	<!-- Content -->
       	<div class="table-responsive-sm table-responsive-md">
-  			<table class="table table-hover" id="myTableContainer">
+  			<table class="table table-striped text-nowrap caption-top" id="myTableContainer">
   				<thead>
     				<tr class="bg-primary bg-opacity-75 text-white">
 						<th width="5%">No.</th>

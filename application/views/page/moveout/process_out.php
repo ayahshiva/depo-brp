@@ -17,10 +17,10 @@
 
       	<!-- Content -->
       	<div class="table-responsive-sm table-responsive-md">
-			<table class="table table-hover tabel-striped" id="ProcessOutTable">
+			<table class="table table-striped text-nowrap caption-top" id="ProcessOutTable">
 		  		<thead>
 		    		<tr class="bg-primary bg-opacity-75 text-white">
-		    				<th width="5">No.</th>
+		    			<th width="5">No.</th>
 			      		<th>No Container</th>
 			      		<th>Date In</th>	
 			      		<th>Time In</th>

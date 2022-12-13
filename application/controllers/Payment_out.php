@@ -56,7 +56,7 @@ class Payment_out extends CI_Controller
             $no++;
             $row = array();
             
-            $row[] = $no++;
+            $row[] = $no;
             $row[] = $item->do_number;
             $row[] = $item->invoice;
             $row[] = $item->nama_emkl;

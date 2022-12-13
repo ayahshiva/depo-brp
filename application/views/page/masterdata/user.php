@@ -17,7 +17,7 @@
 
       	<!-- Content -->
       	<div class="table-responsive-sm table-responsive-md">
-  			<table class="table table-hover table-sm caption-top" id="UsersTable">
+  			<table class="table table-striped text-nowrap caption-top" id="UsersTable">
   				<caption class="fs-5">
   					<a href="#formAddUser" class="btn btn-md btn-success" data-bs-toggle="modal">
   						<i class="bi bi-person-add"></i> Tambah Data 

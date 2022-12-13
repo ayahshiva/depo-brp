@@ -17,7 +17,7 @@
 
       	<!-- Content -->
       	<div class="table-responsive-sm table-responsive-md">
-  			<table class="table table-hover caption-top" id="myTableVessel">
+  			<table class="table table-striped text-nowrap caption-top" id="myTableVessel">
   				<caption class="fs-5">
   					<a href="#formAddVessel" class="btn btn-md btn-success" data-bs-toggle="modal">
   						<i class="bi bi-person-add"></i> Tambah Data 

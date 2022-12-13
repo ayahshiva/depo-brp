@@ -48,7 +48,7 @@ class List_out extends CI_Controller
             $no++;
             $row = array();
             
-            $row[] = $no++;
+            $row[] = $no;
             $row[] = date('d-m-Y', strtotime($item->tanggal));
             $row[] = $item->nama_emkl;
             $row[] = $item->nama_vessel;
