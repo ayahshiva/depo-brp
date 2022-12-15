@@ -22,8 +22,8 @@
 		    		<tr class="bg-primary bg-opacity-75 text-white">
 		    			<th width="5">No.</th>
 			      		<th>No Container</th>
-			      		<th>Date In</th>	
-			      		<th>Time In</th>
+			      		<th>Date Out</th>	
+			      		<th>Time Out</th>
 			      		<th>Truck No</th>
 			      		<th>Kode</th>
 			      		<th>Status</th>
@@ -35,8 +35,8 @@
 		    		<tr class="bg-primary bg-opacity-75 text-white">
 		    				<th width="5">No.</th>
 			      		<th>No Container</th>
-			      		<th>Date In</th>	
-			      		<th>Time In</th>
+			      		<th>Date Out</th>	
+			      		<th>Time Out</th>
 			      		<th>Truck No</th>
 			      		<th>Kode</th>
 			      		<th>Status</th>

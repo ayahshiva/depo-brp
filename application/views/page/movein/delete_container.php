@@ -2,13 +2,13 @@
 
 		<!-- Breadcrmb -->
     	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        	<h1 class="h2">View List In</h1>
+        	<h1 class="h2">List In</h1>
         	<div class="btn-toolbar mb-2 mb-md-0">
           	<div class="btn-group me-2">
           		<nav aria-label="breadcrumb">
   						<ol class="breadcrumb">
     						<li class="breadcrumb-item"><a href="<?= site_url('list_in'); ?>" >List In</a></li>  
-    						<li class="breadcrumb-item">View Detail List In</li>
+    						<li class="breadcrumb-item">Hapus Container List In</li>
   						</ol>
 					</nav>            
           	</div>
@@ -77,7 +77,7 @@
 				      		<?php foreach ($listContainer as $key => $value) { ?>
 				      			<tr>
 				      				<td class="text-center">
-				      					<input type="checkbox" name="hapus[]" value="<?php echo $value->idcontainer; ?>">
+				      					<input type="checkbox" name="hapus[]" value="<?php echo $value->iddetil; ?>">
 				      				</td>
 				      				<td><?php echo $value->no_cont; ?></td>
 				      				<td><?php echo $value->size; ?></td>

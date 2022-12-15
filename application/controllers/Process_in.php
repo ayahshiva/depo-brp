@@ -49,39 +49,37 @@ class Process_in extends CI_Controller
         	}
 
         	$tanggal = '';
-        	if($item->tanggal == '0000-00-00')
+        	if($item->date_in == '0000-00-00')
         	{
         		$tanggal = "-";
         	}
         	else
         	{
-        		$tanggal = date('d-m-Y', strtotime($item->tanggal));
+        		$tanggal = date('d-m-Y', strtotime($item->date_in));
         	}
 
         	$waktu = '';
-        	if($item->waktu == '00:00:00')
+        	if($item->time_in == '00:00:00')
         	{
         		$waktu = "-";
         	}
         	else
         	{
-        		$waktu = date('H:i', strtotime($item->waktu));
+        		$waktu = date('H:i', strtotime($item->time_in));
         	}
 
             $no++;
             $row = array();
             
             $row[] = $no;
-            $row[] = $item->no_cont;
-            $row[] = $item->mlo_nama;
+            $row[] = $item->no_container;
             $row[] = $waktu;
             $row[] = $tanggal;
-            $row[] = $item->truk;
+            $row[] = $item->truck_in;
             $row[] = $item->kode;
             $row[] = $stok;
             $row[] = "
-            			<a href='process_in/update_process_in/$item->id_cont' class='btn btn-sm btn-success' title='Update'><i class='bi bi-pencil'></i></a>
-                      	
+            			<a href='process_in/update_process_in/$item->id_detil_in' class='btn btn-sm btn-success' title='Update'><i class='bi bi-pencil'></i></a>
                      ";
 
             $data[] = $row;
@@ -120,7 +118,8 @@ class Process_in extends CI_Controller
 	function simpan_update_container()
 	{
 		$input = $this->input->post(NULL, TRUE);
-		$id = $input['id_container'];
+		$id_container = $input['id_container'];
+		$id_detil_in = $input['id_detil_in'];
 
 		$data = array(
 						'time_in' => $input['time_in'],
@@ -130,10 +129,10 @@ class Process_in extends CI_Controller
 						'grade' => $input['grade'],
 						'cleaning' => $input['cleaning'],
 					  );
-		$this->M_process_in->update_detil($id, $data);
+		$this->M_process_in->update_detil($id_detil_in, $data);
 
 		$data2 = array('stok' => '3');
-		$this->M_process_in->update_container($id, $data2);
+		$this->M_process_in->update_container($id_container, $data2);
 
 		$this->session->set_flashdata('edit', 'Data telah diupdate');
 		redirect('process_in', 'refresh');

@@ -25,7 +25,7 @@
       <div class="container-fluid">
       	<div class="row">
       		<form class="needs-validation" method="post" action="<?php echo site_url('payment_out/simpan_update_payment_out'); ?>" novalidate>
-				<div class="card">
+				<div class="card col-md-6">
 					<div class="card-header">
 						<div class="card-title fs-6">Form Update Payment</div>
 					</div>

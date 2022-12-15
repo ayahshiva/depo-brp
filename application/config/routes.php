@@ -43,6 +43,7 @@ $route['update_payment/(:any)'] = 'payment_in/update_payment/(:any)';
 $route['edit_payment_in/(:any)'] = 'payment_in/update_payment_in/(:any)';
 $route['view_payment_in/(:any)'] = 'payment_in/view_payment_in/(:any)';
 $route['add_container_payment_in/(:any)'] = 'payment_in/add_container_payment_in/(:any)';
+$route['delete_container_payment_in/(:any)'] = 'payment_in/delete_container_payment_in/(:any)';
 
 //Process In
 $route['process_in'] = 'process_in';

@@ -95,12 +95,12 @@
       						<?php foreach ($hasil as $key => $value) { ?>
 	      						<tr class="text-center">
 	      							<td><?php echo $no++; ?></td>
-	      							<td><?php echo $value->no_cont; ?></td>
+	      							<td><?php echo $value->no_container; ?></td>
 	      							<td><?php echo $value->size; ?></td>
-	      							<td><?php echo $value->nama_mlo; ?></td>
+	      							<td><?php echo $value->nama; ?></td>
 	      							<td><?php echo $value->kondisi; ?></td>
-	      							<td><?php echo date('d-m-Y', strtotime($value->tanggal)); ?></td>
-	      							<td><?php echo date('H:i', strtotime($value->waktu)); ?></td>
+	      							<td><?php echo date('d-m-Y', strtotime($value->date_in)); ?></td>
+	      							<td><?php echo date('H:i', strtotime($value->time_in)); ?></td>
 	      							<td><?php echo $value->nama_vessel; ?> / <?php echo $value->no_voyage; ?></td>
 	      						</tr>
       						<?php } ?>
@@ -129,5 +129,5 @@
 </body>
 </html>
     <script>
-    	window.print();
+    	//window.print();
   	</script>

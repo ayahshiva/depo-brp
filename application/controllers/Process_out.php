@@ -35,37 +35,37 @@ class Process_out extends CI_Controller
         foreach ($list as $item) {
 
         	$stok = '';
-        	if($item->status == '4')
+        	if($item->stok == '4')
         	{
         		$stok = "<span class='badge bg-warning'>Process Out</span>";
         	}
-        	else if($item->status == '5')
+        	else if($item->stok == '5')
         	{
         		$stok = "<span class='badge bg-warning'>Process Out</span>";
         	}
-        	else if($item->status == '6')
+        	else if($item->stok == '6')
         	{
         		$stok = "<span class='badge bg-danger'>Out</span>";	
         	}
 
         	$tanggal = '';
-        	if($item->tanggal_keluar == '0000-00-00')
+        	if($item->date_out == '0000-00-00')
         	{
         		$tanggal = "-";
         	}
         	else
         	{
-        		$tanggal = date('d-m-Y', strtotime($item->tanggal_keluar));
+        		$tanggal = date('d-m-Y', strtotime($item->date_out));
         	}
 
         	$waktu = '';
-        	if($item->jam_keluar == '00:00:00')
+        	if($item->time_out == '00:00:00')
         	{
         		$waktu = "-";
         	}
         	else
         	{
-        		$waktu = date('H:i', strtotime($item->jam_keluar));
+        		$waktu = date('H:i', strtotime($item->time_out));
         	}
 
             $no++;
@@ -75,11 +75,11 @@ class Process_out extends CI_Controller
             $row[] = $item->no_container;
             $row[] = $tanggal;
             $row[] = $waktu;
-            $row[] = $item->nopol;
-            $row[] = $item->kode_bayar;
+            $row[] = $item->truck_out;
+            $row[] = $item->kode;
             $row[] = $stok;
             $row[] = "
-                      	<a href='process_out/update_process_out/$item->id_container' class='btn btn-sm btn-success' title='Update'>
+                      	<a href='process_out/update_process_out/$item->id_detil_out' class='btn btn-sm btn-success' title='Update'>
                       		<i class='bi bi-pencil'></i>
                       	</a>
                      ";
@@ -120,17 +120,18 @@ class Process_out extends CI_Controller
 	function simpan_update_container()
 	{
 		$input = $this->input->post(NULL, TRUE);
-		$id = $input['id_container'];
+		$id_container = $input['id_container'];
+		$id_detil_out = $input['id_detil_out'];
 
 		$data = array(
 						'time_out' => $input['time_out'],
 						'date_out' => $input['date_out'],
 						'truck_out' => $input['truck_out'],
 					  );
-		$this->M_process_out->update_detil($id, $data);
+		$this->M_process_out->update_detil($id_detil_out, $data);
 
 		$data2 = array('stok' => '6');
-		$this->M_process_out->update_container($id, $data2);
+		$this->M_process_out->update_container($id_container, $data2);
 
 		$this->session->set_flashdata('edit', 'Data telah diupdate');
 		redirect('process_out', 'refresh');

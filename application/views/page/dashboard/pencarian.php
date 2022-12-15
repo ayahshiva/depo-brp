@@ -35,7 +35,7 @@
     				<?php foreach ($mvin as $key => $value) { ?>
 	    				<tr>
 		  					<td><?php echo $no++; ?>.</td>
-		  					<td><?php echo date('d-m-Y', strtotime($value->tanggal_masuk)); ?></td>
+		  					<td><?php echo date('d-m-Y', strtotime($value->date_in)); ?></td>
 		  					<td><?php echo $value->nama_emkl; ?></td>
 		  					<td><?php echo $value->nama_vessel; ?></td>
 		  					<td><?php echo $value->no_voyage; ?></td>
@@ -67,7 +67,9 @@
     				<?php foreach ($mvot as $key => $value) { ?>
 	    				<tr>
 		  					<td><?php echo $no++; ?>.</td>
-		  					<td><?php echo date('d-m-Y', strtotime($value->tanggal_keluar)); ?></td>
+		  					<td>
+		  						<?php echo date('d-m-Y', strtotime($value->date_out)); ?>
+		  					</td>
 		  					<td><?php echo $value->nama_emkl; ?></td>
 		  					<td><?php echo $value->nama_vessel; ?></td>
 		  					<td><?php echo $value->no_voyage; ?></td>

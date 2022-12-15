@@ -10,9 +10,9 @@ class M_move_in extends CI_Model
     var $table3 = 'container';
     var $table4 = 'view_move_in';
 
-    var $column_order = array(null, 'tanggal','mlo_nama','vessel_nama','no_voyage', 'jumlah', NULL);
-    var $column_search = array('tanggal','mlo_nama', 'vessel_nama', 'no_voyage', 'jumlah');
-    var $oder = array('id'=>'DESC'); 
+    var $column_order = array(null, 'tanggal','nama_mlo','nama_vessel','no_voyage', 'jumlah', NULL);
+    var $column_search = array('tanggal','nama_mlo','nama_vessel','no_voyage', 'jumlah');
+    var $oder = array('id_move_in'=>'DESC'); 
     
     function __construct()
     {
@@ -130,10 +130,10 @@ class M_move_in extends CI_Model
 
     function get_voyage()
     {
-        $this->db->select('no_voyage');
+        $this->db->select('*');
         $this->db->order_by('id', 'DESC');
         $this->db->group_by('no_voyage');
-        $this->db->limit(15);
+        //$this->db->limit(15);
         return $this->db->get($this->table)->result();
     }
 

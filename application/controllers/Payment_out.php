@@ -36,7 +36,7 @@ class Payment_out extends CI_Controller
 
             if($item->kode =='')
             {
-                $kode = "<a class='btn btn-sm btn-info' href='payment_out/generate_code/$item->id_pay_out' title='Generate Code'>Generate</a>";
+                $kode = "<a class='btn btn-sm btn-info' href='payment_out/generate_code/$item->id_payment_out' title='Generate Code'>Generate</a>";
             }
             else
             {
@@ -46,7 +46,7 @@ class Payment_out extends CI_Controller
             $metode = '';
             if($item->metode == '')
             {
-                $metode = "<a href='payment_out/update_payment_out/$item->id_pay_out' class='btn btn-sm btn-success' title='Update Payment'>Update</a>";
+                $metode = "<a href='payment_out/update_payment_out/$item->id_payment_out' class='btn btn-sm btn-success' title='Update Payment'>Update</a>";
             }
             else
             {
@@ -65,9 +65,9 @@ class Payment_out extends CI_Controller
             $row[] = $metode;
             $row[] = $kode;
             $row[] = "
-                            <a href='payment_out/view_payment_out/$item->id_pay_out' class='btn btn-sm btn-primary' title='View Detail'><i class='bi bi-eye'></i></a>
-                            <a href='payment_out/edit_payment_out/$item->id_pay_out' class='btn btn-sm btn-success' title='Edit'><i class='bi bi-pencil'></i></a>
-                            <a href='payment_out/add_container_payment_out/$item->id_pay_out' class='btn btn-sm btn-warning' title='Input Container'><i class='bi bi-clipboard-plus'></i></a>
+                            <a href='payment_out/view_payment_out/$item->id_payment_out' class='btn btn-sm btn-primary' title='View Detail'><i class='bi bi-eye'></i></a>
+                            <a href='payment_out/edit_payment_out/$item->id_payment_out' class='btn btn-sm btn-success' title='Edit'><i class='bi bi-pencil'></i></a>
+                            <a href='payment_out/add_container_payment_out/$item->id_payment_out' class='btn btn-sm btn-warning' title='Input Container'><i class='bi bi-clipboard-plus'></i></a>
                           ";
 
             $data[] = $row;

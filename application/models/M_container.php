@@ -10,9 +10,9 @@ class M_container extends CI_Model
     var $table3 = 'view_cari_in';
     var $table4 = 'view_cari_out';
 
-    var $column_order = array(null, 'mlo_nama','no_cont','size','tipe', null);
-    var $column_search = array('mlo_nama','no_cont','size','tipe');
-    var $oder = array('id_container'=>'ASC'); 
+    var $column_order = array(null, 'id_mlo','no_cont','size','tipe', null);
+    var $column_search = array('id_mlo','no_cont','size','tipe');
+    var $oder = array('id'=>'asc'); 
 
     function __construct()
     {
@@ -22,7 +22,9 @@ class M_container extends CI_Model
 
     function _get_datatables_query()
     {
-        $this->db->from($this->table2);
+        $this->db->join('mlo', 'container.id_mlo = mlo.id', 'left');
+        $this->db->order_by('container.stok', 'ASC');
+        $this->db->from($this->table);
 
         $i = 0;
         foreach($this->column_search as $item)
@@ -114,13 +116,19 @@ class M_container extends CI_Model
 
     function cariMVin($noCont)
     {
-        return $this->db->where('no_container', $noCont)->get($this->table3)->result();
+        //$date = "0000-00-00";
+        //$this->db->where('date_in !=', $date);
+        $this->db->where('no_container', $noCont);        
+        return $this->db->get($this->table3)->result();
     }
 
 
     function cariMVot($noCont)
     {
-        return $this->db->where('no_container', $noCont)->get($this->table4)->result();
+        $date = "0000-00-00";
+        $this->db->where('date_out !=', $date);
+        $this->db->where('no_container', $noCont);
+        return $this->db->get($this->table4)->result();
     }
 
 
@@ -152,6 +160,7 @@ class M_container extends CI_Model
         $this->db->where('detil_move_in.id_move_in', $id_move_in);
         $this->db->join('container', 'detil_move_in.id_container = container.id', 'left');
         $this->db->where('container.stok', '1');
+        $this->db->order_by('container.id', 'ASC');
         return $this->db->get('detil_move_in')->result();
     }
 
@@ -162,10 +171,13 @@ class M_container extends CI_Model
         return $this->db->affected_rows();
     }
 
-    function get_stok()
+    function get_stok($no_cont)
     {
+        $this->db->like('no_cont', $no_cont, 'both');
         $this->db->where('stok', '3');
-        return $this->db->get($this->table)->result();
+        $this->db->order_by('no_cont', 'ASC');
+        $this->db->limit(10);
+        return $this->db->get('container')->result();
     }
     
     function get_container_out($id_move_out)

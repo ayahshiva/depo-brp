@@ -91,7 +91,7 @@
 			  					<i class="bi bi-arrow-left-circle"></i> Kembali
 			  				</a>
 			  				<a href='<?php echo site_url() ?>payment_in/add_container_payment_in/<?php echo $this->uri->segment(3); ?>' class='btn btn-warning' title='Tambah Container'><i class='bi bi-clipboard-plus'></i></a>
-			  				<!-- <a href='<?php echo site_url(); ?>payment_in/delete_container/<?php echo $this->uri->segment(3); ?>' class='btn btn-danger' title='Hapus Container'><i class='bi bi-clipboard-minus'></i></a> -->
+			  				<a href='<?php echo site_url(); ?>payment_in/delete_container_payment_in/<?php echo $this->uri->segment(3); ?>' class='btn btn-danger' title='Hapus Container'><i class='bi bi-clipboard-minus'></i></a>
 		  				</caption>
 	      			<thead>
 		      			<tr class="bg-primary bg-opacity-75 text-white">

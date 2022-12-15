@@ -28,8 +28,9 @@
 			      		<div class="card-body">
 			        		<div class="mb-3">
 								<label class="form-label">No Container*</label>
-								<input type="text" class="form-control no_cont" id="validate01" name="no_cont" value="<?php echo $update->no_cont; ?>" disabled>
-								<input type="hidden" class="form-control id_cont" id="validate01" name="id_container" value="<?php echo $update->id_container; ?>">
+								<input type="text" class="form-control" id="validate01" name="no_cont" value="<?php echo $update->no_container; ?>" disabled>
+								<input type="hidden" class="form-control" id="validate01" name="id_detil_out" value="<?php echo $update->id_detil_out; ?>">
+								<input type="hidden" name="id_container" value="<?php echo $update->id_container; ?>">
 								<div class="invalid-feedback">Harap diisi!</div>
 							</div>
 							<div class="mb-3">

@@ -100,7 +100,8 @@ class M_payment_in extends CI_Model
 
     function get_view_id($id)
     {
-        $this->db->select('*, emkl.id as emkl_id, emkl.nama as emkl_nama');
+        $this->db->select('*, payment_in.metode as metode, emkl.id as emkl_id, emkl.nama as emkl_nama');
+        $this->db->where('payment_in.id',$id);
         $this->db->join('emkl', 'payment_in.id_emkl = emkl.id', 'left');
         return $this->db->get($this->table)->row();
     }

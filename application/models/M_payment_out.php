@@ -12,7 +12,7 @@ class M_payment_out extends CI_Model
 
     var $column_order = array(null, 'do_number','invoice','nama_emkl', 'nama_vessel', 'no_voyage','metode', 'kode', NULL);
     var $column_search = array('do_number','invoice','nama_emkl', 'nama_vessel', 'no_voyage','metode', 'kode');
-    var $oder = array('id_pay_out'=>'DESC'); 
+    var $oder = array('id_payment_out'=>'DESC'); 
 
     function __construct()
     {
@@ -94,13 +94,13 @@ class M_payment_out extends CI_Model
 
     function get_by_id($id)
     {
-        $this->db->where('id_pay_out', $id);
+        $this->db->where('id_payment_out', $id);
         return $this->db->get($this->table4)->row();
     }
 
     function get_view_id($id)
     {
-        return $this->db->where('id_pay_out', $id)->get($this->table4)->row();
+        return $this->db->where('id_payment_out', $id)->get($this->table4)->row();
     }
 
     function list_container($id)
@@ -114,6 +114,7 @@ class M_payment_out extends CI_Model
         $this->db->join('container', 'detil_payment_out.id_container = container.id', 'left');
         $this->db->join('detil_move_out', 'container.id = detil_move_out.id_container', 'left');
         $this->db->where('detil_payment_out.id_payment_out', $id);
+        $this->db->group_by('container.id');
         return $this->db->get($this->table2)->result();
     }
 

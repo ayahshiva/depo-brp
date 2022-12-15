@@ -22,7 +22,6 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
 
     <!-- Select2 -->
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.full.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     <!-- Custom CSS -->
@@ -51,16 +50,27 @@
 				</tr>
 				<tr><th colspan="13">&nbsp;</th></tr>
 				<tr>
-						<th class="text-center bg-primary text-white">No</th>
-				    <th class="text-center bg-primary text-white">Container No</th>
+						<th rowspan="2" class="text-center bg-primary text-white align-middle">No</th>
+				    <th colspan="4" class="text-center bg-primary text-white">Container Data</th>
+				    <th colspan="3" class="text-center bg-primary text-white">IN</th>
+				    <th colspan="5" class="text-center bg-primary text-white">OUT</th>
+				</tr>
+				<tr>
+				    <th class="text-center bg-primary text-white">No. Container</th>
 				    <th class="text-center bg-primary text-white">Size</th>
 				    <th class="text-center bg-primary text-white">Type</th>
-				    <th class="text-center bg-primary text-white">Condition</th>
+				    <th class="text-center bg-primary text-white">Status</th>
+
 				    <th class="text-center bg-primary text-white">Date In</th>
-				    <th class="text-center bg-primary text-white">ex Vessel / Voyage</th>
+				    <th class="text-center bg-primary text-white">Ex Vessel / No Voyage</th>
+				    <th class="text-center bg-primary text-white">EMKL</th>
+
 				    <th class="text-center bg-primary text-white">Date Out</th>
-				    <th class="text-center bg-primary text-white">EMKL Out</th>
-				    <th class="text-center bg-primary text-white">Storage Days</th>
+				    <th class="text-center bg-primary text-white">Invoice</th>
+				    <th class="text-center bg-primary text-white">Payment Date</th>
+				    <th class="text-center bg-primary text-white">Ex Vessel / Voyage</th>
+				    <th class="text-center bg-primary text-white">EMKL</th>
+				</tr>
 				</tr>
 			</thead>
 			<tbody>
@@ -71,20 +81,33 @@
 						<td class="text-center"><?php echo $value->no_container; ?></td>
 						<td class="text-center"><?php echo $value->size; ?></td>
 						<td class="text-center"><?php echo $value->tipe; ?></td>
-						<td class="text-center"><?php echo $value->kondisi; ?></td>
+						<td class="text-center"><?php echo $value->status; ?></td>
 						<td class="text-center"><?php echo date('d-m-Y', strtotime($value->date_in)); ?></td>
-						<td class="text-center"><?php echo $value->nama_vessel; ?> / <?php echo $value->no_voyage; ?></td>
-						<td class="text-center"><?php echo date('d-m-Y', strtotime($value->date_out)); ?></td>
-						<td class="text-center"><?php echo $value->nama_emkl; ?></td>						
+						<td class="text-center"><?php echo $value->vessel_in; ?> / <?php echo $value->voyage_in; ?></td>
+						<td class="text-center"><?php echo $value->emkl_in; ?></td>
 						<td class="text-center">
-							<?php 
-									$tgl1 = strtotime($value->date_out);
-            			$tgl2 = strtotime($value->date_in);
-            			$days = $tgl1 - $tgl2;
-            			$totaldays = floor($days / (60*60*24));
-            			echo $totaldays;
+							<?php
+									$tgl_out = strtotime($value->date_out);
+									if($tgl_out == ''){
+										echo "-";
+									}else{
+											echo $value->date_out;
+									}
+							?>
+						</td>						
+						<td class="text-center"><?php echo $value->invoice; ?></td>
+						<td class="text-center">
+							<?php
+									$tgl_bayar = strtotime($value->payment_date);
+									if($tgl_bayar == ''){
+										echo "-";
+									}else{
+										echo $value->payment_date;
+									}
 							?>							
 						</td>
+						<td class="text-center"><?php echo $value->vessel_out; ?> / <?php echo $value->voyage_out; ?></td>
+						<td class="text-center"><?php echo $value->emkl_out; ?></td>
 					</tr>
 				<?php } ?>
 			</tbody>

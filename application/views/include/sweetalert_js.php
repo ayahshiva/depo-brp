@@ -101,7 +101,7 @@
               confirmButtonText: 'Ya!'
             }).then((result) => {
               if (result.isConfirmed) {
-                    window.location.href = "<?php echo site_url('mlo/hapus_mlo')?>/"+ID;
+                    window.location.href = "<?php echo site_url('mlo/hapus_emkl')?>/"+ID;
               }
             })
         }   
@@ -133,7 +133,23 @@
               confirmButtonText: 'Ya!'
             }).then((result) => {
               if (result.isConfirmed) {
-                    window.location.href = "<?php echo site_url('listin/hapus_detil')?>/"+ID;
+                    window.location.href = "<?php echo site_url('list_in/hapus_detil')?>/"+ID;
+              }
+            })
+        }
+
+        function hapus_list_in(ID){
+            Swal.fire({
+              title: 'Yakin mau dihapus?',
+              //text: "You won't be able to revert this!",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Ya!'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                    window.location.href = "<?php echo site_url('list_in/hapus_list_in')?>/"+ID;
               }
             })
         }

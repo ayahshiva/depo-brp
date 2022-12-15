@@ -41,7 +41,7 @@ class Container extends CI_Controller
             $row = array();
             
             $row[] = $no.".";
-            $row[] = $item->mlo_nama;
+            $row[] = $item->nama;
             $row[] = $item->no_cont;
             $row[] = $item->size;
             $row[] = $item->tipe;

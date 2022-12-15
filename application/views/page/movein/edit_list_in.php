@@ -29,7 +29,7 @@
 							<select class="form-control form-select select2" name="id_mlo" required>
 								<option selected disabled value="">Pilih MLO</option>
 									<?php foreach ($mlo as $key => $value) { ?>
-										<option value="<?php echo $value->id; ?>"<?php if($get_by_id->id_mlo = $value->id){echo "selected";} ?> >
+										<option value="<?php echo $value->id; ?>" <?php if($value->id == $get_by_id->id_mlo){echo "selected";} ?> >
 											<?php echo $value->nama; ?>
 										</option>
 									<?php } ?>
@@ -42,7 +42,7 @@
 							<select class="form-select form-control select2" name="id_vessel" required>
 								<option selected disabled value="">Pilih Vessel</option>
 								<?php foreach ($vessel as $key => $value) { ?>
-									<option value="<?php echo $value->id; ?>"<?php if($get_by_id->id_vessel = $value->id){echo "selected";} ?> >
+									<option value="<?php echo $value->id; ?>"<?php if($value->id == $get_by_id->id_vessel){echo "selected"; } ?> >
 										<?php echo $value->nama; ?>
 									</option>
 								<?php } ?>

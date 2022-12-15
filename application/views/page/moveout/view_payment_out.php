@@ -64,7 +64,7 @@
 				<div class="col-sm-4">
 	      		<div class="card h-100 border-danger">		    
 					   <div class="card-body">
-					      <h5 class="card-title"><?php echo date('d-m-Y', strtotime($view->tanggal_payment)); ?></h5>
+					      <h5 class="card-title"><?php echo date('d-m-Y', strtotime($view->tanggal)); ?></h5>
 					   </div>
 					   <div class="card-footer bg-danger">
 					      <small class="text-white fs-6">Tanggal</small>
@@ -90,7 +90,7 @@
 			  				<a href="<?php echo site_url('payment_out'); ?>" class="btn btn-md btn-success">
 			  					<i class="bi bi-arrow-left-circle"></i> Kembali
 			  				</a>
-			  				<a href='<?php echo site_url() ?>payment_in/add_container_payment_in/<?php echo $this->uri->segment(3); ?>' class='btn btn-warning' title='Tambah Container'><i class='bi bi-clipboard-plus'></i></a>
+			  				<a href='<?php echo site_url() ?>payment_out/add_container_payment_out/<?php echo $this->uri->segment(3); ?>' class='btn btn-warning' title='Tambah Container'><i class='bi bi-clipboard-plus'></i></a>
 			  				<!-- <a href='<?php echo site_url(); ?>payment_in/delete_container/<?php echo $this->uri->segment(3); ?>' class='btn btn-danger' title='Hapus Container'><i class='bi bi-clipboard-minus'></i></a> -->
 		  				</caption>
 	      			<thead>

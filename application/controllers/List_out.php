@@ -139,7 +139,7 @@ class List_out extends CI_Controller
         $data['view'] = $this->M_move_out->get_by_id($id);
         $data['listContainer'] = $this->M_move_out->list_container($id);
         $data['jumlah_real'] = $this->M_move_out->jumlah_real($id);
-        $data['get_container'] = $this->M_container->get_stok();
+        //$data['get_container'] = $this->M_container->get_stok();
 
         $this->load->view('include/header');
         $this->load->view('include/navbar');
@@ -153,19 +153,25 @@ class List_out extends CI_Controller
     	$id_move_out = $this->input->post('id_move_out', TRUE);
     	$id_emkl = $this->input->post('id_emkl', TRUE);
     	$id_vessel = $this->input->post('id_vessel', TRUE);
-    	$id_container = $this->input->post('id_container', TRUE);
+    	$no_container = $this->input->post('no_container', TRUE);
     	$seal_no = $this->input->post('seal_no', TRUE);
     	$status = $this->input->post('status', TRUE);
 
-    	foreach ($id_container as $key => $value) {
+    	foreach ($no_container as $key => $value) {
+
+            $value;
+            $this->db->where('no_cont', $value);
+            $q = $this->db->get('container');
+            $r = $q->row();
+            $id_container = $r->id; 
     		
     		$update_stok = array('stok' => '4');
-    		$this->db->where('id', $value);
+    		$this->db->where('id', $id_container);
     		$this->db->update('container', $update_stok);
 
     		$data_detil = array(
     						'id_move_out' => $id_move_out,
-    						'id_container' => $value,
+    						'id_container' => $id_container,
     						'seal_number' => $seal_no[$key], 
     						'st_cont' => $status[$key],
     					); 
@@ -204,25 +210,34 @@ class List_out extends CI_Controller
         {
             for($i=0; $i < $total; $i++)
             {
-                $this->db->where('id_container', $hapus[$i]);
+
+                $this->db->where('id', $hapus[$i]);
+                $query = $this->db->get('detil_move_out');
+                $result = $query->row();
+                $id_container = $result->id_container;
+
+                $update = array('stok' => '3');
+                $this->db->where('id', $id_container);
+                $this->db->update('container', $update);
+
+                $this->db->where('id', $hapus[$i]);
                 $this->db->delete('detil_move_out');
             }
         }
 
-        // $kueri = $this->db->select('*')->where('id', $id_move_out)->get('move_out');
-        // $result = $kueri->row();
-
-        // $jumlahlama = $result->jumlah;
-        // $jumlahbaru = $jumlahlama - $total;
-
-        // $data = array(
-        //         'id' => $id_move_out,
-        //         'jumlah' => $jumlahbaru
-        //         );
-        // $this->db->where('id', $id_move_out);
-        // $this->db->update('move_out', $data);
-
         redirect('list_out/view_list_out/'.$id_move_out);
+    }
+
+    function get_container()
+    {
+        if (isset($_GET['term'])) {
+            $result = $this->M_container->get_stok($_GET['term']);
+            if (count($result) > 0) {
+            foreach ($result as $row)
+                $arr_result[] = $row->no_cont;
+                echo json_encode($arr_result);
+            }
+        }
     }
 
 }

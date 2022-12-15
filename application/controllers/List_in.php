@@ -32,7 +32,7 @@ class List_in extends CI_Controller
 
             $this->db->select('*')
                  ->from('detil_move_in')
-                 ->where('id_move_in', $item->id);
+                 ->where('id_move_in', $item->id_move_in);
             $jmlh = $this->db->get()->num_rows();
 
             if($item->jumlah != $jmlh )
@@ -44,21 +44,39 @@ class List_in extends CI_Controller
                 $jumlah = "<span style='color: green'>".$item->jumlah."</span>";
             }
 
+            $button = '';
+            if($jmlh < 1)
+            {
+                $button = "
+                            <a href='list_in/edit_list_in/$item->id_move_in' class='btn btn-sm btn-success' title='Edit'><i class='bi bi-pencil'></i></a>
+                            <a href='#' onclick='hapus_list_in($item->id_move_in)' class='btn btn-danger btn-sm text-white hapus_list_in' title='hapus'>
+                                <i class='bi bi-trash'></i>
+                            </a>                       
+                            <a href='list_in/add_container/$item->id_move_in' class='btn btn-sm btn-warning' title='Tambah Container'><i class='bi bi-clipboard-plus'></i></a>
+                            <a href='list_in/delete_container/$item->id_move_in' class='btn btn-sm btn-danger' title='Hapus Container'><i class='bi bi-clipboard-minus'></i></a>
+
+
+                          ";
+            }else
+            {
+                $button ="
+                            <a href='list_in/view_list_in/$item->id_move_in' class='btn btn-sm btn-primary' title='View Detail'><i class='bi bi-eye'></i></a>
+                        <a href='list_in/edit_list_in/$item->id_move_in' class='btn btn-sm btn-success' title='Edit'><i class='bi bi-pencil'></i></a>
+                        <a href='list_in/add_container/$item->id_move_in' class='btn btn-sm btn-warning' title='Tambah Container'><i class='bi bi-clipboard-plus'></i></a>
+                        <a href='list_in/delete_container/$item->id_move_in' class='btn btn-sm btn-danger' title='Hapus Container'><i class='bi bi-clipboard-minus'></i></a>
+                         ";
+            }
+
             $no++;
             $row = array();
             
             $row[] = $no;
             $row[] = date('d-m-Y', strtotime($item->tanggal));
-            $row[] = $item->mlo_nama;
-            $row[] = $item->vessel_nama;
+            $row[] = $item->nama_mlo;
+            $row[] = $item->nama_vessel;
             $row[] = $item->no_voyage;
             $row[] = $jumlah;
-            $row[] = "
-                        <a href='list_in/view_list_in/$item->id' class='btn btn-sm btn-primary' title='View Detail'><i class='bi bi-eye'></i></a>
-                        <a href='list_in/edit_list_in/$item->id' class='btn btn-sm btn-success' title='Edit'><i class='bi bi-pencil'></i></a>
-                        <a href='list_in/add_container/$item->id' class='btn btn-sm btn-warning' title='Tambah Container'><i class='bi bi-clipboard-plus'></i></a>
-                        <a href='list_in/delete_container/$item->id' class='btn btn-sm btn-danger' title='Hapus Container'><i class='bi bi-clipboard-minus'></i></a>
-                     ";
+            $row[] = $button;
 
             $data[] = $row;
         }
@@ -97,6 +115,15 @@ class List_in extends CI_Controller
     	$this->M_move_in->insert($data);
 		$this->session->set_flashdata('simpan', 'Data telah disimpan');
 		redirect('list_in', 'refresh');	
+    }
+
+    function hapus_list_in()
+    {
+        $id = $this->uri->segment(3);
+
+        $this->M_move_in->delete($id);
+        $this->session->set_flashdata('hapus', 'Data List In telah dihapus');
+        redirect('list_in', 'refresh');
     }
 
     function view_list_in()
@@ -158,13 +185,25 @@ class List_in extends CI_Controller
         $this->load->view('include/footer');
     }
 
+    function cari_nomor()
+    {
+        if (isset($_GET['term'])) {
+            $result = $this->M_container->nomorContainer($_GET['term']);
+            if (count($result) > 0) {
+            foreach ($result as $row)
+                $arr_result[] = $row->no_cont;
+                echo json_encode($arr_result);
+            }
+        }
+    }
+
     function simpan_container()
     {
         $input = $this->input->post(NULL, TRUE);
 
         foreach($input['no_container'] as $key => $value)
         {
-            $this->db->select('no_cont');
+            $this->db->select('*');
             $this->db->where('no_cont', $value);
             $sum = $this->db->get('container')->num_rows();
             $row = $this->db->get('container')->row();
@@ -174,7 +213,7 @@ class List_in extends CI_Controller
                 $input_baru = array('id_mlo' => $input['id_mlo'], 'no_cont' => $value, 'size' => $input['size'][$key], 'tipe' => $input['tipe'][$key], 'stok' => 1);
                 $this->M_container->insert($input_baru);
 
-                $this->db->select('id, no_cont');
+                $this->db->select('*');
                 $this->db->where('no_cont', $value);
                 $kueri = $this->db->get('container')->result();
                     foreach ($kueri as $baris) 
@@ -189,18 +228,19 @@ class List_in extends CI_Controller
             }
             else
             {
-                $data = array('stok', 1);
-                $this->db->where('id_container', $row->id_container);
+                $data = array('stok'=> 1);
+                $this->db->where('id', $row->id);
                 $this->db->update('container', $data);
 
-                $this->db->select('id', 'no_cont');
+                $this->db->select('*');
                 $this->db->where('no_cont', $value);
                 $result = $this->db->get('container')->result();
                 foreach ($result as $row) 
                 {
                     $data = array(
                                     'id_move_in' => $input['id_move_in'],
-                                    'id_container' => $row->id
+                                    'id_container' => $row->id,
+                                    'st_cont'=>$input['status'][$key],
                                   );
                     $this->M_move_in->insert_detil($data);
                 }
@@ -236,23 +276,10 @@ class List_in extends CI_Controller
         {
             for($i=0; $i < $total; $i++)
             {
-                $this->db->where('id_container', $hapus[$i]);
+                $this->db->where('id', $hapus[$i]);
                 $this->db->delete('detil_move_in');
             }
         }
-
-        // $kueri = $this->db->select('*')->where('id', $id_move_in)->get('move_in');
-        // $result = $kueri->row();
-
-        // $jumlahlama = $result->jumlah;
-        // $jumlahbaru = $jumlahlama - $total;
-
-        // $data = array(
-        //         'id' => $id_move_in,
-        //         'jumlah' => $jumlahbaru
-        //         );
-        // $this->db->where('id', $id_move_in);
-        // $this->db->update('move_in', $data);
 
         redirect('list_in/view_list_in/'.$id_move_in);
     }

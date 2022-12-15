@@ -9,9 +9,9 @@ class M_process_in extends CI_Model
     var $table2 = 'container';
     var $table3 = 'detil_move_in';
 
-    var $column_order = array(null, 'no_cont','mlo_nama','waktu', 'tanggal', 'truk','kode', NULL);
-    var $column_search = array('no_cont','mlo_nama','waktu', 'tanggal', 'truk','kode');
-    var $oder = array('id_cont'=>'ASC'); 
+    var $column_order = array(null, 'no_container','time_in', 'date_in', 'truck_in','kode', NULL);
+    var $column_search = array('no_container','time_in', 'date_in', 'truck_in','kode');
+    var $oder = array('id_detil_in'=>'ASC'); 
 
     function __construct()
     {
@@ -77,25 +77,25 @@ class M_process_in extends CI_Model
         return $this->db->count_all_results();
     }
 
-    function update_detil($id, $data)
+    function update_detil($id_detil_in, $data)
     {
-        $this->db->where('id_container', $id);
+        $this->db->where('id', $id_detil_in);
         $this->db->update($this->table3, $data);
         return $this->db->affected_rows();
     }
 
-    function update_container($id, $data2)
+    function update_container($id_container, $data2)
     {
-        $this->db->where('id', $id);
+        $this->db->where('id', $id_container);
         $this->db->update($this->table2, $data2);
         return $this->db->affected_rows();   
     }
 
     function get_by_id($id)
     {   
-        $this->db->where('container.id', $id);
-        $this->db->join('detil_move_in', 'container.id = detil_move_in.id_container', 'left');        
-        return $this->db->get($this->table2)->row();
+        $this->db->where('id_detil_in', $id);
+        $this->db->join('detil_move_in', 'view_process_in.id_detil_in = detil_move_in.id', 'left');        
+        return $this->db->get($this->table)->row();
     }
 
 }

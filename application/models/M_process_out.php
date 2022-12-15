@@ -9,9 +9,9 @@ class M_process_out extends CI_Model
     var $table2 = 'container';
     var $table3 = 'detil_move_out';
 
-    var $column_order = array(null, 'no_container','tanggal_keluar','jam_keluar', 'nopol', 'kode', NULL);
-    var $column_search = array('no_container','tanggal_keluar','jam_keluar', 'nopol', 'kode');
-    var $oder = array('id_container'=>'ASC'); 
+    var $column_order = array(null, 'no_container','date_out','time_out', 'truck_out', 'kode', NULL);
+    var $column_search = array('no_container','date_out','time_out', 'truck_out', 'kode');
+    var $oder = array('id_detil_out'=>'ASC'); 
 
     function __construct()
     {
@@ -77,25 +77,24 @@ class M_process_out extends CI_Model
         return $this->db->count_all_results();
     }
 
-    function update_detil($id, $data)
+    function update_detil($id_detil_out, $data)
     {
-        $this->db->where('id_container', $id);
+        $this->db->where('id', $id_detil_out);
         $this->db->update($this->table3, $data);
         return $this->db->affected_rows();
     }
 
-    function update_container($id, $data2)
+    function update_container($id_container, $data2)
     {
-        $this->db->where('id', $id);
+        $this->db->where('id', $id_container);
         $this->db->update($this->table2, $data2);
         return $this->db->affected_rows();   
     }
 
     function get_by_id($id)
     {   
-        $this->db->where('container.id', $id);
-        $this->db->join('detil_move_out', 'container.id = detil_move_out.id_container', 'left');        
-        return $this->db->get($this->table2)->row();
+        $this->db->where('id_detil_out', $id);
+        $this->db->join('detil_move_out', 'view_process_out.id_detil_out = detil_move_out.id', 'left');        
+        return $this->db->get($this->table)->row();
     }
-
 }

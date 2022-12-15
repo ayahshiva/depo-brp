@@ -68,7 +68,7 @@
             newRowAdd =
             	'<div class="row" id="row">' + 
 					'<div class="col-sm-3">' +
-						'<input type="text" name="no_container[]" class="form-control" placeholder="Nomor Container" required>' +
+						'<input type="text" name="no_container[]" class="form-control cari-nomor" id="autocomplete" placeholder="Nomor Container" required>' +
 						'<div class="invalid-feedback">Harap diisi!</div>' +
 					'</div>' +
 					'<div class="col-sm-3">' +
@@ -121,3 +121,13 @@
         });
 		
 	</script>
+
+	<script>
+        $(document).on("focus", "#autocomplete", function(e) {
+			if ( !$(this).data("autocomplete") ) {
+			   	$(this).autocomplete({            
+			        source: "<?php echo site_url('dashboard/nomorContainer/?');?>"
+			    });
+			}
+		});        
+    </script>

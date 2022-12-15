@@ -65,16 +65,13 @@
 
   	<script type="text/javascript">
 
+
+
    		$("#rowAdder").click(function () {
             newRowAdd =
             	'<div class="row" id="row">' + 
 					'<div class="col-sm-3">' +
-						'<select name="id_container[]" class="form-control select2" id="select2" required>' +
-							'<option selected disabled value="">Pilih Container</option>' +
-							'<?php foreach ($get_container as $row) : ?>' +
-								'<option value="<?php echo $row->id; ?>"><?php echo $row->no_cont; ?></option> ' +
-							'<?php endforeach ?>' +
-						'</select>' +						
+						'<input type="text" name="no_container[]" class="form-control cari-nomor" id="autocomplete" placeholder="Nomor Container" required>' +
 						'<div class="invalid-feedback">Harap diisi!</div>' +
 					'</div>' +
 					'<div class="col-sm-3">' +
@@ -102,10 +99,15 @@
         $("body").on("click", "#DeleteRow", function () {
             $(this).parents("#row").remove();
         });
-
-
-        $('#select2').select2({
-	        dropdownParent: $('#newinput')
-	    });
 		
 	</script>
+
+	<script>
+        $(document).on("focus", "#autocomplete", function(e) {
+			if ( !$(this).data("autocomplete") ) {
+			   	$(this).autocomplete({            
+			        source: "<?php echo site_url('dashboard/nomorContainer/?');?>"
+			    });
+			}
+		});        
+    </script>

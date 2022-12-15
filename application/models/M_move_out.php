@@ -105,7 +105,7 @@ class M_move_out extends CI_Model
 
     function list_container($id)
     {
-        $this->db->select('*, detil_move_out.id as id_detil, container.id as id_container, move_out.id as id_move_out')
+        $this->db->select('*, detil_move_out.id as id_detil_out, container.id as id_container, move_out.id as id_move_out')
                  ->from('detil_move_out')
                  ->join('container', 'detil_move_out.id_container = container.id', 'left')
                  ->join('move_out', 'detil_move_out.id_move_out = move_out.id')
@@ -142,10 +142,10 @@ class M_move_out extends CI_Model
 
     function get_voyage()
     {
-        $this->db->select('no_voyage');
-        $this->db->order_by('id', 'DESC');
+        $this->db->select('*');
         $this->db->group_by('no_voyage');
-        $this->db->limit(15);
+        $this->db->order_by('id', 'DESC');
+        //$this->db->limit(15);
         return $this->db->get($this->table)->result();
     }
 

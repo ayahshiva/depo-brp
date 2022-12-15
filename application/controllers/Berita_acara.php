@@ -48,8 +48,8 @@ class Berita_acara extends CI_Controller
 
 		$this->db->select('*');
 		$this->db->from('view_berita_acara');
-		//$this->db->where('date_in >=', $tanggal_awal);
-		//$this->db->where('date_in <=', $tanggal_akhir);
+		$this->db->where('date_in >=', $tanggal_awal);
+		$this->db->where('date_in <=', $tanggal_akhir);
 		$this->db->where('id_emkl', $id_emkl);
 		$this->db->where('id_vessel', $id_vessel);
 		$this->db->where('no_voyage', $no_voyage);

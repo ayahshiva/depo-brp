@@ -36,7 +36,7 @@ class Payment_in extends CI_Controller
 
             if($item->kode =='')
             {
-                $kode = "<a class='btn btn-sm btn-info' href='payment_in/generate_code/$item->id' title='Generate Code'>Generate</a>";
+                $kode = "<a class='btn btn-sm btn-info' href='payment_in/generate_code/$item->id_payment_in' title='Generate Code'>Generate</a>";
             }
             else
             {
@@ -46,7 +46,7 @@ class Payment_in extends CI_Controller
             $metode = '';
             if($item->metode == '')
             {
-                $metode = "<a href='payment_in/update_payment_in/$item->id' class='btn btn-sm btn-success' title='Update Payment'>Update</a>";
+                $metode = "<a href='payment_in/update_payment_in/$item->id_payment_in' class='btn btn-sm btn-success' title='Update Payment'>Update</a>";
             }
             else
             {
@@ -59,15 +59,16 @@ class Payment_in extends CI_Controller
             $row[] = $no;
             $row[] = $item->do_number;
             $row[] = $item->invoice;
-            $row[] = $item->emkl_nama;
-            $row[] = $item->vessel_nama;
+            $row[] = $item->nama_emkl;
+            $row[] = $item->nama_vessel;
             $row[] = $item->no_voyage;
             $row[] = $metode;
             $row[] = $kode;
             $row[] = "
-                            <a href='payment_in/view_payment_in/$item->id' class='btn btn-sm btn-primary' title='View Detail'><i class='bi bi-eye'></i></a>
-                            <a href='payment_in/edit_payment_in/$item->id' class='btn btn-sm btn-success' title='Edit'><i class='bi bi-pencil'></i></a>
-                            <a href='payment_in/add_container_payment_in/$item->id' class='btn btn-sm btn-warning' title='Input Container'><i class='bi bi-clipboard-plus'></i></a>
+                            <a href='payment_in/view_payment_in/$item->id_payment_in' class='btn btn-sm btn-primary' title='View Detail'><i class='bi bi-eye'></i></a>
+                            <a href='payment_in/edit_payment_in/$item->id_payment_in' class='btn btn-sm btn-success' title='Edit'><i class='bi bi-pencil'></i></a>
+                            <a href='payment_in/add_container_payment_in/$item->id_payment_in' class='btn btn-sm btn-warning' title='Input Container'><i class='bi bi-clipboard-plus'></i></a>
+                            <a href='payment_in/delete_container_payment_in/$item->id_payment_in' class='btn btn-sm btn-danger' title='Hapus Container'><i class='bi bi-clipboard-minus'></i></a>
                           ";
 
             $data[] = $row;
@@ -285,6 +286,49 @@ class Payment_in extends CI_Controller
         $this->load->view('include/sidebar');
         $this->load->view('page/movein/add_container_payment_in', $data);
         $this->load->view('include/footer');
+    }
+
+    function delete_container_payment_in()
+    {
+        $id = $this->uri->segment(3);
+        $data['view'] = $this->M_payment_in->get_view_id($id);
+        $data['container'] = $this->M_payment_in->list_container($id);
+        $data['jumlah_real'] = $this->M_payment_in->jumlah_real($id);
+
+
+        $this->load->view('include/header');
+        $this->load->view('include/navbar');
+        $this->load->view('include/sidebar');
+        $this->load->view('page/movein/delete_container_payment_in', $data);
+        $this->load->view('include/footer');
+    }
+
+    function hapus_container()
+    {
+        $id_payment_in = $this->input->post('id_payment_in', TRUE);
+        $hapus = $this->input->post('hapus');
+        $total = count($hapus);
+
+        if( ! empty($hapus))
+        {
+            for($i=0; $i < $total; $i++)
+            {
+
+                $this->db->where('id', $hapus[$i]);
+                $query = $this->db->get('detil_payment_in');
+                $result = $query->row();
+                $id_container = $result->id_container;
+
+                $update = array('stok' => '1');
+                $this->db->where('id', $id_container);
+                $this->db->update('container', $update);
+
+                $this->db->where('id', $hapus[$i]);
+                $this->db->delete('detil_payment_in');
+            }
+        }
+
+        redirect('payment_in/view_payment_in/'.$id_payment_in);
     }
 
     function simpan_container()

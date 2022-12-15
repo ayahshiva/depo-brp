@@ -22,7 +22,6 @@
 		    		<tr class="bg-primary bg-opacity-75 text-white">
 		    				<th>No.</th>
 			      		<th>No Container</th>
-			      		<th>MLO</th>
 			      		<th>Time In</th>	
 			      		<th>Date In</th>
 			      		<th>Truck No</th>
@@ -36,7 +35,6 @@
 		    		<tr class="bg-primary bg-opacity-75 text-white">
 		    				<th>No.</th>
 			      		<th>No Container</th>
-			      		<th>MLO</th>
 			      		<th>Time In</th>	
 			      		<th>Date In</th>
 			      		<th>Truck No</th>
@@ -63,7 +61,7 @@
 	                "type": "POST"
 	            },
 	            "columnDefs":[
-	            	{"orderable": false, "targets": [0, 8]}
+	            	{"orderable": false, "targets": [0, 7]}
 	            ]
 	        });
 	    });
