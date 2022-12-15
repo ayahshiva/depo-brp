@@ -39,8 +39,8 @@
 		  					<td><?php echo $value->nama_emkl; ?></td>
 		  					<td><?php echo $value->nama_vessel; ?></td>
 		  					<td><?php echo $value->no_voyage; ?></td>
-		  					<td><?php echo $value->kode; ?>
-		  					<td><?php echo $value->do_number; ?>
+		  					<td><?php echo $value->kode; ?></td>
+		  					<td><?php echo $value->do_number; ?></td>
 		  				</tr>
 		  			<?php } ?>
     			</tbody>   			
@@ -73,11 +73,11 @@
 		  					<td><?php echo $value->nama_emkl; ?></td>
 		  					<td><?php echo $value->nama_vessel; ?></td>
 		  					<td><?php echo $value->no_voyage; ?></td>
-		  					<td><?php echo $value->kode; ?>
-		  					<td><?php echo $value->do_number; ?>
+		  					<td><?php echo $value->kode; ?></td>
+		  					<td><?php echo $value->do_number; ?></td>
 		  				</tr>
 		  			<?php } ?>
-    			</tbody>   			
+    			</tbody>   	
     			
   			</table>
   		</div>

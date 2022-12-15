@@ -335,14 +335,21 @@ class Payment_in extends CI_Controller
     {
         $input = $this->input->post(NULL, TRUE);
         $id_payment_in = $input['id_payment_in'];
-        $id_container = $input['id_container'];
+        $no_container = $input['no_container'];
 
-        foreach ($id_container as $key => $value) {
+        foreach ($no_container as $key => $value) {
+
+            //get id_container
+
+            $this->db->where('no_cont', $value);
+            $q = $this->db->get('container');
+            $r = $q->row();
+            $id_container = $r->id;
             
-            $detil_payment = array('id_payment_in'=>$id_payment_in, 'id_container'=>$value);
+            $detil_payment = array('id_payment_in'=>$id_payment_in, 'id_container'=>$id_container);
             $this->M_payment_in->insert_detil_payment($detil_payment);
 
-            $id = $value;
+            $id = $id_container;
             $data = array('stok'=>'2');
             $this->M_container->update($id, $data);
         }
