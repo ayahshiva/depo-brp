@@ -46,15 +46,26 @@ class Berita_acara extends CI_Controller
 
 		$data['nama_emkl'] = $this->M_emkl->get_by_id_emkl($id_emkl);
 
-		$this->db->select('*');
-		$this->db->from('view_berita_acara');
-		$this->db->where('date_in >=', $tanggal_awal);
-		$this->db->where('date_in <=', $tanggal_akhir);
-		$this->db->where('id_emkl', $id_emkl);
-		$this->db->where('id_vessel', $id_vessel);
-		$this->db->where('no_voyage', $no_voyage);
-		$this->db->where('do_number', $do_number);
-		$query = $this->db->get();
+		$this->db->select('
+				detil_move_in.date_in as date_in, detil_move_in.kondisi as kondisi, detil_move_in.time_in as time_in,
+				container.no_cont as no_container, container.size as size,
+				mlo.nama as nama_mlo,
+				payment_in.no_voyage as no_voyage,
+				vessel.nama as nama_vessel
+			');
+		$this->db->join('container', 'detil_move_in.id_container = container.id', 'left');
+		$this->db->join('mlo', 'container.id_mlo = mlo.id', 'left');
+		$this->db->join('detil_payment_in', 'detil_move_in.id_container = detil_payment_in.id_container','left');
+		$this->db->join('payment_in','detil_payment_in.id_payment_in = payment_in.id','left');
+		$this->db->join('vessel','payment_in.id_vessel = vessel.id','left');
+		$this->db->where('detil_move_in.date_in >=', $tanggal_awal);
+		$this->db->where('detil_move_in.date_in <=', $tanggal_akhir);
+		$this->db->where('emkl.id', $id_emkl);
+		$this->db->where('mlo.id', $id_mlo);
+		$this->db->where('vessel.id', $id_vessel);
+		$this->db->where('payment_in.no_voyage', $no_voyage);
+		$this->db->where('payment_in.do_number', $do_number);
+		$query = $this->db->get('detil_move_in');
 		$data['hasil'] = $query->result();
 
 		if(isset($_POST['cetak']))

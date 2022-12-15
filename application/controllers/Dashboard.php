@@ -53,8 +53,6 @@ class Dashboard extends CI_Controller {
 
 		$data['mvin'] = $this->M_container->cariMVin($noCont);
 		$data['mvot'] = $this->M_container->cariMVot($noCont);
-
-
 		
 		$this->load->view('include/header');
 		$this->load->view('include/navbar');
