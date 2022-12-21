@@ -79,7 +79,7 @@ $db['default'] = array(
 	
 	'username' => 'root',
 	'password' => '',
-	'database' => 'brp_db',
+	'database' => 'depob392_app_depo',
 
 	// 'username' => 'depob392_user',
 	// 'password' => '6bhw9#;pXA=?',

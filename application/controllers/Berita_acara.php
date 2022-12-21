@@ -58,6 +58,7 @@ class Berita_acara extends CI_Controller
 		$this->db->join('detil_payment_in', 'detil_move_in.id_container = detil_payment_in.id_container','left');
 		$this->db->join('payment_in','detil_payment_in.id_payment_in = payment_in.id','left');
 		$this->db->join('vessel','payment_in.id_vessel = vessel.id','left');
+		$this->db->join('emkl', 'payment_in.id_emkl = emkl.id','left');
 		$this->db->where('detil_move_in.date_in >=', $tanggal_awal);
 		$this->db->where('detil_move_in.date_in <=', $tanggal_akhir);
 		$this->db->where('emkl.id', $id_emkl);

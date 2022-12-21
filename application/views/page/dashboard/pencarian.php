@@ -14,6 +14,53 @@
       	</div>
       	
       	<!-- Content -->
+      	<div class="row">
+      		<div class="col-md-3">
+				<div class="card h-100 border-primary">		    
+					<div class="card-body">
+						<h5 class="card-title"><?php echo $data->nama; ?></h5>
+					        <!-- <p class="card-text">Container.</p> -->
+					</div>
+					<div class="card-footer bg-primary">
+						<small class="text-white fs-6">MLO</small>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card h-100 border-success">		    
+				    <div class="card-body">
+				        <h5 class="card-title"><?php echo $data->no_cont; ?></h5>
+				        	<!-- <p class="card-text">Size.</p> -->
+				      	</div>
+				    <div class="card-footer bg-success">
+				        <small class="text-white fs-6">No Container</small>
+				    </div>
+				</div>
+			</div>
+			<div class="col-md-3">
+		  		<div class="card h-100 border-warning">		    
+				    <div class="card-body">
+				       	<h5 class="card-title"><?php echo $data->size; ?></h5>
+				        <!-- <p class="card-text">Container.</p> -->
+				    </div>
+					<div class="card-footer bg-warning">
+				   		<small class="text-white fs-6">Size</small>
+					</div>
+				</div>
+		  	</div>
+		  	<div class="col-md-3">
+		  		<div class="card h-100 border-danger">		    
+				    <div class="card-body">
+				        <h5 class="card-title"><?php echo $data->tipe; ?></h5>
+				        <!-- <p class="card-text">Container.</p> -->
+				    </div>
+				    <div class="card-footer bg-danger">
+				        <small class="text-white fs-6">Tipe</small>
+				    </div>
+				</div>
+		  	</div>
+		</div>
+		<hr />
       	<div class="table-responsive-sm table-responsive-md">
   			<table class="table table-hover table-sm caption-top text-nowrap">
   				<caption class="fs-5">

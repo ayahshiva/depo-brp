@@ -117,6 +117,7 @@ class M_payment_in extends CI_Model
         $this->db->join('container', 'detil_payment_in.id_container = container.id', 'left');
         $this->db->join('detil_move_in', 'container.id = detil_move_in.id_container', 'left');
         $this->db->where('detil_payment_in.id_payment_in', $id);
+        $this->db->group_by('container.id');
         return $this->db->get($this->table2)->result();
     }
 

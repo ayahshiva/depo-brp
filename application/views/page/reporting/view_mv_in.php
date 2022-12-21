@@ -12,16 +12,8 @@
     <link rel="manifest" href="<?php echo base_url('assets/pwa/'); ?>manifest.json" />
     
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
-
-    <!-- JQuery -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/jquery-ui.css'); ?>">
-    
-    <!--Bootstrap JS -->    
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
-
+   
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -32,7 +24,6 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
 
     <!-- Select2 -->
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.full.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     <!-- Custom CSS -->
@@ -41,7 +32,7 @@
   </head>
   <body>
 
-  <div class="table-responsive">
+  
 		<table class="table table-bordered table-striped table-hover text-nowrap">
 			<thead>
 				<tr>
@@ -128,42 +119,7 @@
 				</tr>
 			</tfoot>
 		</table>
-	</div>
-
-
-	<!-- Typehead -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
-
-    <!-- Sweet Alert -->
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <!-- Feather Icon -->
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
-
-    <!-- Chart JS -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-
-    <!-- Datatable -->
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
-
-    <!-- Custom JS -->    
-    <script src="<?php echo base_url('assets/js/dashboard.js')?>"></script>
-
-    <?php $this->load->view('include/sweetalert_js.php'); ?>
-    <?php $this->load->view('include/datatables.php'); ?>
-    <?php $this->load->view('include/modal_js.php'); ?>
-
-    <script>
-        $(function() {
-            $(document).ready(function(){
-                $( "#no_cont" ).autocomplete({
-                  source: "<?php echo site_url('dashboard/nomorContainer/?');?>"
-                });
-            });
-        });
-    </script>
-
+	
 
     </body>
 </html>

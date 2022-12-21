@@ -39,68 +39,77 @@ class Reporting extends CI_Controller
 		$data['tanggal_awal'] = $tanggal_awal;
 		$data['tanggal_akhir'] = $tanggal_akhir;
 
-		$this->db->where('id_mlo', $id_mlo);
-        $this->db->where('date_in >=', $tanggal_awal);
-        $this->db->where('date_in <=', $tanggal_akhir);
-        $this->db->where('size', '20');
-        $this->db->where('tipe', 'GP');
-        $data['gp20'] = $this->db->count_all_results('reporting_mv_in');
+        $this->db->join('detil_move_in', 'container.id = detil_move_in.id_container', 'left');
+		$this->db->where('container.id_mlo', $id_mlo);
+        $this->db->where('detil_move_in.date_in >=', $tanggal_awal);
+        $this->db->where('detil_move_in.date_in <=', $tanggal_akhir);
+        $this->db->where('container.size', '20');
+        $this->db->where('container.tipe', 'GP');
+        $data['gp20'] = $this->db->count_all_results('container');
 
-        $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('date_in >=', $tanggal_awal);
-        $this->db->where('date_in <=', $tanggal_akhir);
-        $this->db->where('size', '40');
-        $this->db->where('tipe', 'GP');
-        $data['gp40'] = $this->db->count_all_results('reporting_mv_in');
+        $this->db->join('detil_move_in', 'container.id = detil_move_in.id_container', 'left');
+        $this->db->where('container.id_mlo', $id_mlo);
+        $this->db->where('detil_move_in.date_in >=', $tanggal_awal);
+        $this->db->where('detil_move_in.date_in <=', $tanggal_akhir);
+        $this->db->where('container.size', '40');
+        $this->db->where('container.tipe', 'GP');
+        $data['gp40'] = $this->db->count_all_results('container');
 
-        $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('date_in >=', $tanggal_awal);
-        $this->db->where('date_in <=', $tanggal_akhir);
-        $this->db->where('size', '40');
-        $this->db->where('tipe', 'HC');
-        $data['hc40'] = $this->db->count_all_results('reporting_mv_in');
+        $this->db->join('detil_move_in', 'container.id = detil_move_in.id_container', 'left');
+        $this->db->where('container.id_mlo', $id_mlo);
+        $this->db->where('detil_move_in.date_in >=', $tanggal_awal);
+        $this->db->where('detil_move_in.date_in <=', $tanggal_akhir);
+        $this->db->where('container.size', '40');
+        $this->db->where('container.tipe', 'HC');
+        $data['hc40'] = $this->db->count_all_results('container');
 
-        $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('date_in >=', $tanggal_awal);
-        $this->db->where('date_in <=', $tanggal_akhir);
-        $this->db->where('size', '20');
-        $this->db->where('tipe', 'OP');
-        $data['op20'] = $this->db->count_all_results('reporting_mv_in');
+        $this->db->join('detil_move_in', 'container.id = detil_move_in.id_container', 'left');
+        $this->db->where('container.id_mlo', $id_mlo);
+        $this->db->where('detil_move_in.date_in >=', $tanggal_awal);
+        $this->db->where('detil_move_in.date_in <=', $tanggal_akhir);
+        $this->db->where('container.size', '20');
+        $this->db->where('container.tipe', 'OP');
+        $data['op20'] = $this->db->count_all_results('container');
 
-        $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('date_in >=', $tanggal_awal);
-        $this->db->where('date_in <=', $tanggal_akhir);
-        $this->db->where('size', '40');
-        $this->db->where('tipe', 'OP');
-        $data['op40'] = $this->db->count_all_results('reporting_mv_in');
+        $this->db->join('detil_move_in', 'container.id = detil_move_in.id_container', 'left');
+        $this->db->where('container.id_mlo', $id_mlo);
+        $this->db->where('detil_move_in.date_in >=', $tanggal_awal);
+        $this->db->where('detil_move_in.date_in <=', $tanggal_akhir);
+        $this->db->where('container.size', '40');
+        $this->db->where('container.tipe', 'OP');
+        $data['op40'] = $this->db->count_all_results('container');
 
-        $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('date_in >=', $tanggal_awal);
-        $this->db->where('date_in <=', $tanggal_akhir);
-        $this->db->where('size', '20');
-        $this->db->where('tipe', 'FR');
-        $data['fr20'] = $this->db->count_all_results('reporting_mv_in');
+        $this->db->join('detil_move_in', 'container.id = detil_move_in.id_container', 'left');
+        $this->db->where('container.id_mlo', $id_mlo);
+        $this->db->where('detil_move_in.date_in >=', $tanggal_awal);
+        $this->db->where('detil_move_in.date_in <=', $tanggal_akhir);
+        $this->db->where('container.size', '20');
+        $this->db->where('container.tipe', 'FR');
+        $data['fr20'] = $this->db->count_all_results('container');
 
-        $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('date_in >=', $tanggal_awal);
-        $this->db->where('date_in <=', $tanggal_akhir);
-        $this->db->where('size', '40');
-        $this->db->where('tipe', 'FR');
-        $data['fr40'] = $this->db->count_all_results('reporting_mv_in');
+        $this->db->join('detil_move_in', 'container.id = detil_move_in.id_container', 'left');
+        $this->db->where('container.id_mlo', $id_mlo);
+        $this->db->where('detil_move_in.date_in >=', $tanggal_awal);
+        $this->db->where('detil_move_in.date_in <=', $tanggal_akhir);
+        $this->db->where('container.size', '40');
+        $this->db->where('container.tipe', 'FR');
+        $data['fr40'] = $this->db->count_all_results('container');
 
-        $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('date_in >=', $tanggal_awal);
-        $this->db->where('date_in <=', $tanggal_akhir);
-        $this->db->where('size', '20');
-        $this->db->where('tipe', 'RF');
-        $data['rf20'] = $this->db->count_all_results('reporting_mv_in');
+        $this->db->join('detil_move_in', 'container.id = detil_move_in.id_container', 'left');
+        $this->db->where('container.id_mlo', $id_mlo);
+        $this->db->where('detil_move_in.date_in >=', $tanggal_awal);
+        $this->db->where('detil_move_in.date_in <=', $tanggal_akhir);
+        $this->db->where('container.size', '20');
+        $this->db->where('container.tipe', 'RF');
+        $data['rf20'] = $this->db->count_all_results('container');
 
-        $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('date_in >=', $tanggal_awal);
-        $this->db->where('date_in <=', $tanggal_akhir);
-        $this->db->where('size', '40');
-        $this->db->where('tipe', 'RF');
-        $data['rf40'] = $this->db->count_all_results('reporting_mv_in');
+        $this->db->join('detil_move_in', 'container.id = detil_move_in.id_container', 'left');
+        $this->db->where('container.id_mlo', $id_mlo);
+        $this->db->where('detil_move_in.date_in >=', $tanggal_awal);
+        $this->db->where('detil_move_in.date_in <=', $tanggal_akhir);
+        $this->db->where('container.size', '40');
+        $this->db->where('container.tipe', 'RF');
+        $data['rf40'] = $this->db->count_all_results('container');
 
 		if(isset($_POST['preview']))
 		{
@@ -130,90 +139,102 @@ class Reporting extends CI_Controller
         $id_mlo = $this->input->post('id_mlo');
 
         $data['mlo'] = $this->M_mlo->get_mlo($id_mlo);
-        $data['get_mv_out'] = $data_data =  $this->M_reporting->mv_out($tanggal_awal, $tanggal_akhir, $id_mlo);
+        $data_data = $data['get_mv_out'] =  $this->M_reporting->mv_out($tanggal_awal, $tanggal_akhir, $id_mlo);
         $data['tanggal_awal'] = $tanggal_awal;
         $data['tanggal_akhir'] = $tanggal_akhir;
 
-        $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('tgl_keluar >=', $tanggal_awal);
-        $this->db->where('waktu_keluar <=', $tanggal_akhir);
-        $this->db->where('size', '20');
-        $this->db->where('tipe', 'GP');
-        $data['gp20'] = $this->db->count_all_results('reporting_mv_out');
-
-        $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('tgl_keluar >=', $tanggal_awal);
-        $this->db->where('waktu_keluar <=', $tanggal_akhir);
-        $this->db->where('size', '40');
-        $this->db->where('tipe', 'GP');
-        $data['gp40'] = $this->db->count_all_results('reporting_mv_out');
-
-        $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('tgl_keluar >=', $tanggal_awal);
-        $this->db->where('waktu_keluar <=', $tanggal_akhir);
-        $this->db->where('size', '40');
-        $this->db->where('tipe', 'HC');
-        $data['hc40'] = $this->db->count_all_results('reporting_mv_out');
-
-        $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('tgl_keluar >=', $tanggal_awal);
-        $this->db->where('waktu_keluar <=', $tanggal_akhir);
-        $this->db->where('size', '20');
-        $this->db->where('tipe', 'OP');
-        $data['op20'] = $this->db->count_all_results('reporting_mv_out');
-
-        $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('tgl_keluar >=', $tanggal_awal);
-        $this->db->where('waktu_keluar <=', $tanggal_akhir);
-        $this->db->where('size', '40');
-        $this->db->where('tipe', 'OP');
-        $data['op40'] = $this->db->count_all_results('reporting_mv_out');
-
-        $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('tgl_keluar >=', $tanggal_awal);
-        $this->db->where('waktu_keluar <=', $tanggal_akhir);
-        $this->db->where('size', '20');
-        $this->db->where('tipe', 'FR');
-        $data['fr20'] = $this->db->count_all_results('reporting_mv_out');
-
-        $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('tgl_keluar >=', $tanggal_awal);
-        $this->db->where('waktu_keluar <=', $tanggal_akhir);
-        $this->db->where('size', '40');
-        $this->db->where('tipe', 'FR');
-        $data['fr40'] = $this->db->count_all_results('reporting_mv_out');
-
-        $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('tgl_keluar >=', $tanggal_awal);
-        $this->db->where('waktu_keluar <=', $tanggal_akhir);
-        $this->db->where('size', '20');
-        $this->db->where('tipe', 'RF');
-        $data['rf20'] = $this->db->count_all_results('reporting_mv_out');
-
-        $this->db->where('id_mlo', $id_mlo);
-        $this->db->where('tgl_keluar >=', $tanggal_awal);
-        $this->db->where('waktu_keluar <=', $tanggal_akhir);
-        $this->db->where('size', '40');
-        $this->db->where('tipe', 'RF');
-        $data['rf40'] = $this->db->count_all_results('reporting_mv_out');
-
         foreach ($data_data as $key => $value) {
-            $id_vessel = $value->vessel_in;
+            $id_vessel_in = $value->id_vessel_in;
+            $id_vessel_out = $value->id_vessel_out;
+            $id_emkl = $value->id_emkl;
 
-            $this->db->where('id', $id_vessel);
-            $this->db->limit('1');
-            $query = $this->db->get('vessel');
-            $row = $query->row();
+            $this->db->where('id', $id_vessel_out);
+            $v_o = $this->db->get('vessel');
+            $r_o = $v_o->row();
+            $data['ves_ot'] = $r_o->nama;
 
-            $data['nama_vessel'] = $row->nama;
+            $this->db->where('id', $id_emkl);
+            $emkl = $this->db->get('emkl');
+            $emkl2 = $emkl->row();
+            $data['nama_emkl'] = $emkl2->nama;
 
-            $tgl1 = strtotime($value->tgl_masuk);
-            $tgl2 = strtotime($value->tgl_keluar);
-            $days = $tgl2 - $tgl1;
-            $totaldays = floor($days / (60*60*24));
-            $data['storage'] = $totaldays;
-
+            $this->db->where('id', $id_vessel_in);
+            $ves = $this->db->get('vessel');
+            $v = $ves->row();
+            $data['nama_vessel'] = $v->nama;
         }
+
+        $this->db->join('detil_move_out','container.id = detil_move_out.id_container' ,'left');
+        $this->db->where('container.id_mlo', $id_mlo);
+        $this->db->where('detil_move_out.date_out >=', $tanggal_awal);
+        $this->db->where('detil_move_out.date_out <=', $tanggal_akhir);
+        $this->db->where('container.size', '20');
+        $this->db->where('container.tipe', 'GP');
+        $data['gp20'] = $this->db->count_all_results('container');
+
+        $this->db->join('detil_move_out','container.id = detil_move_out.id_container' ,'left');
+        $this->db->where('container.id_mlo', $id_mlo);
+        $this->db->where('detil_move_out.date_out >=', $tanggal_awal);
+        $this->db->where('detil_move_out.date_out <=', $tanggal_akhir);
+        $this->db->where('container.size', '40');
+        $this->db->where('container.tipe', 'GP');
+        $data['gp40'] = $this->db->count_all_results('container');
+
+        $this->db->join('detil_move_out','container.id = detil_move_out.id_container' ,'left');
+        $this->db->where('container.id_mlo', $id_mlo);
+        $this->db->where('detil_move_out.date_out >=', $tanggal_awal);
+        $this->db->where('detil_move_out.date_out <=', $tanggal_akhir);
+        $this->db->where('container.size', '40');
+        $this->db->where('container.tipe', 'HC');
+        $data['hc40'] = $this->db->count_all_results('container');
+
+        $this->db->join('detil_move_out','container.id = detil_move_out.id_container' ,'left');
+        $this->db->where('container.id_mlo', $id_mlo);
+        $this->db->where('detil_move_out.date_out >=', $tanggal_awal);
+        $this->db->where('detil_move_out.date_out <=', $tanggal_akhir);
+        $this->db->where('container.size', '20');
+        $this->db->where('container.tipe', 'OP');
+        $data['op20'] = $this->db->count_all_results('container');
+
+        $this->db->join('detil_move_out','container.id = detil_move_out.id_container' ,'left');
+        $this->db->where('container.id_mlo', $id_mlo);
+        $this->db->where('detil_move_out.date_out >=', $tanggal_awal);
+        $this->db->where('detil_move_out.date_out <=', $tanggal_akhir);
+        $this->db->where('container.size', '40');
+        $this->db->where('container.tipe', 'OP');
+        $data['op40'] = $this->db->count_all_results('container');
+
+        $this->db->join('detil_move_out','container.id = detil_move_out.id_container' ,'left');
+        $this->db->where('container.id_mlo', $id_mlo);
+        $this->db->where('detil_move_out.date_out >=', $tanggal_awal);
+        $this->db->where('detil_move_out.date_out <=', $tanggal_akhir);
+        $this->db->where('container.size', '20');
+        $this->db->where('container.tipe', 'FR');
+        $data['fr20'] = $this->db->count_all_results('container');
+
+        $this->db->join('detil_move_out','container.id = detil_move_out.id_container' ,'left');
+        $this->db->where('container.id_mlo', $id_mlo);
+        $this->db->where('detil_move_out.date_out >=', $tanggal_awal);
+        $this->db->where('detil_move_out.date_out <=', $tanggal_akhir);
+        $this->db->where('container.size', '40');
+        $this->db->where('container.tipe', 'FR');
+        $data['fr40'] = $this->db->count_all_results('container');
+
+        $this->db->join('detil_move_out','container.id = detil_move_out.id_container' ,'left');
+        $this->db->where('container.id_mlo', $id_mlo);
+        $this->db->where('detil_move_out.date_out >=', $tanggal_awal);
+        $this->db->where('detil_move_out.date_out <=', $tanggal_akhir);
+        $this->db->where('container.size', '20');
+        $this->db->where('container.tipe', 'RF');
+        $data['rf20'] = $this->db->count_all_results('container');
+
+        $this->db->join('detil_move_out','container.id = detil_move_out.id_container' ,'left');
+        $this->db->where('container.id_mlo', $id_mlo);
+        $this->db->where('detil_move_out.date_out >=', $tanggal_awal);
+        $this->db->where('detil_move_out.date_out <=', $tanggal_akhir);
+        $this->db->where('container.size', '40');
+        $this->db->where('container.tipe', 'RF');
+        $data['rf40'] = $this->db->count_all_results('container');
 
         if(isset($_POST['preview']))
         {

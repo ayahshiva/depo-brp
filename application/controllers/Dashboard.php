@@ -51,6 +51,12 @@ class Dashboard extends CI_Controller {
 	{
 		$data['noCont'] = $noCont = $this->input->post('no_cont', true);
 
+		$this->db->join('mlo', 'container.id_mlo = mlo.id','left');
+		$this->db->where('container.no_cont', $noCont);
+		$q = $this->db->get('container');
+		$r = $q->row();
+		$data['data'] = $r;
+
 		$data['mvin'] = $this->M_container->cariMVin($noCont);
 		$data['mvot'] = $this->M_container->cariMVot($noCont);
 		
