@@ -26,6 +26,7 @@
 	      				<th>Size</th>
 	      				<th>Tipe</th>
 	      				<th>Status</th>
+	      				<th>#</th>
 	      			</tr>
     			</thead>
     			
@@ -37,6 +38,7 @@
 	      				<th>Size</th>
 	      				<th>Tipe</th>
 	      				<th>Status</th>
+	      				<th>#</th>
 	      			</tr>
     			</tfoot>
   			</table>
@@ -55,7 +57,7 @@
 	                "type": "POST"
 	            },
 	            "columnDefs":[
-	            	{"orderable": false, "targets": [0,5]}
+	            	{"orderable": false, "targets": [0,5,6]}
 	            ]
 	        });
 	    });

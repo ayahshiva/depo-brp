@@ -227,7 +227,7 @@ class Payment_out extends CI_Controller
 
         //get id_move_out
         //$this->db->where('id_emkl', $input['id_emkl']);
-        $this->db->where('id_pay_out', $id);
+        $this->db->where('id_payment_out', $id);
         //$this->db->where('no_voyage', $input['no_voyage']);
         $query = $this->db->get('view_payment_out');
         $result = $query->row();
@@ -287,14 +287,19 @@ class Payment_out extends CI_Controller
     {
         $input = $this->input->post(NULL, TRUE);
         $id_payment_out = $input['id_payment_out'];
-        $id_container = $input['id_container'];
+        $no_container = $input['no_container'];
 
-        foreach ($id_container as $key => $value) {
+        foreach ($no_container as $key => $value) {
+
+            $this->db->where('no_cont', $value);
+            $q = $this->db->get('container');
+            $r = $q->row();
+            $id_container = $r->id;
             
-            $detil_payment = array('id_payment_out'=>$id_payment_out, 'id_container'=>$value);
+            $detil_payment = array('id_payment_out'=>$id_payment_out, 'id_container'=>$id_container);
             $this->M_payment_out->insert_detil_payment($detil_payment);
 
-            $id = $value;
+            $id = $id_container;
             $data = array('stok'=>'5');
             $this->M_container->update($id, $data);
         }
@@ -306,5 +311,15 @@ class Payment_out extends CI_Controller
         $this->session->set_flashdata('simpan', 'Data telah disimpan');
         redirect('payment_out/view_payment_out/'.$id_payment_out, 'refresh');
 
+    }
+
+    function hapus_container()
+    {
+        $id = $this->uri->segment(3);
+        $id2 = $this->uri->segment(4);
+
+        $this->M_payment_out->delete($id);
+        $this->session->set_flashdata('hapus', 'Data telah dihapus');
+        redirect('payment_out/view_payment_out/'.$id2, 'refresh');
     }
 }

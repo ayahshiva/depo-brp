@@ -67,14 +67,8 @@
             newRowAdd =
             	'<div class="row" id="row">' + 
 					'<div class="col-sm-6">' +
-						'<select name="id_container[]" class="form-control select2" required>' +
-							'<option selected disabled value="">Pilih Container</option>' + 
-							'<?php foreach($container as $row){ ?>' +
-                            '<option value="<?php echo $row->id_container; ?>"> <?php echo $row->no_cont; ?> </option>'+
-                            
-                            '<?php } ?>'+
-						'</select>'+
-						'<div class="invalid-feedback">Harap pilih salah satu!</div>'+
+						'<input type="text" name="no_container[]" class="form-control cari-nomor" id="autocomplete" placeholder="Nomor Container" required>' +
+						'<div class="invalid-feedback">Harap diisi!</div>' +
 					'</div>'+
 					
 					'<div class="col-sm-1 text-center">'+
@@ -92,8 +86,11 @@
 	</script>
 
 	<script>
-	$(document).ready(function() {
-    	$('.select2').select2();
-	});
-	
+		$(document).on("focus", "#autocomplete", function(e) {
+			if ( !$(this).data("autocomplete") ) {
+			    $(this).autocomplete({            
+			        source: "<?php echo site_url('dashboard/nomorContainer/?');?>"
+			    });
+			}
+		});
 	</script>

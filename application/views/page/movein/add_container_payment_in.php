@@ -69,7 +69,6 @@
 					'<div class="col-sm-6">' +
 						'<input type="text" name="no_container[]" class="form-control cari-nomor" id="autocomplete" placeholder="Nomor Container" required>' +
 						'<div class="invalid-feedback">Harap diisi!</div>' +
-						'<div class="invalid-feedback">Harap pilih salah satu!</div>'+
 					'</div>'+
 					
 					'<div class="col-sm-1 text-center">'+

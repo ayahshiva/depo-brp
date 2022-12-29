@@ -229,7 +229,7 @@ class Payment_in extends CI_Controller
 
         //get id_move_out
         //$this->db->where('id_emkl', $input['id_emkl']);
-        $this->db->where('id', $id);
+        $this->db->where('id_payment_in', $id);
         //$this->db->where('no_voyage', $input['no_voyage']);
         $query = $this->db->get('view_payment_in');
         $result = $query->row();

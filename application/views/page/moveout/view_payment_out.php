@@ -99,6 +99,7 @@
 			      			<th>Size</th>
 			      			<th>Tipe</th>
 			      			<th>Status</th>
+			      			<th>#</th>
 			      		</tr>
 		      		</thead>
 		      		<tbody>
@@ -108,6 +109,11 @@
 			      				<td><?php echo $value->size; ?></td>
 			      				<td><?php echo $value->tipe; ?></td>
 			      				<td><?php echo $value->st_cont; ?></td>
+			      				<td>
+			      					<a href="<?php echo site_url('payment_out/hapus_container/'); ?><?php echo $value->id1; ?>/<?php echo $value->id2; ?>" onclick="return confirm('Yakin dihapus??');" class="btn btn-danger btn-sm text-white" title="Hapus Data">
+						 					<i class="bi bi-trash"></i>
+						 				</a>
+						 			</td>
 			      			</tr>
 		      			<?php } ?>
 		      		</tbody>

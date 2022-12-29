@@ -132,4 +132,10 @@ class M_payment_out extends CI_Model
         return $this->db->affected_rows();
     }
 
+    function delete($id)
+    {
+        $this->db->delete($this->table2, array("id" => $id));
+        return $this->db->affected_rows();
+    }
+
 }

@@ -9,20 +9,20 @@
     </div>
 
     <!-- Typehead -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+    <script src="<?php echo base_url('assets/js/bootstrap3-typeahead.min.js'); ?>"></script>
 
     <!-- Sweet Alert -->
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="<?php echo base_url('assets/js/sweetalert2.all.min.js'); ?>"></script>
 
     <!-- Feather Icon -->
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
+    <script src="<?php echo base_url('assets/js/feather.min.js'); ?>"></script>
 
     <!-- Chart JS -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src="<?php echo base_url('assets/js/Chart.min.js'); ?>"></script>
 
     <!-- Datatable -->
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="<?php echo base_url('assets/js/jquery.dataTables.min.js'); ?>"></script>
+    <script type="text/javascript" charset="utf8" src="<?php echo base_url('assets/js/dataTables.bootstrap5.min.js'); ?>"></script>
 
     <!-- Custom JS -->    
     <script src="<?php echo base_url('assets/js/dashboard.js')?>"></script>

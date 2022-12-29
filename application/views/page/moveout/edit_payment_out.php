@@ -97,7 +97,7 @@
 	      						<div class="mb-3">
 									<label class="form-label">Tanggal*</label>
 									<input type="hidden" name="id_payment" value="<?php echo $this->uri->segment(3); ?>">
-									<input type="date" name="tanggal" class="form-control" value="<?php echo date('Y-m-d', strtotime($get_payment->tanggal_payment)); ?>" required>
+									<input type="date" name="tanggal" class="form-control" value="<?php echo date('Y-m-d', strtotime($get_payment->tanggal)); ?>" required>
 									<div class="invalid-feedback">Harap diisi!</div>
 								</div>
 								<div class="mb-3">

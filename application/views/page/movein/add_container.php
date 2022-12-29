@@ -94,7 +94,6 @@
                             '<option value="OP">OP</option>'+
                             '<option value="FR">FR</option>'+
                             '<option value="RF">RF</option>'+
-                            '<option value="FR">FR</option>'+
 						'</select>'+
 						'<div class="invalid-feedback">Harap pilih salah satu!</div>'+
 					'</div>'+

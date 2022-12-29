@@ -94,7 +94,7 @@
 						<td class="text-center"><?php echo $value->tare; ?></td>
 						<td class="text-center"><?php echo $value->payload; ?></td>
 						<td class="text-center"><?php echo date('d-m-Y', strtotime($value->date_in)); ?></td>
-						<td class="text-center"><?php echo date('d-m-Y', strtotime($value->date_out)); ?></td>
+						<td class="text-center"><?php echo date('d-m-Y', strtotime($value->time_out)); ?></td>
 						<td class="text-center"><?php echo date('H:i', strtotime($value->time_out)); ?></td>
 						<td class="text-center">
 							<?php

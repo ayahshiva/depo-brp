@@ -10,9 +10,9 @@ class M_container extends CI_Model
     var $table3 = 'cari_in';
     var $table4 = 'cari_out';
 
-    var $column_order = array(null, 'id_mlo','no_cont','size','tipe', null);
-    var $column_search = array('id_mlo','no_cont','size','tipe');
-    var $oder = array('id'=>'asc'); 
+    var $column_order = array(null, 'nama_mlo','no_container','size','tipe', null, null);
+    var $column_search = array('nama_mlo','no_container','size','tipe');
+    var $oder = array('id_container'=>'asc'); 
 
     function __construct()
     {
@@ -22,9 +22,7 @@ class M_container extends CI_Model
 
     function _get_datatables_query()
     {
-        $this->db->join('mlo', 'container.id_mlo = mlo.id', 'left');
-        $this->db->order_by('container.stok', 'ASC');
-        $this->db->from($this->table);
+        $this->db->from($this->table2);
 
         $i = 0;
         foreach($this->column_search as $item)
@@ -183,5 +181,10 @@ class M_container extends CI_Model
         $this->db->where('container.stok', '4');
         $this->db->where('detil_move_out.id_move_out', $id_move_out);
         return $this->db->get('container')->result();
+    }
+
+    function get_by_id($id)
+    {
+        return $this->db->get_where($this->table, ['id' => $id])->row();
     }
 }

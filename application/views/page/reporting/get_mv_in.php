@@ -77,7 +77,7 @@
 						<td class="text-center"><?php echo $value->tare; ?></td>
 						<td class="text-center"><?php echo $value->payload; ?></td>
 						<td class="text-center"><?php echo date('d-m-Y', strtotime($value->date_in)); ?></td>
-						<td class="text-center"><?php echo date('H:i', strtotime($value->date_in)); ?></td>
+						<td class="text-center"><?php echo date('H:i', strtotime($value->time_in)); ?></td>
 						<td class="text-center"><?php echo $value->truck_in; ?></td>
 						<td class="text-center"><?php echo $value->nama_emkl; ?></td>
 						<td class="text-center"><?php echo $value->nama_vessel; ?> / <?php echo $value->no_voyage; ?></td>

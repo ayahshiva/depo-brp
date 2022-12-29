@@ -10,6 +10,7 @@ class Container extends CI_Controller
 
 		//Load Model
 		$this->load->model('M_container');
+        $this->load->model('M_mlo');
 
 		$role = $this->session->userdata('role');
 		if($role !== 'mgmt' AND $role !== 'spv' AND $role !== 'admin' AND $role !== 'finance' AND $role !== 'mlo'){
@@ -41,11 +42,16 @@ class Container extends CI_Controller
             $row = array();
             
             $row[] = $no.".";
-            $row[] = $item->nama;
-            $row[] = $item->no_cont;
+            $row[] = $item->nama_mlo;
+            $row[] = $item->no_container;
             $row[] = $item->size;
             $row[] = $item->tipe;
             $row[] = $html;
+            $row[] = "
+                        <a href='container/edit_container/$item->id_container' class='btn btn-sm btn-success' title='Edit'>
+                            <i class='bi bi-pencil'></i>
+                        </a>
+                     ";
 
             $data[] = $row;
         }
@@ -66,6 +72,35 @@ class Container extends CI_Controller
 		$this->load->view('include/sidebar');
 		$this->load->view('page/masterdata/container');
 		$this->load->view('include/footer');
+    }
+
+    public function edit_container()
+    {
+        $id = $this->uri->segment(3);
+        $data['get_by_id'] = $this->M_container->get_by_id($id);
+        $data['mlo'] = $this->M_mlo->get();
+
+        $this->load->view('include/header');
+        $this->load->view('include/navbar');
+        $this->load->view('include/sidebar');
+        $this->load->view('page/masterdata/edit_container', $data);
+        $this->load->view('include/footer');
+    }
+
+    function update_container()
+    {
+        $input = $this->input->post(NULL, TRUE);
+        $id = $input['id'];
+        $data = array(
+            'id_mlo' => $input['id_mlo'],
+            'no_cont' => $input['no_cont'],
+            'size' => $input['size'],
+            'tipe' => $input['tipe']
+        );
+
+        $this->M_container->update($id, $data);
+        $this->session->set_flashdata('edit', 'Data telah diubah');
+        redirect('container', 'refresh');
     }
 
 }
